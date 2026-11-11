@@ -1,0 +1,15 @@
+"""Folder locations used by every pipeline step.
+
+All paths are built from the repository root, so the pipeline works no
+matter which folder it is started from, and on any operating system.
+"""
+
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+CONFIG_FILE = REPO_ROOT / "config.yaml"
+RAW_DIR = REPO_ROOT / "data" / "raw"              # source snapshots
+PROCESSED_DIR = REPO_ROOT / "data" / "processed"  # analysis-ready CSV files
+FIGURES_DIR = REPO_ROOT / "outputs" / "figures"   # charts
+SCORING_DIR = REPO_ROOT / "tools" / "opportunity-scoring"

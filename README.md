@@ -19,12 +19,29 @@ This repository collects applied material on how organisations find, evaluate an
 | [`tools/`](tools/) | Reusable templates: scoring matrices, portfolio trackers, KPI sets |
 | [`trend-scans/`](trend-scans/) | Dated scans of industries and emerging technologies |
 | [`notes/`](notes/) | Learning log and reading notes, written in my own words |
+| [`pipelines/`](pipelines/) | Python data pipeline: ingest, transform, figures |
+| [`data/`](data/) | Source snapshots (`raw/`) and analysis-ready files (`processed/`) |
+| [`outputs/`](outputs/) | Charts produced by the pipeline |
+| [`docs/project/`](docs/project/) | Project charter, requirements and plan |
 
 ## Approach
 
 - **Applied over theoretical:** every framework comes with an example of using it.
 - **Evidence-based:** claims cite public sources; assumptions are stated.
 - **Reusable:** templates are meant to be copied and adapted.
+
+## Running the pipeline
+
+Requires Python 3.12.
+
+```
+python -m venv .venv            # then activate it
+python -m pip install -r requirements.txt
+python -m pytest
+python -m pipelines run all
+```
+
+Step-by-step instructions for Windows are in [`docs/setup-windows.md`](docs/setup-windows.md). The pipeline reads a stored snapshot of the source data, so a normal run needs no network access. Parameters are in [`config.yaml`](config.yaml).
 
 ## Licence
 

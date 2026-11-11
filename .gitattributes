@@ -1,0 +1,5 @@
+# Store text files with LF line endings on every operating system,
+# so pipeline outputs are byte-identical on Windows, macOS and Linux.
+* text=auto eol=lf
+*.png binary
+*.pbix binary

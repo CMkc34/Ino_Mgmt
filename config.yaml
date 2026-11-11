@@ -1,0 +1,59 @@
+# Pipeline configuration.
+# Change parameters here, not in the code (requirement R-1.4).
+
+trends:
+  source: OpenAlex
+  first_year: 2015        # complete calendar years only (decision OD-3)
+  last_year: 2025
+  volume_window_years: 3  # "volume" = works in the last 3 complete years
+  growth_window_years: 5  # "momentum" = compound annual growth over 5 years
+
+  # The query that defines the whole field. It is the baseline for
+  # "relative momentum" (requirement R-2.4).
+  field_query: ""         # TODO (owner)
+
+  # Sub-topics from decision OD-2. Each needs a documented search query
+  # (requirement R-2.2). The first one is filled in as an example of the
+  # format; check and refine it during the data availability check.
+  subtopics:
+    - id: predictive_maintenance
+      label: Predictive maintenance
+      query: '"predictive maintenance" AND (manufacturing OR industrial)'
+    - id: visual_quality_inspection
+      label: Visual quality inspection
+      query: ""           # TODO (owner)
+    - id: digital_twins
+      label: Digital twins
+      query: ""           # TODO (owner)
+    - id: generative_design
+      label: Generative design
+      query: ""           # TODO (owner)
+    - id: robotics_cobots
+      label: Robotics and cobots
+      query: ""           # TODO (owner)
+    - id: process_optimisation
+      label: Process optimisation and control
+      query: ""           # TODO (owner)
+    - id: production_planning
+      label: Production planning and scheduling
+      query: ""           # TODO (owner)
+    - id: energy_optimisation
+      label: Energy optimisation
+      query: ""           # TODO (owner)
+    - id: additive_manufacturing
+      label: Additive manufacturing
+      query: ""           # TODO (owner)
+    - id: industrial_copilots
+      label: Industrial copilots (large language models on the shop floor)
+      query: ""           # TODO (owner)
+
+scoring:
+  # Starting weights from decision OD-5. They must sum to 1.
+  weights:
+    market_attractiveness: 0.25
+    technical_feasibility: 0.25
+    strategic_fit: 0.20
+    time_to_value: 0.15
+    risk: 0.15
+  sensitivity_runs: 1000
+  random_seed: 42

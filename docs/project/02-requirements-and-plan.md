@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 0.1 |
-| **Status** | Draft, awaiting approval |
+| **Version** | 1.0 |
+| **Status** | Approved |
 | **Date** | 2026-11-11 |
 | **Based on** | [Project charter v1.0](01-project-charter.md) |
 
@@ -13,6 +13,7 @@
 | Version | Date | Changes |
 |---|---|---|
 | 0.1 | 2026-11-11 | First draft |
+| 1.0 | 2026-11-11 | Approved by the project owner. All proposals for the open decisions accepted (section 9). Plan updated for OD-7: pipeline scaffolding supplied by the assistant, skeleton moved to sprint 0 |
 
 ---
 
@@ -20,7 +21,7 @@
 
 - A **requirement** (`R`) says what a deliverable must contain or do.
 - An **acceptance criterion** (`AC`) is a check with a yes/no answer. A deliverable is accepted when every one of its criteria is met.
-- An **open decision** (`OD`) is a choice the project owner has to make. Each one comes with a proposal. Section 9 lists them all.
+- A **decision** (`OD`) is a choice made by the project owner. Section 9 records them all.
 - IDs are stable, so issues, commits and status notes can refer to them (e.g. `AC-2.4`).
 
 This document specifies the **Must** deliverables (D0–D4) in full and the **Should** deliverables (D5, D6) in outline. **Could** deliverables (D7, D8) are specified only if they are started.
@@ -105,8 +106,8 @@ A deliverable is done when:
 | ID | Requirement |
 |---|---|
 | R-2.1 | Published as `trend-scans/2026-11_ai-in-industrial-manufacturing.md`. |
-| R-2.2 | Covers 8–12 sub-topics (application areas), each defined by a documented search query. See OD-2. |
-| R-2.3 | Primary data: yearly publication counts per sub-topic from an open bibliographic source (proposed: OpenAlex), for complete years only. See OD-3. |
+| R-2.2 | Covers 8–12 sub-topics (application areas), each defined by a documented search query. Decided in OD-2. |
+| R-2.3 | Primary data: yearly publication counts per sub-topic from an open bibliographic source (OpenAlex), for complete years only. Decided in OD-3. |
 | R-2.4 | Metrics per sub-topic: **volume** (works in the last 3 complete years), **momentum** (compound annual growth over the last 5 complete years) and **relative momentum** (growth compared with the growth of the whole field, so general AI hype is not mistaken for a specific trend). |
 | R-2.5 | Charts, all produced by the pipeline: (a) time series per sub-topic; (b) trend radar placing sub-topics by volume and relative momentum. |
 | R-2.6 | A query-quality check: for each sub-topic, a sample of 20 results is read and the share of relevant ones is reported. |
@@ -134,11 +135,11 @@ A deliverable is done when:
 | ID | Requirement |
 |---|---|
 | R-3.1 | Lives in `tools/opportunity-scoring/` with a guide (`README.md`) and a worked example (the D2 shortlist). |
-| R-3.2 | The ranking is made from the viewpoint of a **reference organisation**: a short, illustrative company profile (size, sector, capabilities, strategy), labelled as fictional. See OD-4. |
-| R-3.3 | 4–6 criteria, each scored 1–5. Proposed: market attractiveness, technical feasibility, strategic fit, time to value, risk (inverted). See OD-5. |
+| R-3.2 | The ranking is made from the viewpoint of a **reference organisation**: a short, illustrative company profile (size, sector, capabilities, strategy), labelled as fictional. Decided in OD-4. |
+| R-3.3 | 4–6 criteria, each scored 1–5. Market attractiveness, technical feasibility, strategic fit, time to value, risk (inverted), as decided in OD-5. |
 | R-3.4 | A **rubric** defines in words what a 1, 3 and 5 mean for each criterion. |
 | R-3.5 | Every score has a one-line justification and a pointer to evidence (a D2 metric or a cited source). |
-| R-3.6 | Weights sum to 1 and are stated with a reason. See OD-5. |
+| R-3.6 | Weights sum to 1 and are stated with a reason. Starting weights are in OD-5. |
 | R-3.7 | Sensitivity check: (a) the ranking is recomputed for at least 1,000 random weight sets; (b) each opportunity's share of runs in the top 3 is reported; (c) the weight change that would swap ranks 1 and 2 is stated. |
 | R-3.8 | Outputs produced by the pipeline: ranked table, rank-stability chart, and a score-versus-time-horizon chart. |
 | R-3.9 | A recommendation that sorts each opportunity into pursue, explore or park, with reasons. |
@@ -216,12 +217,13 @@ Hours are the owner's working time. Review by the assistant is not counted.
 | | Collect and code role descriptions; gap check | D0 | 3 |
 | | Data availability check: source access terms, test queries for 3 sub-topics | D2 | 1 |
 | | Local setup: Python, Git identity, clone, first own commit | D1 | 1 |
-| | *Sprint total* | | *6.5* |
-| **1** (17–23 Nov) | Pipeline skeleton, configuration, snapshot logic | D1 | 2.5 |
+| | Read and annotate the pipeline scaffolding supplied by the assistant | D1 | 1 |
+| | *Sprint total* | | *7.5* |
+| **1** (17–23 Nov) | Configuration and snapshot logic on top of the scaffolding | D1 | 1 |
 | | Ingest and transform for publication counts; tests | D1 | 2.5 |
 | | Queries, quality check, metrics, charts | D2 | 3 |
 | | Write-up of the trend scan | D2 | 2 |
-| | *Sprint total* | | *10* |
+| | *Sprint total* | | *8.5* |
 | **2** (24–30 Nov) | Reference organisation, rubric, scores with evidence | D3 | 3 |
 | | Scoring and sensitivity code; tests; charts | D3 | 3 |
 | | Guide and recommendation | D3 | 1.5 |
@@ -234,11 +236,11 @@ Hours are the owner's working time. Review by the assistant is not counted.
 | | *Sprint total* | | *5 (10 with D6)* |
 | **Close** (8 Dec) | Acceptance check and lessons learned | | 1 |
 
-**Total for the Musts: about 30 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
+**Total for the Musts: about 29.5 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
 
 ### Planning findings
 
-1. **Sprint 1 is overloaded** (10 hours against 6). Options: (a) the owner plans about 10 hours that week; (b) the assistant supplies the pipeline scaffolding (folder layout, entry point, workflow file) for the owner to read and extend, which saves about 2 hours; (c) the pipeline skeleton moves into sprint 0. Proposal: (b) and (c) together. See OD-7.
+1. **Sprint 1 was overloaded** in the first draft (10 hours against 6). Decided in OD-7: the assistant supplies the pipeline scaffolding (folder layout, entry point, workflow file) in sprint 0, and the owner reads and annotates it before extending it. Sprint 1 is now 8.5 hours, still above the 6-hour minimum, so the owner should plan extra time that week.
 2. **Sprint 3 is the buffer.** If sprint 1 or 2 overruns, D6 is dropped first, then D5.
 3. **D6 is unlikely** within the minimum hours. It stays a Should, with no commitment.
 
@@ -281,22 +283,24 @@ Filled in for D2 and D3 before their sprint review, and stored with the status n
 
 ## 8. Out of scope reminders
 
-Carried over from the charter so they are not reopened by accident: no scheduler or database, no paid data, no hosted dashboard, no sectors beyond the lead theme, no patents unless OD-3 decides otherwise.
+Carried over from the charter so they are not reopened by accident: no scheduler or database, no paid data, no hosted dashboard, no sectors beyond the lead theme, no patents (OD-3).
 
 ---
 
-## 9. Open decisions for the project owner
+## 9. Decisions by the project owner
 
-| ID | Decision | Proposal |
+All decided on 2026-11-11 by accepting the proposals.
+
+| ID | Question | Decision |
 |---|---|---|
 | OD-1 | Where do the role descriptions for D0 come from, and where is the private material kept? | 2–3 job portals plus career pages of 3–4 target employers; kept in a private folder outside the repository. |
-| OD-2 | Which sub-topics does D2 cover? | Predictive maintenance; visual quality inspection; digital twins; generative design; robotics and cobots; process optimisation and control; production planning and scheduling; energy optimisation; additive manufacturing; industrial copilots (large language models on the shop floor). The owner adds or removes based on coursework and interest. |
+| OD-2 | Which sub-topics does D2 cover? | Predictive maintenance; visual quality inspection; digital twins; generative design; robotics and cobots; process optimisation and control; production planning and scheduling; energy optimisation; additive manufacturing; industrial copilots (large language models on the shop floor). The owner may add or remove sub-topics through change control. |
 | OD-3 | Data source and time window for D2? Publications only, or patents as well? | OpenAlex; complete years 2015–2025; publications only. Patents go to Phase 2. |
-| OD-4 | Which reference organisation does D3 score for? | A fictional mid-sized European machinery manufacturer (about 2,000 staff, strong mechanical engineering, limited in-house data science). Alternative: a profile closer to the owner's own engineering background. |
-| OD-5 | Which criteria and weights does D3 use? | The five criteria in R-3.3. Starting weights: market 0.25, feasibility 0.25, strategic fit 0.20, time to value 0.15, risk 0.15. The owner sets the final weights and gives the reason. |
+| OD-4 | Which reference organisation does D3 score for? | A fictional mid-sized European machinery manufacturer (about 2,000 staff, strong mechanical engineering, limited in-house data science).  |
+| OD-5 | Which criteria and weights does D3 use? | The five criteria in R-3.3. Starting weights: market 0.25, feasibility 0.25, strategic fit 0.20, time to value 0.15, risk 0.15. The owner may adjust the weights during D3 and records the reason. |
 | OD-6 | Scripts or notebooks? | Scripts for the pipeline; write-ups in Markdown with embedded charts. No notebooks in this phase, which keeps outputs reproducible and reviews simple. |
 | OD-7 | How is the sprint 1 overload handled? | The assistant provides scaffolding and the skeleton moves to sprint 0 (see planning finding 1). |
-| OD-8 | Which operating system and Python setup does the owner work on? | Needed for the setup instructions. Proposal: Python 3.12 in a virtual environment. |
+| OD-8 | Which operating system and Python setup does the owner work on? | Python 3.12 in a virtual environment. The operating system is confirmed during the local setup work package, and the setup instructions are written for it. |
 
 ---
 
@@ -304,4 +308,4 @@ Carried over from the charter so they are not reopened by accident: no scheduler
 
 | Role | Decision | Date |
 |---|---|---|
-| Project owner | ☐ Approved ☐ Approved with changes ☐ Rejected | |
+| Project owner | ☑ Approved | 2026-11-11 |
