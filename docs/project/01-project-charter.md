@@ -3,8 +3,8 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 0.2 |
-| **Status** | Draft, awaiting approval |
+| **Version** | 1.0 |
+| **Status** | Approved |
 | **Date** | 2026-11-11 |
 | **Project owner / sponsor** | Repository owner |
 
@@ -14,6 +14,7 @@
 |---|---|---|
 | 0.1 | 2026-11-10 | First draft |
 | 0.2 | 2026-11-11 | Added role split and authorship rule; added requirements research (D0); prioritised deliverables (Must / Should / Could); reordered work into one storyline with a lead theme; lightened the process; made success criteria testable; added external reviewers |
+| 1.0 | 2026-11-11 | Approved by the project owner with one change: external review is deferred (no reviewers planned for this phase) and replaced by a structured self-review; licence decided (MIT for code, CC BY 4.0 for text); assumptions confirmed |
 
 ---
 
@@ -46,7 +47,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 | D1 | Must | Thin data pipeline | Shared Python pipeline (ingest → clean → processed data), run by one command. Only as much as D2 and D3 need |
 | D2 | Must | Trend scan | Lead theme measured with open publication or patent data; trend radar; shortlist of opportunities |
 | D3 | Must | Opportunity scoring model | Weighted multi-criteria ranking of the D2 shortlist, each score backed by a stated rubric and evidence; sensitivity check; recommendation |
-| D4 | Must | Repository presentation | README highlights, run instructions, licence, consistent documentation |
+| D4 | Must | Repository presentation | README highlights, run instructions, licence (MIT for code, CC BY 4.0 for text), consistent documentation |
 | D5 | Should | Framework write-up: Three Horizons | Applied to the D3 results |
 | D6 | Should | Case study | One public company, two frameworks, at least one chart from public data |
 | D7 | Could | Portfolio dashboard | Power BI on a synthetic portfolio from the pipeline. Fallback: a Python dashboard if Power BI Desktop is not available |
@@ -65,7 +66,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 |---|---|---|
 | Project owner and author | Repository owner | Sets priorities; makes the analytical judgement calls; writes conclusions and recommendations; commits the work; approves documents and deliverables |
 | Reviewer and pair programmer | AI assistant (Claude Code) | Explains methods, proposes structure, reviews drafts and code, helps debug, drafts project documents for approval |
-| External reviewers | At least two people (e.g. a lecturer, a practitioner, a peer), to be named by the owner | Give feedback on the Must deliverables before final acceptance |
+| External reviewers | None planned for this phase | Optional. If a reviewer becomes available, their feedback is handled through change control |
 | Target readers | Innovation, strategy and consulting professionals | Their needs, evidenced by D0, shape the requirements |
 
 **Authorship rule:** the owner must be able to explain every line of code and every claim in a published deliverable. Analysis content is committed by the owner. AI assistance is used and stated openly in the README.
@@ -78,7 +79,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 - **Publication:** public repository, so no confidential, copyrighted or personal content
 - **Language:** English
 
-## 7. Assumptions (to be confirmed by the owner)
+## 7. Assumptions (confirmed by the owner on 2026-11-11)
 
 - "Pipeline" means a **data pipeline** (D1), not an idea funnel or stage-gate design.
 - The lead theme is AI in industrial manufacturing.
@@ -94,16 +95,16 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 | Open data too sparse or noisy for the trend scan | D2 weaker, D3 has no input | Check data availability in sprint 0; name a fallback source |
 | Owner cannot explain parts of the work | Credibility | Authorship rule; owner writes and commits analysis content |
 | Scope creep | Delay | Change control: new ideas go to Phase 2 unless approved |
-| No external reviewers found in time | Success criterion 5 missed | Ask in sprint 0; one reviewer is the minimum |
+| No external review in this phase | Blind spots stay unnoticed | Structured self-review against the acceptance criteria, plus an AI review, before each sprint review; external review remains an option for Phase 2 |
 
 ## 9. Schedule
 
 | Sprint | Dates | Goal | Milestone |
 |---|---|---|---|
-| 0 | 11–16 Nov | Charter approved; D0; requirements and plan approved; data availability check; reviewers asked | M0: ready to build (16 Nov) |
+| 0 | 11–16 Nov | Charter approved; D0; requirements and plan approved; data availability check | M0: ready to build (16 Nov) |
 | 1 | 17–23 Nov | D1 thin pipeline and D2 trend scan | M1: sprint review (23 Nov) |
 | 2 | 24–30 Nov | D3 scoring model; D5 if on track | M2: sprint review (30 Nov) |
-| 3 | 1–7 Dec | Buffer for Musts; D4; external review and fixes; D6 if on track | M3: sprint review (7 Dec) |
+| 3 | 1–7 Dec | Buffer for Musts; D4; self-review and fixes; D6 if on track | M3: sprint review (7 Dec) |
 | | 8 Dec | Final acceptance and lessons learned | M4: project closed |
 
 ## 10. Success criteria
@@ -114,7 +115,7 @@ The project succeeds when all of the following are true:
 2. From a fresh clone, following the README, one command reproduces every processed dataset and chart with no manual steps.
 3. D2 and D3 each open with a summary of 150 words or fewer and end with an explicit recommendation.
 4. Every factual claim in D2 and D3 has a cited source; every score in D3 traces to a stated rubric.
-5. At least two external reviewers have given feedback on D2 and D3, and each point is either addressed or answered in writing.
+5. D2 and D3 have each passed a documented self-review against their acceptance criteria, with every finding either fixed or answered in writing.
 6. The owner can present D2 and D3 without notes in 10 minutes, including how the code works (checked in a dry run at M3).
 7. The owner signs off final acceptance by 8 December 2026.
 
@@ -122,4 +123,4 @@ The project succeeds when all of the following are true:
 
 | Role | Decision | Date |
 |---|---|---|
-| Project owner | ☐ Approved ☐ Approved with changes ☐ Rejected | |
+| Project owner | ☑ Approved with changes (see change history, v1.0) | 2026-11-11 |

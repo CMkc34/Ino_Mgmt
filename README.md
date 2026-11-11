@@ -26,6 +26,11 @@ This repository collects applied material on how organisations find, evaluate an
 - **Evidence-based:** claims cite public sources; assumptions are stated.
 - **Reusable:** templates are meant to be copied and adapted.
 
+## Licence
+
+- **Code** (scripts, notebooks, pipeline): [MIT](LICENSE)
+- **Text and figures** (write-ups, case studies, trend scans, documentation): [CC BY 4.0](LICENSE-CONTENT.md)
+
 ## Status
 
-Work in progress. See [`ROADMAP.md`](ROADMAP.md) for what is planned and in progress.
+Work in progress. See the [project charter](docs/project/01-project-charter.md) for scope and schedule, and [`ROADMAP.md`](ROADMAP.md) for the backlog.
