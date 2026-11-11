@@ -4,3 +4,13 @@ Thumbs.db
 *.tmp
 .vscode/
 .idea/
+
+# Private working material (never commit)
+private/
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
