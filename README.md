@@ -4,6 +4,12 @@ Notes, tools and case work on innovation management.
 
 This repository collects applied material on how organisations find, evaluate and scale new ideas: concise framework write-ups, case analyses of public companies, reusable templates, and periodic trend scans.
 
+## Focus
+
+- **Sectors:** tech / digital / AI, industry & energy, health & life sciences
+- **Methods:** data-driven opportunity assessment, technology foresight and trend analysis, innovation portfolio management
+- **Tools:** Python, Power BI
+
 ## Structure
 
 | Folder | Contents |
@@ -20,6 +26,11 @@ This repository collects applied material on how organisations find, evaluate an
 - **Evidence-based:** claims cite public sources; assumptions are stated.
 - **Reusable:** templates are meant to be copied and adapted.
 
+## Licence
+
+- **Code** (scripts, notebooks, pipeline): [MIT](LICENSE)
+- **Text and figures** (write-ups, case studies, trend scans, documentation): [CC BY 4.0](LICENSE-CONTENT.md)
+
 ## Status
 
-Work in progress. Content is added over time.
+Work in progress. See the [project charter](docs/project/01-project-charter.md) for scope and schedule, and [`ROADMAP.md`](ROADMAP.md) for the backlog.
