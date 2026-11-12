@@ -1,0 +1,23 @@
+subtopic_id,round,query_version,sample_size,relevant,check_date,rater,comment
+predictive_maintenance,0,loose: all terms in title or abstract; all work types,20,10,2026-11-12,assistant,overview works and passing mentions dominate the misses
+visual_quality_inspection,0,loose: all terms in title or abstract; all work types,20,11,2026-11-12,assistant,overview works and passing mentions dominate the misses
+digital_twins,0,loose: all terms in title or abstract; all work types,20,11,2026-11-12,assistant,overview works and passing mentions dominate the misses
+generative_design,0,loose: all terms in title or abstract; all work types,20,9,2026-11-12,assistant,overview works and passing mentions dominate the misses
+robotics_cobots,0,loose: all terms in title or abstract; all work types,20,7,2026-11-12,assistant,overview works and passing mentions dominate the misses
+process_optimisation,0,loose: all terms in title or abstract; all work types,20,9,2026-11-12,assistant,overview works and passing mentions dominate the misses
+production_planning,0,loose: all terms in title or abstract; all work types,20,15,2026-11-12,assistant,overview works and passing mentions dominate the misses
+energy_optimisation,0,loose: all terms in title or abstract; all work types,20,4,2026-11-12,assistant,overview works and passing mentions dominate the misses
+additive_manufacturing,0,loose: all terms in title or abstract; all work types,20,9,2026-11-12,assistant,overview works and passing mentions dominate the misses
+industrial_copilots,0,loose: all terms in title or abstract; all work types,20,13,2026-11-12,assistant,overview works and passing mentions dominate the misses
+predictive_maintenance,1,sub-topic terms in the title; six work types,20,19,2026-11-12,assistant,
+visual_quality_inspection,1,sub-topic terms in the title; six work types,20,19,2026-11-12,assistant,
+digital_twins,1,sub-topic terms in the title; six work types,20,15,2026-11-12,assistant,
+generative_design,1,sub-topic terms in the title; six work types,20,18,2026-11-12,assistant,
+robotics_cobots,1,sub-topic terms in the title; six work types,20,18,2026-11-12,assistant,
+process_optimisation,1,sub-topic terms in the title; six work types,20,18,2026-11-12,assistant,
+production_planning,1,sub-topic terms in the title; six work types,20,19,2026-11-12,assistant,
+energy_optimisation,1,sub-topic terms in the title; six work types,20,11,2026-11-12,assistant,"still matches buildings, farms and power grids"
+additive_manufacturing,1,sub-topic terms in the title; six work types,20,12,2026-11-12,assistant,still matches general reviews that mention AI in passing
+industrial_copilots,1,sub-topic terms in the title; six work types,20,14,2026-11-12,assistant,
+energy_optimisation,2,round 1 plus a manufacturing word in the title (title_also),20,16,2026-11-12,assistant,
+additive_manufacturing,2,round 1 plus an AI word in the title (title_also),20,19,2026-11-12,assistant,two entries are a dissertation and an article of the same study

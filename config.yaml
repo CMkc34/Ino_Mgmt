@@ -8,19 +8,24 @@ trends:
   volume_window_years: 3  # "volume" = works in the last 3 complete years
   growth_window_years: 5  # "momentum" = compound annual growth over 5 years
 
-  # Every query is built from three blocks joined with AND:
+  # Only these types of work are counted. Editorials, peer-review records,
+  # whole books, datasets and similar are left out.
+  work_types: [article, conference-paper, review, preprint, book-chapter, dissertation]
+
+  # How a sub-topic is counted (see docs/design/trend-scan-method.md):
   #
-  #     (sub-topic terms) AND (context_terms) AND (ai_terms)
+  #   title_terms     must be found in the TITLE, so the work is about the topic
+  #   title_also      optional second block that must also be in the title
+  #   context_terms   must be found in the title or abstract   } these two define
+  #   ai_terms        must be found in the title or abstract   } the field baseline
   #
-  # The field baseline is (context_terms) AND (ai_terms), so every sub-topic
-  # is a subset of the field. Only titles and abstracts are searched.
+  # Rules for terms: phrases in double quotes, OR in capitals, and no commas
+  # or pipe characters. The source matches word stems, so "robot" also finds
+  # "robots".
   #
-  # Query rules: phrases in double quotes, OR / AND in capitals, and no
-  # commas or pipe characters.
-  #
-  # STATUS: all terms below are DRAFTS. They have not been run against the
-  # source yet. Validate each with the query-quality check (R-2.6):
-  #     python -m pipelines sample <sub-topic id>
+  # STATUS: validated by the query-quality check of 2026-11-12
+  # (data/manual/query_quality.csv). Change terms only as a result of a new
+  # check, and record the change there.
   context_terms: 'manufacturing OR "industrial production" OR "production line" OR "shop floor" OR factory OR "industry 4.0" OR "smart factory"'
   ai_terms: '"artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "reinforcement learning" OR "large language model" OR "generative AI" OR "computer vision" OR "random forest" OR "support vector machine" OR LSTM OR "data-driven"'
 
@@ -28,34 +33,38 @@ trends:
   subtopics:
     - id: predictive_maintenance
       label: Predictive maintenance
-      terms: '"predictive maintenance" OR "condition monitoring" OR "remaining useful life" OR prognostics'
+      title_terms: '"predictive maintenance" OR "condition monitoring" OR "remaining useful life" OR prognostics'
     - id: visual_quality_inspection
       label: Visual quality inspection
-      terms: '"quality inspection" OR "visual inspection" OR "defect detection" OR "surface defect"'
+      title_terms: '"quality inspection" OR "visual inspection" OR "defect detection" OR "surface defect"'
     - id: digital_twins
       label: Digital twins
-      terms: '"digital twin"'
+      title_terms: '"digital twin"'
     - id: generative_design
       label: Generative design
-      terms: '"generative design" OR "topology optimization" OR "topology optimisation"'
+      title_terms: '"generative design" OR "topology optimization" OR "topology optimisation"'
     - id: robotics_cobots
       label: Robotics and cobots
-      terms: '"industrial robot" OR "collaborative robot" OR cobot OR "robotic assembly" OR "human-robot collaboration"'
+      title_terms: '"industrial robot" OR "collaborative robot" OR cobot OR "robotic assembly" OR "human-robot collaboration"'
     - id: process_optimisation
       label: Process optimisation and control
-      terms: '"process optimization" OR "process optimisation" OR "process control" OR "process monitoring" OR "process parameters"'
+      title_terms: '"process optimization" OR "process optimisation" OR "process control" OR "process monitoring" OR "process parameters"'
     - id: production_planning
       label: Production planning and scheduling
-      terms: '"production scheduling" OR "production planning" OR "job shop" OR "flow shop"'
+      title_terms: '"production scheduling" OR "production planning" OR "job shop" OR "flow shop"'
     - id: energy_optimisation
       label: Energy optimisation
-      terms: '"energy efficiency" OR "energy consumption" OR "energy management"'
+      title_terms: '"energy efficiency" OR "energy consumption" OR "energy management" OR "energy-efficient" OR "energy saving"'
+      # Without this, many works about buildings, farms and power grids match.
+      title_also: 'manufacturing OR machining OR industrial OR "production line" OR "production system" OR "machine tool" OR workshop OR steelmaking OR "job shop" OR "flow shop"'
     - id: additive_manufacturing
       label: Additive manufacturing
-      terms: '"additive manufacturing" OR "3D printing" OR "powder bed fusion"'
+      title_terms: '"additive manufacturing" OR "3D printing" OR "powder bed fusion" OR "directed energy deposition" OR "fused deposition modeling"'
+      # Without this, many general reviews that mention AI in passing match.
+      title_also: 'learning OR neural OR "artificial intelligence" OR AI OR "data-driven" OR "computer vision" OR "machine vision"'
     - id: industrial_copilots
       label: Industrial copilots (large language models on the shop floor)
-      terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
+      title_terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
 
 scoring:
   # Starting weights from decision OD-5. They must sum to 1.
