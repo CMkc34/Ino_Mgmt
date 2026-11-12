@@ -17,9 +17,14 @@ def run_trends(config: dict, refresh: bool = False) -> str:
 
     if refresh:
         today = dt.date.today()
-        counts = ingest.fetch_publication_counts(trends_config)
-        snapshot = ingest.save_snapshot(counts, fetch_date=today)
-        ingest.save_snapshot_note(snapshot, trends_config, fetch_date=today)
+        # The main counts and the robustness variants, each in its own file.
+        for variant, prefix in ingest.VARIANTS.items():
+            counts = ingest.fetch_publication_counts(trends_config, variant=variant)
+            snapshot = ingest.save_snapshot(counts, fetch_date=today, prefix=prefix)
+            ingest.save_snapshot_note(snapshot, trends_config, fetch_date=today, variant=variant)
+            print(f"  new snapshot written: {snapshot.name}")
+        topics = ingest.fetch_discovery_topics(trends_config)
+        snapshot = ingest.save_discovery_topics(topics, fetch_date=today)
         print(f"  new snapshot written: {snapshot.name}")
 
     snapshot = ingest.find_latest_snapshot()

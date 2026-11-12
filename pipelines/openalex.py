@@ -167,6 +167,20 @@ def fetch_year_counts(filter_text: str, first_year: int, last_year: int, session
     return parse_year_counts(request_json(parameters, session), first_year, last_year)
 
 
+def fetch_group_counts(filter_text: str, group_by: str, session=None) -> list[dict]:
+    """Count works that meet a filter, grouped by a property (e.g. their topic).
+
+    Returns up to 200 groups, largest first, each with key, name and count.
+    """
+    answer = request_json({"filter": filter_text, "group_by": group_by, "per-page": 200}, session)
+    if "group_by" not in answer:
+        raise OpenAlexError("unexpected answer from OpenAlex: it has no 'group_by' part")
+    return [
+        {"key": group["key"], "name": group.get("key_display_name"), "count": int(group["count"])}
+        for group in answer["group_by"]
+    ]
+
+
 def fetch_sample(filter_text: str, size: int = 20, seed: int = 42, session=None) -> list[dict]:
     """A random sample of works that meet a filter, for the query-quality check (R-2.6).
 

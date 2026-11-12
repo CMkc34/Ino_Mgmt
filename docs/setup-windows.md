@@ -79,7 +79,7 @@ A normal pipeline run reads the stored snapshot and needs no network. Fetching a
 python -m pipelines run trends --refresh
 ```
 
-This writes two files into `data\raw\`: the counts (`publication_counts_<date>.csv`) and a note with the source, date and queries (`.meta.json`). Commit both.
+This writes the main counts, the two robustness variants and the discovery table into `data\raw\`, each with the fetch date in its name, plus a note per snapshot with the source, date and filters (`.meta.json`). Commit all of them.
 
 To judge a search query by hand, list 20 random works it finds:
 
