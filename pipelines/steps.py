@@ -16,13 +16,15 @@ def run_trends(config: dict, refresh: bool = False) -> str:
     trends_config = config["trends"]
 
     if refresh:
+        today = dt.date.today()
         counts = ingest.fetch_publication_counts(trends_config)
-        snapshot = ingest.save_snapshot(counts, fetch_date=dt.date.today())
+        snapshot = ingest.save_snapshot(counts, fetch_date=today)
+        ingest.save_snapshot_note(snapshot, trends_config, fetch_date=today)
         print(f"  new snapshot written: {snapshot.name}")
 
     snapshot = ingest.find_latest_snapshot()
     if snapshot is None:
-        return "skipped (no snapshot in data/raw/ yet; run with --refresh once ingest is written)"
+        return "skipped (no snapshot in data/raw/ yet; run with --refresh to fetch one)"
 
     counts = ingest.load_snapshot(snapshot)
 
