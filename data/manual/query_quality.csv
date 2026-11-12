@@ -21,3 +21,13 @@ additive_manufacturing,1,sub-topic terms in the title; six work types,20,12,2026
 industrial_copilots,1,sub-topic terms in the title; six work types,20,14,2026-11-12,assistant,
 energy_optimisation,2,round 1 plus a manufacturing word in the title (title_also),20,16,2026-11-12,assistant,
 additive_manufacturing,2,round 1 plus an AI word in the title (title_also),20,19,2026-11-12,assistant,two entries are a dissertation and an article of the same study
+predictive_maintenance,1,sub-topic terms in the title; six work types,20,19,2026-11-12,second assistant session (blind),disagrees with the first rating on 0 of 20; rated relevant by both: 19
+visual_quality_inspection,1,sub-topic terms in the title; six work types,20,20,2026-11-12,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 19
+digital_twins,1,sub-topic terms in the title; six work types,20,14,2026-11-12,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 14
+generative_design,1,sub-topic terms in the title; six work types,20,17,2026-11-12,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 17
+robotics_cobots,1,sub-topic terms in the title; six work types,20,18,2026-11-12,second assistant session (blind),disagrees with the first rating on 0 of 20; rated relevant by both: 18
+process_optimisation,1,sub-topic terms in the title; six work types,20,18,2026-11-12,second assistant session (blind),disagrees with the first rating on 0 of 20; rated relevant by both: 18
+production_planning,1,sub-topic terms in the title; six work types,20,20,2026-11-12,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 19
+energy_optimisation,2,round 1 plus a manufacturing word in the title (title_also),20,15,2026-11-12,second assistant session (blind),disagrees with the first rating on 3 of 20; rated relevant by both: 14
+additive_manufacturing,2,round 1 plus an AI word in the title (title_also),20,18,2026-11-12,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 18
+industrial_copilots,1,sub-topic terms in the title; six work types,20,14,2026-11-12,second assistant session (blind),disagrees with the first rating on 0 of 20; rated relevant by both: 14

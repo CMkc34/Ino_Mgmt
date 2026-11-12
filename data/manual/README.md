@@ -9,7 +9,26 @@ Files here are filled in by hand and read by the pipeline. Each file is describe
 | `source_growth_check_2026-11-12.csv` | A one-off check of how the whole source grew per year, to judge the jump in 2025. Each row has its filter, so it can be repeated. Findings below | Trend scan method, section 2 (latest year) |
 | `query_quality_ratings.csv` | The 200 works rated in the final round, with the reason for each "not relevant" | Same |
 
-The ratings so far are a first pass by the AI assistant (column `rater`). The owner's spot-check is added as further rows.
+The ratings so far come from two AI sessions (column `rater`). The owner's spot-check is added as further rows.
+
+## Second rating of the query-quality sample (2026-11-12)
+
+A separate AI session rated the same 200 works without seeing the first ratings, using the rule in the method note.
+
+| | |
+|---|---|
+| Same rating on | 192 of 200 works (96%) |
+| Agreement beyond chance (Cohen's kappa) | 0.82 |
+| Rated relevant by the first / second rater | 175 / 173 |
+| Disagreements | 8, all marked "unsure" by the second rater |
+
+Counting a work as relevant only when **both** raters say so, every sub-topic still reaches the 70% threshold. Three are exactly on it: digital twins, energy optimisation and industrial copilots (14 of 20 each).
+
+Limits:
+
+- Both raters are sessions of the same AI model, so they may share blind spots. This is weaker evidence than a second human rater.
+- The second rater marked 57 of the 200 ratings as close calls. The rule leaves room for judgement, mostly on whether an AI method is really used and where "manufacturing" ends.
+- The owner's spot-check is still open. The eight disagreements are the best place to start: filter the ratings file for rows where the two `relevant` columns differ.
 
 ## Findings of the source growth check (2026-11-12)
 
