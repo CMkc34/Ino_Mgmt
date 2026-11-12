@@ -8,7 +8,7 @@ This repository collects applied material on how organisations find, evaluate an
 
 - **Sectors:** tech / digital / AI, industry & energy, health & life sciences
 - **Methods:** data-driven opportunity assessment, technology foresight and trend analysis, innovation portfolio management
-- **Tools:** Python, Power BI
+- **Tools:** Python
 
 ## Structure
 

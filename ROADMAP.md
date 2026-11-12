@@ -8,7 +8,8 @@ Scope, priorities and schedule are defined in the [project charter](docs/project
 
 Not committed. Items are picked up after Phase 1 closes, or earlier through change control.
 
-- [ ] Any Should / Could items from Phase 1 that were not delivered (case study, portfolio dashboard, framework write-ups)
+- [ ] Any Should / Could items from Phase 1 that were not delivered (case study, framework write-ups)
+- [ ] Portfolio dashboard (moved here from Phase 1 by change request, 2026-11-12)
 - [ ] Trend scan: AI in diagnostics / medtech (reusing the pipeline)
 - [ ] Trend scan: energy transition technologies (e.g. grid storage, hydrogen)
 - [ ] Scheduled monthly refresh of trend data
