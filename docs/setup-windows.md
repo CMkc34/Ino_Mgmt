@@ -87,7 +87,7 @@ To judge a search query by hand, list 20 random works it finds:
 python -m pipelines sample digital_twins
 ```
 
-If the source asks for an API key, set it for the current PowerShell window only. It is then read from the environment and never stored in a file:
+The source needs a free API key for regular use: without one, requests share a small daily allowance with everyone on the same network address. Get a key at https://help.openalex.org/api/authentication/ and set it for the current PowerShell window only. It is then read from the environment and never stored in a file:
 
 ```powershell
 $env:OPENALEX_API_KEY = "paste-your-key-here"
@@ -104,5 +104,5 @@ Never write a key into `config.yaml`, the code or a commit.
 | `python` opens the Microsoft Store | Activate the virtual environment first (step 4). |
 | `git push` asks for a password | Sign in through the browser window that Git for Windows opens. |
 | `git status` shows changes after a pipeline run | Report it as a bug: outputs are meant to be identical on every run. |
-| `error: OpenAlex refused the request` | The source wants an API key. See step 7. |
+| `error: OpenAlex refused the request` or `free allowance ... is used up` | Set an API key. See step 7. |
 | `error: OpenAlex rejected the request (HTTP 400)` | A search query in `config.yaml` is malformed. The message shows the source's explanation. |

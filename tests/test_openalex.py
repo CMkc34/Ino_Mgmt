@@ -138,6 +138,13 @@ def test_refused_request_points_to_the_api_key_and_is_not_retried():
     assert len(session.calls) == 1
 
 
+def test_used_up_free_allowance_points_to_the_api_key_and_is_not_retried():
+    session = FakeSession([FakeResponse(429, text='{"error":"Rate limit exceeded","message":"Insufficient budget."}')])
+    with pytest.raises(openalex.OpenAlexError, match="OPENALEX_API_KEY"):
+        openalex.fetch_year_counts("(a)", 2024, 2024, session)
+    assert len(session.calls) == 1
+
+
 def test_bad_query_is_reported_and_not_retried():
     session = FakeSession([FakeResponse(400, text="Invalid query")])
     with pytest.raises(openalex.OpenAlexError, match="Invalid query"):

@@ -16,8 +16,14 @@ Credentials
 Optional, and read from environment variables only (acceptance criterion
 AC-1.8). Never put them in the code or in config.yaml.
 
-    OPENALEX_API_KEY   an API key, if OpenAlex requires one for your usage
+    OPENALEX_API_KEY   a free API key. Without one, requests share a small
+                       daily allowance with everyone on the same network
+                       address, which is often already used up.
     OPENALEX_MAILTO    a contact email; OpenAlex asks for one as a courtesy
+
+Verified against the live service on 2026-11-12: the request format, the
+handling of AND / OR / quoted phrases, and the sample. OpenAlex matches
+word stems, so "robot" also finds "robots".
 """
 
 import os
@@ -106,6 +112,14 @@ def request_json(parameters: dict, session=None, wait_seconds: float = 2.0) -> d
                 raise OpenAlexError(
                     f"OpenAlex refused the request (HTTP {status}). It may need an API key: "
                     "set the environment variable OPENALEX_API_KEY and try again."
+                )
+            if status == 429 and "budget" in response.text.lower():
+                # Not a "slow down" signal: the free allowance is used up,
+                # so waiting a few seconds and retrying cannot help.
+                raise OpenAlexError(
+                    "OpenAlex's free allowance for requests without a key is used up. Get a free API key "
+                    "(https://help.openalex.org/api/authentication/), set the environment variable "
+                    "OPENALEX_API_KEY and try again."
                 )
             if status == 429 or status >= 500:
                 last_problem = f"HTTP {status}"
