@@ -6,10 +6,10 @@ replacing this one file.
 
 How a request works
 -------------------
-We ask the "works" endpoint for all works that match a search in their
-title or abstract and were published in a range of years, and tell it to
-group the result by publication year. The answer contains one count per
-year, so one request per sub-topic is enough.
+We ask the "works" endpoint for all works that meet a set of conditions
+(words in the title, words in the title or abstract, publication years,
+work types) and tell it to group the result by publication year. The answer
+contains one count per year, so one request per sub-topic is enough.
 
 Credentials
 -----------
@@ -35,12 +35,15 @@ API_URL = "https://api.openalex.org/works"
 TIMEOUT_SECONDS = 30
 MAX_ATTEMPTS = 4
 
-# The field that is searched. Title and abstract only: the full-text search
-# also matches works that merely mention a term in passing.
-SEARCH_FIELD = "title_and_abstract.search"
+# The two places a search can look. Title only is strict: the work is
+# *about* the term. Title and abstract is loose: the term is mentioned.
+# (The full-text search is not used: it also matches passing mentions deep
+# inside a paper.)
+TITLE_FIELD = "title.search"
+TEXT_FIELD = "title_and_abstract.search"
 
 # In an OpenAlex filter, a comma separates conditions and a pipe means "or",
-# so neither may appear inside a search query.
+# so neither may appear inside a block of search terms.
 FORBIDDEN_CHARACTERS = [",", "|"]
 
 
@@ -48,31 +51,39 @@ class OpenAlexError(RuntimeError):
     """A request to OpenAlex failed in a way that retrying will not fix."""
 
 
-def compose_query(terms: str, context_terms: str, ai_terms: str) -> str:
-    """Combine the three building blocks of a query with AND.
-
-    Every sub-topic query has the same shape:
-
-        (sub-topic terms) AND (manufacturing context) AND (AI terms)
-
-    The field baseline is the same without the first block, so every
-    sub-topic is a subset of the field.
-    """
-    blocks = [terms, context_terms, ai_terms]
-    blocks = [block.strip() for block in blocks if block and block.strip()]
-    if not blocks:
-        raise ValueError("a query needs at least one block of search terms")
-    return " AND ".join(f"({block})" for block in blocks)
-
-
-def build_filter(query: str, first_year: int, last_year: int) -> str:
-    """Build the OpenAlex filter text for a query and a range of years."""
+def check_terms(terms: str) -> str:
+    """Return the terms unchanged, or stop if they would break the filter."""
     for character in FORBIDDEN_CHARACTERS:
-        if character in query:
+        if character in terms:
             raise ValueError(
-                f"search queries must not contain {character!r} (it has a special meaning in an OpenAlex filter): {query}"
+                f"search terms must not contain {character!r} (it has a special meaning in an OpenAlex filter): {terms}"
             )
-    return f"{SEARCH_FIELD}:{query},publication_year:{first_year}-{last_year}"
+    return terms.strip()
+
+
+def build_filter(
+    title_blocks: list[str],
+    text_blocks: list[str],
+    first_year: int,
+    last_year: int,
+    work_types: list[str] | None = None,
+) -> str:
+    """Build the OpenAlex filter text. All conditions must hold together.
+
+    title_blocks   each block of terms must be found in the title
+    text_blocks    each block must be found in the title or the abstract
+    work_types     if given, only these types of work are counted
+    Retracted works are always left out.
+    """
+    conditions = [f"{TITLE_FIELD}:({check_terms(block)})" for block in title_blocks if block and block.strip()]
+    conditions += [f"{TEXT_FIELD}:({check_terms(block)})" for block in text_blocks if block and block.strip()]
+    if not conditions:
+        raise ValueError("a query needs at least one block of search terms")
+    conditions.append(f"publication_year:{first_year}-{last_year}")
+    if work_types:
+        conditions.append("type:" + "|".join(work_types))
+    conditions.append("is_retracted:false")
+    return ",".join(conditions)
 
 
 def credentials_from_environment() -> dict:
@@ -150,30 +161,32 @@ def parse_year_counts(answer: dict, first_year: int, last_year: int) -> dict[int
     return counts
 
 
-def fetch_year_counts(query: str, first_year: int, last_year: int, session=None) -> dict[int, int]:
-    """Number of works per publication year that match a query."""
-    parameters = {
-        "filter": build_filter(query, first_year, last_year),
-        "group_by": "publication_year",
-    }
+def fetch_year_counts(filter_text: str, first_year: int, last_year: int, session=None) -> dict[int, int]:
+    """Number of works per publication year that meet a filter."""
+    parameters = {"filter": filter_text, "group_by": "publication_year"}
     return parse_year_counts(request_json(parameters, session), first_year, last_year)
 
 
-def fetch_sample(query: str, first_year: int, last_year: int, size: int = 20, seed: int = 42, session=None) -> list[dict]:
-    """A random sample of matching works, for the query-quality check (R-2.6).
+def fetch_sample(filter_text: str, size: int = 20, seed: int = 42, session=None) -> list[dict]:
+    """A random sample of works that meet a filter, for the query-quality check (R-2.6).
 
-    The fixed seed means the same query returns the same sample, so the
-    check can be repeated. Each item has the keys id, title and year.
+    The fixed seed means the same filter returns the same sample, so the
+    check can be repeated. Each item has the keys id, title, year and type.
     """
     parameters = {
-        "filter": build_filter(query, first_year, last_year),
+        "filter": filter_text,
         "sample": size,
         "seed": seed,
         "per-page": size,
-        "select": "id,display_name,publication_year",
+        "select": "id,display_name,publication_year,type",
     }
     answer = request_json(parameters, session)
     return [
-        {"id": work.get("id"), "title": work.get("display_name"), "year": work.get("publication_year")}
+        {
+            "id": work.get("id"),
+            "title": work.get("display_name"),
+            "year": work.get("publication_year"),
+            "type": work.get("type"),
+        }
         for work in answer.get("results", [])
     ]

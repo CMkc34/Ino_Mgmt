@@ -3,12 +3,14 @@
 | | |
 |---|---|
 | **Deliverable** | D2 · Trend scan: AI in industrial manufacturing |
-| **Version** | 0.2 |
+| **Version** | 0.3 |
 | **Status** | Draft, awaiting the project owner's decisions (section 10) |
 | **Date** | 2026-11-12 |
 | **Implements** | Requirements R-2.1 to R-2.10 in [`02-requirements-and-plan.md`](../project/02-requirements-and-plan.md) |
 
 **Changes in v0.2** (from the [design review](design-review.md)): AI terms broadened (finding 8); robustness test D added; rule on the order of decisions and first fetch added (section 10).
+
+**Changes in v0.3** (from the query-quality check, section 5.1): sub-topic terms must now be in the title; work types are limited; retracted works are excluded; two sub-topics have a second title block. Decisions MD-1 and MD-2 are updated accordingly.
 
 This note fixes **how** the trend scan is done before any result is seen. Writing the method and the shortlist rule down first is deliberate: it prevents choosing, after the fact, the definitions that produce the most appealing result.
 
@@ -27,9 +29,9 @@ This note fixes **how** the trend scan is done before any result is seen. Writin
 | Item | Choice | Reason |
 |---|---|---|
 | Source | OpenAlex | Open, no licence cost, broad coverage, can count works per year for a search |
-| Searched text | Title and abstract only | Full-text search also matches works that mention a term in passing, which inflates counts |
+| Searched text | Sub-topic terms in the title; context and AI terms in title or abstract | See section 3.1. Full-text search is not used: it matches passing mentions |
 | Years | 2015 to 2025, complete calendar years | Decision OD-3. The current year is incomplete and would look like a decline |
-| Work types | All types | Simple and transparent. Checked in the robustness test in section 7 |
+| Work types | Article, conference paper, review, preprint, book chapter, dissertation | Other types (editorials, peer-review records, whole books) produced false matches in the quality check |
 | Access | One request per query, counts grouped by publication year | 11 requests in total |
 
 **Known weakness of the latest year.** Indexing lags: some 2025 works are added to the source months later. This lowers the 2025 count for every query. Section 4 handles it by comparing each sub-topic with the field, which is affected in the same way.
@@ -38,44 +40,41 @@ This note fixes **how** the trend scan is done before any result is seen. Writin
 
 ### 3.1 Structure
 
-Every query is built from three blocks joined with AND:
+A work is counted for a sub-topic if **all** of these hold:
 
-```
-(sub-topic terms) AND (manufacturing context terms) AND (AI terms)
-```
+| Condition | Where it is searched | Purpose |
+|---|---|---|
+| Sub-topic terms | **Title** | The work is *about* the sub-topic, not just mentioning it |
+| Optional second block (`title_also`) | Title | Used for two sub-topics whose terms are too general on their own |
+| Manufacturing context terms | Title or abstract | Places the work in manufacturing |
+| AI terms | Title or abstract | The work uses an AI or data-driven method |
+| Work type | One of: article, conference paper, review, preprint, book chapter, dissertation | Leaves out editorials, peer-review records, whole books, datasets |
+| Not retracted | | |
 
-The **field baseline** is the same without the first block: `(context terms) AND (AI terms)`.
+The **field baseline** uses the last four conditions only (no title condition). Every sub-topic is therefore a strict subset of the field, and "share of the field" has a clear meaning.
 
-Reasons for this structure:
+This structure is the result of the query-quality check (section 5.1). The first draft searched all terms in the title or abstract and failed the check for nine of ten sub-topics.
 
-- Every sub-topic is a strict subset of the field, so "share of the field" has a clear meaning.
-- The context and AI blocks are written once, so all sub-topics are measured against the same definition of "AI in manufacturing".
-- A reader can see exactly what was counted.
+Consequence to be aware of: a sub-topic count is *not* "all research on digital twins". It is "works with digital twin in the title that also mention manufacturing and an AI method in the title or abstract". Requiring the term in the title raises precision and lowers recall: works that treat the topic without naming it in the title are missed. Because the same rule applies to every sub-topic and every year, comparisons between sub-topics and over time remain meaningful, but absolute counts are lower bounds.
 
-Consequence to be aware of: a sub-topic count is *not* "all research on digital twins". It is "research on digital twins that also mentions manufacturing and an AI method in its title or abstract".
+### 3.2 Terms
 
-### 3.2 Draft terms
+The terms are in [`config.yaml`](../../config.yaml).
 
-The draft terms are in [`config.yaml`](../../config.yaml). They are **untested drafts**: none has been run against the source yet.
-
-Design rules used for the drafts:
+Design rules:
 
 - Phrases in double quotes, so `"digital twin"` does not match "digital" and "twin" separately.
-- British and American spellings where they differ (optimisation, optimization).
+- British and American spellings where they differ (optimisation, optimization). The source matches word stems, so plural forms are found without listing them.
 - Short acronyms only where they are unambiguous in this context. `LLM` is included; `AM` (additive manufacturing) and `PdM` are not.
 - No commas or pipe characters (they have a special meaning in the source's filter syntax).
 - The AI block includes common method names (for example "random forest", "computer vision", "data-driven"), because many applied papers name the method and never say "machine learning". Ambiguous words are left out: "transformer" is also an electrical component.
 
-Things to look at when testing the drafts:
+Two sub-topics need a second title block:
 
-| Sub-topic | Expected problem |
-|---|---|
-| Energy optimisation | Likely too broad: many works mention "energy consumption" as a side note. May need terms closer to the factory, e.g. "energy-efficient manufacturing" |
-| Process optimisation and control | Broad terms; may overlap heavily with other sub-topics |
-| Additive manufacturing | The context block is satisfied automatically by the word "manufacturing", so this is effectively "additive manufacturing AND AI" |
-| Industrial copilots | The AI block is satisfied automatically. Very few works before 2021, so growth rates are not meaningful (section 4.4) |
-| Generative design | "Topology optimisation" has a long non-AI history; the AI block should filter that, to be verified |
-| Robotics and cobots | "cobot" spelling variants; check that collaborative robots are found |
+| Sub-topic | Second title block | Why |
+|---|---|---|
+| Energy optimisation | A manufacturing word (manufacturing, machining, industrial, …) | Otherwise works on buildings, farms and power grids match |
+| Additive manufacturing | An AI word (learning, neural, AI, …) | Otherwise general reviews that mention AI in passing match |
 
 ### 3.3 Overlap
 
@@ -140,11 +139,38 @@ Counts are only as good as the queries. Each query is checked by reading a sampl
 
 **Procedure, per sub-topic:**
 
-1. Draw 20 random works from 2023–2025 with a fixed seed: `python -m pipelines sample <sub-topic id>`.
+1. Draw 20 random works from 2023–2025 with a fixed seed: `python -m pipelines sample <sub-topic id>`. A re-run can differ in a few items when the source has added or removed works.
 2. Judge each from its title (open the link and read the abstract if the title is not enough).
 3. A work is **relevant** if it is about applying the sub-topic in manufacturing or industrial production *and* uses an AI or data-driven method. A work that only mentions the terms in passing, or is about another sector, is not relevant.
 4. Record the result in `data/manual/query_quality.csv` (columns: `subtopic_id`, `sample_size`, `relevant`, `check_date`, `comment`).
 5. Under 70% relevant (fewer than 14 of 20): refine the terms and repeat, at most twice. If it is still under 70%, keep the sub-topic but flag it as unreliable and exclude it from the shortlist.
+
+### 5.1 Result of the first check (2026-11-12)
+
+Three rounds, 20 works each, drawn with a fixed seed from 2023–2025. Share of relevant works:
+
+| Sub-topic | Round 0: all terms in title or abstract | Round 1: sub-topic terms in title | Round 2: second title block | Final |
+|---|---|---|---|---|
+| Predictive maintenance | 50% | 95% | | **95%** |
+| Visual quality inspection | 55% | 95% | | **95%** |
+| Digital twins | 55% | 75% | | **75%** |
+| Generative design | 45% | 90% | | **90%** |
+| Robotics and cobots | 35% | 90% | | **90%** |
+| Process optimisation and control | 45% | 90% | | **90%** |
+| Production planning and scheduling | 75% | 95% | | **95%** |
+| Energy optimisation | 20% | 55% | 80% | **80%** |
+| Additive manufacturing | 45% | 60% | 95% | **95%** |
+| Industrial copilots | 65% | 70% | | **70%** |
+
+What went wrong in round 0: overview papers that list many technologies in their abstract matched several sub-topics at once, and so did works from other sectors that mention a factory in passing.
+
+**Status of these ratings.** They are a first pass by the AI assistant, from titles and the opening of abstracts. The project owner spot-checks at least three works per sub-topic (one rated relevant, one rated not relevant, one of their choice) and records any disagreement in `data/manual/query_quality.csv`. Until then the result is provisional.
+
+**Two marginal passes.** Digital twins (75%) and industrial copilots (70%) are at or near the threshold. With 20 works, their true precision could be below it. Both are kept, and the write-up says so next to their results. The misses for digital twins are other sectors (buildings, supply chains, geotechnics); for copilots they are works about language models in general.
+
+**Seen in passing.** Some studies appear twice, as a preprint or dissertation and as the published article. This inflates all counts slightly and is listed as a limitation.
+
+Files: per-round summary in [`data/manual/query_quality.csv`](../../data/manual/query_quality.csv); the 200 rated works of the final round in [`data/manual/query_quality_ratings.csv`](../../data/manual/query_quality_ratings.csv).
 
 **Honest limits of this check:**
 
@@ -218,7 +244,7 @@ Required by R-2.9, plus those that follow from this design:
 3. **Time lag.** Publications appear one to two years after the work was done, and the latest year is incomplete in the source.
 4. **Source coverage.** Coverage differs by language, region and publication type. English-language works dominate. Industry work that is never published is invisible.
 5. **Precision checked, recall not.** See section 5.
-6. **Overlap.** Sub-topics share works.
+6. **Overlap and duplicates.** Sub-topics share works, and some studies are indexed twice (preprint and article).
 7. **One signal.** No patents, funding or job-market data (patents are planned for Phase 2).
 8. **Growth rates favour small topics.** Partly handled by the emerging flag and the volume axis, but the reader should weigh momentum and volume together.
 
@@ -228,8 +254,8 @@ Required by R-2.9, plus those that follow from this design:
 
 | ID | Decision | Proposal |
 |---|---|---|
-| MD-1 | Query structure: three blocks, every sub-topic requires the AI block | As in section 3.1 |
-| MD-2 | Searched text | Title and abstract only |
+| MD-1 | Query structure: sub-topic terms in the title; context and AI terms in title or abstract; second title block for two sub-topics | As in section 3.1 (changed in v0.3 after the quality check) |
+| MD-2 | Work types counted | The six types in section 3.1 (changed in v0.3) |
 | MD-3 | Momentum definition | End-to-end compound growth 2020–2025 (section 4.2), with tests A and B |
 | MD-4 | Relative momentum | Difference to the field in percentage points |
 | MD-5 | Emerging threshold | Fewer than 30 works in 2020 |

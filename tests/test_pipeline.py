@@ -2,7 +2,7 @@
 
 import pytest
 
-from pipelines import ingest, openalex
+from pipelines import ingest
 from pipelines.__main__ import main
 from pipelines.config import load_config
 
@@ -23,13 +23,11 @@ def test_number_of_subtopics_is_within_the_required_range():
     assert 8 <= len(load_config()["trends"]["subtopics"]) <= 12
 
 
-def test_every_subtopic_in_the_config_gives_a_valid_query():
-    # Builds the filter for each query, which rejects commas and pipes.
+def test_every_subtopic_in_the_config_gives_a_valid_filter():
+    # Building the filters rejects empty terms, commas and pipes.
     trends = load_config()["trends"]
-    queries = ingest.composed_queries(trends)
-    assert len(queries) == len(trends["subtopics"]) + 1  # plus the field baseline
-    for query in queries.values():
-        openalex.build_filter(query, trends["first_year"], trends["last_year"])
+    filters = ingest.build_filters(trends)
+    assert len(filters) == len(trends["subtopics"]) + 1  # plus the field baseline
 
 
 def test_default_run_finishes_without_error():

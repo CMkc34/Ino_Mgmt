@@ -65,35 +65,47 @@ def save_snapshot(
 FIELD_ID = "_field"
 
 
-def composed_queries(trends_config: dict) -> dict[str, str]:
-    """Return {sub-topic id: full search query}, including the field baseline.
+def build_filters(trends_config: dict, first_year: int | None = None, last_year: int | None = None) -> dict[str, str]:
+    """Return {sub-topic id: OpenAlex filter}, including the field baseline.
 
-    Stops with a clear message if a sub-topic has no search terms.
+    The field baseline counts works that mention a manufacturing term and
+    an AI term in their title or abstract.
+
+    A sub-topic counts works that
+      - have the sub-topic's terms in the TITLE (so the work is about it),
+      - also have the optional second block `title_also` in the title,
+      - and meet the field conditions.
+    Every sub-topic is therefore a subset of the field.
+
+    The years default to the full range in the configuration.
     """
-    context_terms = trends_config["context_terms"]
-    ai_terms = trends_config["ai_terms"]
+    first_year = first_year or trends_config["first_year"]
+    last_year = last_year or trends_config["last_year"]
+    work_types = trends_config.get("work_types")
+    field_blocks = [trends_config["context_terms"], trends_config["ai_terms"]]
 
-    queries = {FIELD_ID: openalex.compose_query("", context_terms, ai_terms)}
+    filters = {FIELD_ID: openalex.build_filter([], field_blocks, first_year, last_year, work_types)}
     for subtopic in trends_config["subtopics"]:
-        if not str(subtopic.get("terms") or "").strip():
-            raise ValueError(f"sub-topic '{subtopic['id']}' has no search terms in config.yaml")
-        queries[subtopic["id"]] = openalex.compose_query(subtopic["terms"], context_terms, ai_terms)
-    return queries
+        if not str(subtopic.get("title_terms") or "").strip():
+            raise ValueError(f"sub-topic '{subtopic['id']}' has no title_terms in config.yaml")
+        title_blocks = [subtopic["title_terms"], subtopic.get("title_also") or ""]
+        filters[subtopic["id"]] = openalex.build_filter(title_blocks, field_blocks, first_year, last_year, work_types)
+    return filters
 
 
 def fetch_publication_counts(trends_config: dict, session=None, pause_seconds: float = 0.2) -> pd.DataFrame:
     """Fetch yearly publication counts for the field and every sub-topic.
 
     Returns one table with the columns in SNAPSHOT_COLUMNS. The field
-    baseline uses the sub-topic id "_field". One request is sent per query,
+    baseline uses the sub-topic id "_field". One request is sent per filter,
     with a short pause in between to be polite to the service.
     """
     first_year = trends_config["first_year"]
     last_year = trends_config["last_year"]
 
     rows = []
-    for subtopic_id, query in composed_queries(trends_config).items():
-        year_counts = openalex.fetch_year_counts(query, first_year, last_year, session)
+    for subtopic_id, filter_text in build_filters(trends_config).items():
+        year_counts = openalex.fetch_year_counts(filter_text, first_year, last_year, session)
         for year, works_count in year_counts.items():
             rows.append({"subtopic_id": subtopic_id, "year": year, "works_count": works_count})
         time.sleep(pause_seconds)
@@ -104,16 +116,15 @@ def save_snapshot_note(snapshot_path: Path, trends_config: dict, fetch_date: dt.
     """Write the companion note for a snapshot (requirement R-1.6).
 
     The note records where the data came from, when it was fetched and the
-    exact queries used, so the numbers can be traced and re-fetched.
+    exact filters used, so the numbers can be traced and re-fetched.
     """
     note = {
         "source": trends_config["source"],
         "endpoint": openalex.API_URL,
-        "search_field": openalex.SEARCH_FIELD,
         "fetch_date": fetch_date.isoformat(),
         "first_year": trends_config["first_year"],
         "last_year": trends_config["last_year"],
-        "queries": composed_queries(trends_config),
+        "filters": build_filters(trends_config),
     }
     note_path = snapshot_path.with_suffix(".meta.json")
     text = json.dumps(note, indent=2, sort_keys=True, ensure_ascii=False) + "\n"

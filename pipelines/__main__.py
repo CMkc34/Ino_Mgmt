@@ -39,20 +39,20 @@ def build_parser() -> argparse.ArgumentParser:
 def print_sample(config: dict, subtopic_id: str, size: int) -> int:
     """Print random recent works for one sub-topic, to judge the query by hand."""
     trends_config = config["trends"]
-    queries = ingest.composed_queries(trends_config)
-    if subtopic_id not in queries:
-        print(f"unknown sub-topic '{subtopic_id}'. Known ids: {', '.join(queries)}")
-        return 1
 
     # Sample from the same years that the "volume" metric uses.
     last_year = trends_config["last_year"]
     first_year = last_year - trends_config["volume_window_years"] + 1
+    filters = ingest.build_filters(trends_config, first_year, last_year)
 
-    print(f"query: {queries[subtopic_id]}")
-    print(f"years: {first_year}-{last_year}\n")
-    works = openalex.fetch_sample(queries[subtopic_id], first_year, last_year, size=size)
+    if subtopic_id not in filters:
+        print(f"unknown sub-topic '{subtopic_id}'. Known ids: {', '.join(filters)}")
+        return 1
+
+    print(f"filter: {filters[subtopic_id]}\n")
+    works = openalex.fetch_sample(filters[subtopic_id], size=size)
     for number, work in enumerate(works, start=1):
-        print(f"{number:>2}. [{work['year']}] {work['title']}")
+        print(f"{number:>2}. [{work['year']} {work['type']}] {work['title']}")
         print(f"    {work['id']}")
     return 0
 
