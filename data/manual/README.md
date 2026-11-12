@@ -5,6 +5,7 @@ Files here are filled in by hand and read by the pipeline. Each file is describe
 | File | Content | Defined in |
 |---|---|---|
 | `query_quality.csv` | Result of each round of the query-quality check, per sub-topic | [Trend scan method](../../docs/design/trend-scan-method.md), section 5 |
+| `adoption.csv` | Adoption level (0 to 3) per sub-topic with its source. To be filled in by the owner | [Trend scan method](../../docs/design/trend-scan-method.md), section 6.3 |
 | `query_quality_ratings.csv` | The 200 works rated in the final round, with the reason for each "not relevant" | Same |
 
 The ratings so far are a first pass by the AI assistant (column `rater`). The owner's spot-check is added as further rows.

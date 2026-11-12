@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Approved |
 | **Date** | 2026-11-12 |
 | **Project owner / sponsor** | Repository owner |
@@ -16,6 +16,7 @@
 | 0.2 | 2026-11-11 | Added role split and authorship rule; added requirements research (D0); prioritised deliverables (Must / Should / Could); reordered work into one storyline with a lead theme; lightened the process; made success criteria testable; added external reviewers |
 | 1.0 | 2026-11-11 | Approved by the project owner with one change: external review is deferred (no reviewers planned for this phase) and replaced by a structured self-review; licence decided (MIT for code, CC BY 4.0 for text); assumptions confirmed |
 | 1.1 | 2026-11-12 | Change approved by the project owner after the requirements research: portfolio dashboard (D7) moved to Phase 2; a cost-benefit view added to D3. Details in the requirements document, v1.1 |
+| 1.2 | 2026-11-12 | After the design review: Three Horizons write-up (D5) and case study (D6) moved to Phase 2; an adoption signal and a discovery step added to D2. Details in the requirements document, v1.3 |
 
 ---
 
@@ -49,8 +50,8 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 | D2 | Must | Trend scan | Lead theme measured with open publication or patent data; trend radar; shortlist of opportunities |
 | D3 | Must | Opportunity scoring model | Weighted multi-criteria ranking of the D2 shortlist, each score backed by a stated rubric and evidence; sensitivity check; cost-benefit view for the top two; recommendation |
 | D4 | Must | Repository presentation | README highlights, run instructions, licence (MIT for code, CC BY 4.0 for text), consistent documentation |
-| D5 | Should | Framework write-up: Three Horizons | Applied to the D3 results |
-| D6 | Should | Case study | One public company, two frameworks, at least one chart from public data |
+| D5 | Moved to Phase 2 | Framework write-up: Three Horizons | Removed from this phase in v1.2 |
+| D6 | Moved to Phase 2 | Case study | Removed from this phase in v1.2 |
 | D7 | Moved to Phase 2 | Portfolio dashboard | Removed from this phase in v1.1 |
 | D8 | Could | Framework write-up: Technology S-curve | Used to interpret D2 |
 
@@ -105,8 +106,8 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 |---|---|---|---|
 | 0 | 11–16 Nov | Charter approved; D0; requirements and plan approved; data availability check | M0: ready to build (16 Nov) |
 | 1 | 17–23 Nov | D1 thin pipeline and D2 trend scan | M1: sprint review (23 Nov) |
-| 2 | 24–30 Nov | D3 scoring model; D5 if on track | M2: sprint review (30 Nov) |
-| 3 | 1–7 Dec | Buffer for Musts; D4; self-review and fixes; D6 if on track | M3: sprint review (7 Dec) |
+| 2 | 24–30 Nov | D3 scoring model | M2: sprint review (30 Nov) |
+| 3 | 1–7 Dec | Buffer for Musts; D4; self-review and fixes | M3: sprint review (7 Dec) |
 | | 8 Dec | Final acceptance and lessons learned | M4: project closed |
 
 ## 10. Success criteria

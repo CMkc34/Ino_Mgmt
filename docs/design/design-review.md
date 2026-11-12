@@ -5,7 +5,7 @@
 | **Reviewed** | Project plan, [trend scan method](trend-scan-method.md) v0.1, [scoring model method](scoring-model-method.md) v0.1 |
 | **Date** | 2026-11-12 |
 | **Viewpoint** | A sceptical reader who has to decide whether to trust the results |
-| **Status** | Findings open, awaiting the project owner's decisions (section 4) |
+| **Status** | Closed. All proposals accepted by the project owner on 2026-11-12 (section 4) |
 
 The review was done before any data was fetched or any opportunity scored, when changes are cheapest.
 
@@ -157,7 +157,9 @@ Market attractiveness carries a quarter of the weight and rests on euro estimate
 
 ---
 
-## 4. Decisions for the project owner
+## 4. Decisions by the project owner
+
+All seven proposals were accepted on 2026-11-12. They are carried out in the method notes (v1.0), the requirements document (v1.3) and the charter (v1.2). D-4 is an action for the owner and stays open until done.
 
 | ID | Finding | Decision needed | Proposal | Hours |
 |---|---|---|---|---|
