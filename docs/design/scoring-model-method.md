@@ -3,11 +3,13 @@
 | | |
 |---|---|
 | **Deliverable** | D3 · Opportunity scoring model |
-| **Version** | 0.2 |
-| **Status** | Draft, awaiting the project owner's decisions (section 12) |
+| **Version** | 1.0 |
+| **Status** | Approved by the project owner on 2026-11-12 (section 13) |
 | **Date** | 2026-11-12 |
 | **Implements** | Requirements R-3.1 to R-3.11 in [`02-requirements-and-plan.md`](../project/02-requirements-and-plan.md) |
 | **Input from** | The shortlist of the trend scan ([method](trend-scan-method.md), section 8) |
+
+**Changes in v1.0:** all decisions approved; the profile's key figures must be backed by cited industry statistics (decision D-3 of the design review).
 
 **Changes in v0.2** (from the [design review](design-review.md)): pursue needs a minimum total score (finding 13); a second, wider weight test and a rule for near-ties added, and the test of uncertain scores is no longer optional (finding 14); trend momentum removed from the rubric (finding 17); the time-horizon chart no longer plots time against itself (finding 15); break-even view added to the business case (finding 16).
 
@@ -50,6 +52,8 @@ The model does not find the "best technology". It ranks options **for one organi
 | Large installed base as a data source and service channel | Customers own their production data; access must be negotiated |
 | Own production as a test bed | Budget for digital innovation about EUR 2 million a year |
 | | Skilled-labour shortage in engineering and service |
+
+**Typical, not invented.** The key figures of the profile (service share of revenue, size of the data team relative to staff, innovation budget relative to revenue) are checked against published industry statistics, and the source is cited next to each. Where the profile deviates from the typical value, the reason is given.
 
 Each fact above has an id in the final version (`P-1`, `P-2`, …), so a score can point to it as evidence.
 
@@ -296,11 +300,13 @@ Tests required by the acceptance criteria: weights sum to 1 (AC-3.5); every scor
 6. **The business case is a rough range**, not a forecast. Simple payback ignores the time value of money and benefits after the payback point.
 7. **The input list comes from one signal** (publication trends). Opportunities invisible in research are missing.
 
-## 13. Decisions for the project owner
+## 13. Decisions by the project owner
 
-| ID | Decision | Proposal |
+All decisions below were approved by the project owner on 2026-11-12 by accepting the proposals. The owner's own one-sentence reasoning for each is still to be added, and the owner rewrites the profile in their own words (design review, decision D-4).
+
+| ID | Decision | Approved |
 |---|---|---|
-| SD-1 | Reference organisation profile | As drafted in section 2; the owner adjusts it to their own engineering experience |
+| SD-1 | Reference organisation profile | As drafted in section 2, with cited typical figures (D-3); the owner rewrites it in their own words |
 | SD-2 | Rubric wording and the money thresholds for market attractiveness | As drafted in section 4 |
 | SD-3 | Knock-out rule | Adopt (section 5) |
 | SD-4 | Range of the random weights | Each weight varied by up to ±50% for the classification; free weights as a second, reported test |

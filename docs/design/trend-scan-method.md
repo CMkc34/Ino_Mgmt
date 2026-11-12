@@ -3,12 +3,14 @@
 | | |
 |---|---|
 | **Deliverable** | D2 · Trend scan: AI in industrial manufacturing |
-| **Version** | 0.3 |
-| **Status** | Draft, awaiting the project owner's decisions (section 10) |
+| **Version** | 1.0 |
+| **Status** | Approved by the project owner on 2026-11-12 (section 10) |
 | **Date** | 2026-11-12 |
 | **Implements** | Requirements R-2.1 to R-2.10 in [`02-requirements-and-plan.md`](../project/02-requirements-and-plan.md) |
 
 **Changes in v0.2** (from the [design review](design-review.md)): AI terms broadened (finding 8); robustness test D added; rule on the order of decisions and first fetch added (section 10).
+
+**Changes in v1.0:** all decisions approved; adoption level (section 6.3) and discovery step (section 6.4) added and the shortlist rule tightened, following decisions D-1, D-2 and D-7 of the [design review](design-review.md).
 
 **Changes in v0.3** (from the query-quality check, section 5.1): sub-topic terms must now be in the title; work types are limited; retracted works are excluded; two sub-topics have a second title block. Decisions MD-1 and MD-2 are updated accordingly.
 
@@ -208,6 +210,23 @@ Called a "trend radar" in the requirements. It is a scatter plot:
 - Emerging sub-topics have no relative momentum, so they are listed in a labelled box beside the plot with their 2025 count.
 - Sub-topics flagged as unreliable are drawn with a hollow marker.
 
+### 6.3 Adoption level (second signal)
+
+Publication counts show research attention, not use in industry. For each sub-topic the owner therefore records an **adoption level** from non-academic sources, in `data/manual/adoption.csv` (columns: `subtopic_id`, `level`, `source`, `link`, `check_date`, `comment`).
+
+| Level | Meaning | Evidence needed |
+|---|---|---|
+| 0 | No commercial offer found | A documented search that found none |
+| 1 | Offered by vendors | At least one named product or service |
+| 2 | Documented deployments | At least one named manufacturer using it in production |
+| 3 | Widespread | An industry survey reporting broad use |
+
+The highest level with evidence counts. The trend map marks each point with its level, and the write-up discusses the combinations: rising in research with low adoption is a scouting signal; high adoption with falling research attention is a mature technology.
+
+### 6.4 Discovery step
+
+The ten sub-topics were chosen in advance, so the scan cannot find an area nobody thought of. One exploratory step tests the list: within the field baseline, the source's own topic labels are counted for 2020 and for 2025, and the 15 labels with the strongest growth (and at least 30 works in 2020) are compared with the ten sub-topics. The write-up contains a short table of what the list missed. A missed area is named as a candidate for the next scan; it is not added to this one, so the method stays as fixed.
+
 ## 7. Robustness tests
 
 The ranking by relative momentum is recomputed under three alternative choices. The write-up reports whether the top five change.
@@ -228,8 +247,8 @@ A sub-topic's result is called **robust** if it stays on the same side of the fi
 1. Candidates are all sub-topics that pass the query-quality check.
 2. A candidate is shortlisted if its relative momentum is above 0 **and** robust (section 7).
 3. Emerging sub-topics are shortlisted if their yearly counts rose in each of the last three years.
-4. A sub-topic below the field line may be added only with a stated reason from a non-bibliographic source (for example, strong evidence of industrial adoption). The reason is written into the shortlist.
-5. The shortlist has 5 to 8 items (R-2.8). If the rule yields more than 8, the lowest relative momentum is cut first. If it yields fewer than 5, the best candidates below the line are added and marked as such.
+4. At most **one** sub-topic below the field line may be added, and only with an adoption level of 2 or 3 (section 6.3). It is marked as an exception in the shortlist.
+5. The shortlist has at most 8 items. If the rule yields more, the lowest relative momentum is cut first. If it yields fewer than 5, the list is **not padded**: the scoring model reaches its five or more opportunities by splitting sub-topics into internal use and offering.
 
 **From sub-topic to opportunity.** For the scoring model, an opportunity is a sub-topic seen from the reference organisation's viewpoint: "use X in our operations or products". A broad sub-topic may be split into two opportunities if the interpretation shows two distinct uses.
 
@@ -248,11 +267,13 @@ Required by R-2.9, plus those that follow from this design:
 7. **One signal.** No patents, funding or job-market data (patents are planned for Phase 2).
 8. **Growth rates favour small topics.** Partly handled by the emerging flag and the volume axis, but the reader should weigh momentum and volume together.
 
-## 10. Decisions for the project owner
+## 10. Decisions by the project owner
 
 **Order matters.** The claim that the method was fixed before the results were seen is only true if these decisions are merged into `main` *before* the first data snapshot is committed. Git history then proves the order. After that, search terms may change only as a result of the query-quality check, and each change is recorded.
 
-| ID | Decision | Proposal |
+All decisions below were approved by the project owner on 2026-11-12 by accepting the proposals. The owner's own one-sentence reasoning for each is still to be added (design review, decision D-4).
+
+| ID | Decision | Approved |
 |---|---|---|
 | MD-1 | Query structure: sub-topic terms in the title; context and AI terms in title or abstract; second title block for two sub-topics | As in section 3.1 (changed in v0.3 after the quality check) |
 | MD-2 | Work types counted | The six types in section 3.1 (changed in v0.3) |
@@ -263,6 +284,9 @@ Required by R-2.9, plus those that follow from this design:
 | MD-7 | Shortlist rule | As in section 8 |
 | MD-8 | Robustness test C (articles only) | Only if time allows |
 | MD-9 | Robustness test D (without the AI block) | Adopt; one additional fetch |
+| D-1 | Adoption level as a second signal | Adopt (section 6.3) |
+| D-2 | Discovery step | Adopt (section 6.4) |
+| D-7 | Shortlist: one exception at most, no padding | Adopt (section 8) |
 
 ## 11. What changes in the configuration
 
