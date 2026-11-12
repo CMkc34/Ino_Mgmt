@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Status** | Approved |
 | **Date** | 2026-11-12 |
 | **Based on** | [Project charter v1.1](01-project-charter.md) |
@@ -15,6 +15,7 @@
 | 0.1 | 2026-11-11 | First draft |
 | 1.0 | 2026-11-11 | Approved by the project owner. All proposals for the open decisions accepted (section 9). Plan updated for OD-7: pipeline scaffolding supplied by the assistant, skeleton moved to sprint 0 |
 | 1.1 | 2026-11-12 | Changes approved by the project owner after the requirements research (D0). CR-1: cost-benefit view added to D3 (R-3.11, AC-3.10; +1.5 h). CR-2: portfolio dashboard (D7) moved to Phase 2. CR-3: README highlights how the project was run (R-4.7, AC-4.7; +0.5 h). CR-4 (slide deck from the dry run): rejected for this phase. R-0.2 and AC-0.1 changed: the research covers corporate and public-sector employers; consultancies are not covered |
+| 1.2 | 2026-11-12 | CR-5, requested by the project owner: the assistant writes the reference implementation of the data fetch (`pipelines/openalex.py` and the fetch in `pipelines/ingest.py`), as a stated exception to G-7. G-6 still applies: the owner reviews and annotates the code and must be able to explain it before D1 is accepted. Design work for D2 is moved forward into sprint 0 ([method design note](../design/trend-scan-method.md)). Sprint 1 estimate for ingest and transform reduced from 2.5 h to 1.5 h |
 
 ---
 
@@ -37,7 +38,7 @@ This document specifies the **Must** deliverables (D0–D4) in full and the **Sh
 | G-4 | No secrets, API keys, personal data or confidential material in the repository, including its history. |
 | G-5 | Every chart has a title, labelled axes with units, and a source note. Colour is never the only way to tell series apart. |
 | G-6 | The owner can explain every line of code and every claim (charter, authorship rule). |
-| G-7 | Analysis content is committed by the owner under their own Git identity. |
+| G-7 | Analysis content is committed by the owner under their own Git identity. Exception (CR-5): the data fetch from the source is a reference implementation by the assistant. |
 
 ### Definition of Done (per deliverable)
 
@@ -98,7 +99,7 @@ A deliverable is done when:
 | AC-1.5 | `pytest` passes, with at least one test per transform function. |
 | AC-1.6 | The GitHub Actions workflow is green on the pull request that delivers D1. |
 | AC-1.7 | Changing a search term or a weight needs an edit in the configuration file only. |
-| AC-1.8 | `--refresh` works with any credential supplied through an environment variable; a search of the repository finds no key or token. |
+| AC-1.8 | `--refresh` works with any credential supplied through an environment variable (`OPENALEX_API_KEY`, `OPENALEX_MAILTO`); a search of the repository finds no key or token. |
 
 ### D2 · Trend scan: AI in industrial manufacturing
 
@@ -225,10 +226,10 @@ Hours are the owner's working time. Review by the assistant is not counted.
 | | Read and annotate the pipeline scaffolding supplied by the assistant | D1 | 1 |
 | | *Sprint total* | | *7.5* |
 | **1** (17–23 Nov) | Configuration and snapshot logic on top of the scaffolding | D1 | 1 |
-| | Ingest and transform for publication counts; tests | D1 | 2.5 |
+| | Review the fetch implementation; first live fetch; transform for the metrics; tests | D1 | 1.5 |
 | | Queries, quality check, metrics, charts | D2 | 3 |
 | | Write-up of the trend scan | D2 | 2 |
-| | *Sprint total* | | *8.5* |
+| | *Sprint total* | | *7.5* |
 | **2** (24–30 Nov) | Reference organisation, rubric, scores with evidence | D3 | 3 |
 | | Scoring and sensitivity code; tests; charts | D3 | 3 |
 | | Guide and recommendation | D3 | 1.5 |
@@ -242,11 +243,11 @@ Hours are the owner's working time. Review by the assistant is not counted.
 | | *Sprint total* | | *5.5 (10.5 with D6)* |
 | **Close** (8 Dec) | Acceptance check and lessons learned | | 1 |
 
-**Total for the Musts: about 31.5 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
+**Total for the Musts: about 30.5 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
 
 ### Planning findings
 
-1. **Sprint 1 was overloaded** in the first draft (10 hours against 6). Decided in OD-7: the assistant supplies the pipeline scaffolding (folder layout, entry point, workflow file) in sprint 0, and the owner reads and annotates it before extending it. Sprint 1 is now 8.5 hours, still above the 6-hour minimum, so the owner should plan extra time that week.
+1. **Sprint 1 was overloaded** in the first draft (10 hours against 6). Decided in OD-7: the assistant supplies the pipeline scaffolding (folder layout, entry point, workflow file) in sprint 0, and the owner reads and annotates it before extending it. Sprint 1 is 7.5 hours after CR-5 (v1.2), still above the 6-hour minimum, so the owner should plan extra time that week.
 2. **Sprint 3 is the buffer.** If sprint 1 or 2 overruns, D6 is dropped first, then D5.
 3. **D6 is unlikely** within the minimum hours. It stays a Should, with no commitment.
 4. **Sprint 2 grew to 9 hours** with the cost-benefit view (v1.1). D5 is attempted only if the Must work of sprint 2 is finished.

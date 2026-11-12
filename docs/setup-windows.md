@@ -71,6 +71,31 @@ git push -u origin my-first-change
 
 Then open a pull request on GitHub, wait for the checks to turn green, and merge.
 
+## 7. Fetch data from the source
+
+A normal pipeline run reads the stored snapshot and needs no network. Fetching a new snapshot does:
+
+```powershell
+python -m pipelines run trends --refresh
+```
+
+This writes two files into `data\raw\`: the counts (`publication_counts_<date>.csv`) and a note with the source, date and queries (`.meta.json`). Commit both.
+
+To judge a search query by hand, list 20 random works it finds:
+
+```powershell
+python -m pipelines sample digital_twins
+```
+
+If the source asks for an API key, set it for the current PowerShell window only. It is then read from the environment and never stored in a file:
+
+```powershell
+$env:OPENALEX_API_KEY = "paste-your-key-here"
+$env:OPENALEX_MAILTO  = "your-contact-address"   # optional courtesy to the source
+```
+
+Never write a key into `config.yaml`, the code or a commit.
+
 ## Troubleshooting
 
 | Problem | Fix |
@@ -79,3 +104,5 @@ Then open a pull request on GitHub, wait for the checks to turn green, and merge
 | `python` opens the Microsoft Store | Activate the virtual environment first (step 4). |
 | `git push` asks for a password | Sign in through the browser window that Git for Windows opens. |
 | `git status` shows changes after a pipeline run | Report it as a bug: outputs are meant to be identical on every run. |
+| `error: OpenAlex refused the request` | The source wants an API key. See step 7. |
+| `error: OpenAlex rejected the request (HTTP 400)` | A search query in `config.yaml` is malformed. The message shows the source's explanation. |

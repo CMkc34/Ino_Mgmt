@@ -11,14 +11,19 @@ Snapshot format (one row per sub-topic and year):
 
 File name: publication_counts_YYYY-MM-DD.csv, where the date is the fetch
 date. The special sub-topic id "_field" holds the counts for the whole
-field (the baseline for relative momentum).
+field (the baseline for relative momentum). Next to each snapshot sits a
+note, publication_counts_YYYY-MM-DD.meta.json, with the source, the fetch
+date and the queries used.
 """
 
 import datetime as dt
+import json
+import time
 from pathlib import Path
 
 import pandas as pd
 
+from pipelines import openalex
 from pipelines.io import read_csv, write_csv
 from pipelines.paths import RAW_DIR
 
@@ -57,24 +62,60 @@ def save_snapshot(
     return path
 
 
-def fetch_publication_counts(trends_config: dict) -> pd.DataFrame:
-    """Fetch yearly publication counts for every sub-topic from the source.
+FIELD_ID = "_field"
 
-    TODO (owner, sprint 1): implement this after the data availability check.
 
-    What it has to do:
-      1. For the field query and for each sub-topic in
-         trends_config["subtopics"], ask the source for the number of works
-         per publication year (OpenAlex can group results by year).
-      2. Keep only the years from first_year to last_year.
-      3. Return one table with the columns in SNAPSHOT_COLUMNS, using the
-         sub-topic id "_field" for the field query.
+def composed_queries(trends_config: dict) -> dict[str, str]:
+    """Return {sub-topic id: full search query}, including the field baseline.
 
-    Rules:
-      - Any API key comes from an environment variable, never from the code
-        or the config file (acceptance criterion AC-1.8).
-      - Stop with a clear error if a sub-topic has an empty query.
+    Stops with a clear message if a sub-topic has no search terms.
     """
-    raise NotImplementedError(
-        "fetch_publication_counts is not written yet. See the TODO in pipelines/ingest.py."
-    )
+    context_terms = trends_config["context_terms"]
+    ai_terms = trends_config["ai_terms"]
+
+    queries = {FIELD_ID: openalex.compose_query("", context_terms, ai_terms)}
+    for subtopic in trends_config["subtopics"]:
+        if not str(subtopic.get("terms") or "").strip():
+            raise ValueError(f"sub-topic '{subtopic['id']}' has no search terms in config.yaml")
+        queries[subtopic["id"]] = openalex.compose_query(subtopic["terms"], context_terms, ai_terms)
+    return queries
+
+
+def fetch_publication_counts(trends_config: dict, session=None, pause_seconds: float = 0.2) -> pd.DataFrame:
+    """Fetch yearly publication counts for the field and every sub-topic.
+
+    Returns one table with the columns in SNAPSHOT_COLUMNS. The field
+    baseline uses the sub-topic id "_field". One request is sent per query,
+    with a short pause in between to be polite to the service.
+    """
+    first_year = trends_config["first_year"]
+    last_year = trends_config["last_year"]
+
+    rows = []
+    for subtopic_id, query in composed_queries(trends_config).items():
+        year_counts = openalex.fetch_year_counts(query, first_year, last_year, session)
+        for year, works_count in year_counts.items():
+            rows.append({"subtopic_id": subtopic_id, "year": year, "works_count": works_count})
+        time.sleep(pause_seconds)
+    return pd.DataFrame(rows, columns=SNAPSHOT_COLUMNS)
+
+
+def save_snapshot_note(snapshot_path: Path, trends_config: dict, fetch_date: dt.date) -> Path:
+    """Write the companion note for a snapshot (requirement R-1.6).
+
+    The note records where the data came from, when it was fetched and the
+    exact queries used, so the numbers can be traced and re-fetched.
+    """
+    note = {
+        "source": trends_config["source"],
+        "endpoint": openalex.API_URL,
+        "search_field": openalex.SEARCH_FIELD,
+        "fetch_date": fetch_date.isoformat(),
+        "first_year": trends_config["first_year"],
+        "last_year": trends_config["last_year"],
+        "queries": composed_queries(trends_config),
+    }
+    note_path = snapshot_path.with_suffix(".meta.json")
+    text = json.dumps(note, indent=2, sort_keys=True, ensure_ascii=False) + "\n"
+    note_path.write_text(text, encoding="utf-8", newline="\n")
+    return note_path

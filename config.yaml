@@ -8,44 +8,54 @@ trends:
   volume_window_years: 3  # "volume" = works in the last 3 complete years
   growth_window_years: 5  # "momentum" = compound annual growth over 5 years
 
-  # The query that defines the whole field. It is the baseline for
-  # "relative momentum" (requirement R-2.4).
-  field_query: ""         # TODO (owner)
+  # Every query is built from three blocks joined with AND:
+  #
+  #     (sub-topic terms) AND (context_terms) AND (ai_terms)
+  #
+  # The field baseline is (context_terms) AND (ai_terms), so every sub-topic
+  # is a subset of the field. Only titles and abstracts are searched.
+  #
+  # Query rules: phrases in double quotes, OR / AND in capitals, and no
+  # commas or pipe characters.
+  #
+  # STATUS: all terms below are DRAFTS. They have not been run against the
+  # source yet. Validate each with the query-quality check (R-2.6):
+  #     python -m pipelines sample <sub-topic id>
+  context_terms: 'manufacturing OR "industrial production" OR "production line" OR "shop floor" OR factory OR "industry 4.0" OR "smart factory"'
+  ai_terms: '"artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "reinforcement learning" OR "large language model" OR "generative AI"'
 
-  # Sub-topics from decision OD-2. Each needs a documented search query
-  # (requirement R-2.2). The first one is filled in as an example of the
-  # format; check and refine it during the data availability check.
+  # Sub-topics from decision OD-2.
   subtopics:
     - id: predictive_maintenance
       label: Predictive maintenance
-      query: '"predictive maintenance" AND (manufacturing OR industrial)'
+      terms: '"predictive maintenance" OR "condition monitoring" OR "remaining useful life" OR prognostics'
     - id: visual_quality_inspection
       label: Visual quality inspection
-      query: ""           # TODO (owner)
+      terms: '"quality inspection" OR "visual inspection" OR "defect detection" OR "surface defect"'
     - id: digital_twins
       label: Digital twins
-      query: ""           # TODO (owner)
+      terms: '"digital twin"'
     - id: generative_design
       label: Generative design
-      query: ""           # TODO (owner)
+      terms: '"generative design" OR "topology optimization" OR "topology optimisation"'
     - id: robotics_cobots
       label: Robotics and cobots
-      query: ""           # TODO (owner)
+      terms: '"industrial robot" OR "collaborative robot" OR cobot OR "robotic assembly" OR "human-robot collaboration"'
     - id: process_optimisation
       label: Process optimisation and control
-      query: ""           # TODO (owner)
+      terms: '"process optimization" OR "process optimisation" OR "process control" OR "process monitoring" OR "process parameters"'
     - id: production_planning
       label: Production planning and scheduling
-      query: ""           # TODO (owner)
+      terms: '"production scheduling" OR "production planning" OR "job shop" OR "flow shop"'
     - id: energy_optimisation
       label: Energy optimisation
-      query: ""           # TODO (owner)
+      terms: '"energy efficiency" OR "energy consumption" OR "energy management"'
     - id: additive_manufacturing
       label: Additive manufacturing
-      query: ""           # TODO (owner)
+      terms: '"additive manufacturing" OR "3D printing" OR "powder bed fusion"'
     - id: industrial_copilots
       label: Industrial copilots (large language models on the shop floor)
-      query: ""           # TODO (owner)
+      terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
 
 scoring:
   # Starting weights from decision OD-5. They must sum to 1.
