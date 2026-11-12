@@ -3,9 +3,9 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Approved |
-| **Date** | 2026-11-11 |
+| **Date** | 2026-11-12 |
 | **Project owner / sponsor** | Repository owner |
 
 ### Change history
@@ -15,6 +15,7 @@
 | 0.1 | 2026-11-10 | First draft |
 | 0.2 | 2026-11-11 | Added role split and authorship rule; added requirements research (D0); prioritised deliverables (Must / Should / Could); reordered work into one storyline with a lead theme; lightened the process; made success criteria testable; added external reviewers |
 | 1.0 | 2026-11-11 | Approved by the project owner with one change: external review is deferred (no reviewers planned for this phase) and replaced by a structured self-review; licence decided (MIT for code, CC BY 4.0 for text); assumptions confirmed |
+| 1.1 | 2026-11-12 | Change approved by the project owner after the requirements research: portfolio dashboard (D7) moved to Phase 2; a cost-benefit view added to D3. Details in the requirements document, v1.1 |
 
 ---
 
@@ -35,7 +36,7 @@ The deliverables build on each other, so the repository reads as one piece of wo
 1. **Trend scan:** which sub-topics are growing, measured with open data → a shortlist of opportunities
 2. **Scoring model:** ranks that shortlist on weighted criteria → a recommendation
 3. **Case study:** a public company pursuing one of the top-ranked opportunities
-4. **Portfolio dashboard:** how such opportunities would be tracked as a portfolio
+4. **Portfolio dashboard** (Phase 2): how such opportunities would be tracked as a portfolio
 
 ## 4. Scope
 
@@ -46,16 +47,17 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 | D0 | Must | Requirements research | Review of 10–15 current role descriptions for innovation analysts: which skills, methods and tools are asked for. Input to the requirements; kept private unless the owner decides to publish it |
 | D1 | Must | Thin data pipeline | Shared Python pipeline (ingest → clean → processed data), run by one command. Only as much as D2 and D3 need |
 | D2 | Must | Trend scan | Lead theme measured with open publication or patent data; trend radar; shortlist of opportunities |
-| D3 | Must | Opportunity scoring model | Weighted multi-criteria ranking of the D2 shortlist, each score backed by a stated rubric and evidence; sensitivity check; recommendation |
+| D3 | Must | Opportunity scoring model | Weighted multi-criteria ranking of the D2 shortlist, each score backed by a stated rubric and evidence; sensitivity check; cost-benefit view for the top two; recommendation |
 | D4 | Must | Repository presentation | README highlights, run instructions, licence (MIT for code, CC BY 4.0 for text), consistent documentation |
 | D5 | Should | Framework write-up: Three Horizons | Applied to the D3 results |
 | D6 | Should | Case study | One public company, two frameworks, at least one chart from public data |
-| D7 | Could | Portfolio dashboard | Power BI on a synthetic portfolio from the pipeline. Fallback: a Python dashboard if Power BI Desktop is not available |
+| D7 | Moved to Phase 2 | Portfolio dashboard | Removed from this phase in v1.1 |
 | D8 | Could | Framework write-up: Technology S-curve | Used to interpret D2 |
 
 ### Out of scope (for this phase)
 
 - Trend scans and case studies beyond the lead theme (Phase 2 in [`ROADMAP.md`](../../ROADMAP.md))
+- Portfolio dashboard (D7, moved to Phase 2 in v1.1)
 - Paid or proprietary data sources
 - Web apps or hosted dashboards
 - Content in languages other than English
@@ -75,7 +77,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 
 - **Time:** 4 weeks (11 Nov to 8 Dec 2026); at least 6 hours a week from the owner
 - **Data:** public or synthetic only; synthetic data is always labelled
-- **Tools:** Python (pipeline, analysis); Power BI for D7 if available
+- **Tools:** Python (pipeline, analysis)
 - **Publication:** public repository, so no confidential, copyrighted or personal content
 - **Language:** English
 

@@ -3,10 +3,10 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Approved |
-| **Date** | 2026-11-11 |
-| **Based on** | [Project charter v1.0](01-project-charter.md) |
+| **Date** | 2026-11-12 |
+| **Based on** | [Project charter v1.1](01-project-charter.md) |
 
 ### Change history
 
@@ -14,6 +14,7 @@
 |---|---|---|
 | 0.1 | 2026-11-11 | First draft |
 | 1.0 | 2026-11-11 | Approved by the project owner. All proposals for the open decisions accepted (section 9). Plan updated for OD-7: pipeline scaffolding supplied by the assistant, skeleton moved to sprint 0 |
+| 1.1 | 2026-11-12 | Changes approved by the project owner after the requirements research (D0). CR-1: cost-benefit view added to D3 (R-3.11, AC-3.10; +1.5 h). CR-2: portfolio dashboard (D7) moved to Phase 2. CR-3: README highlights how the project was run (R-4.7, AC-4.7; +0.5 h). CR-4 (slide deck from the dry run): rejected for this phase. R-0.2 and AC-0.1 changed: the research covers corporate and public-sector employers; consultancies are not covered |
 
 ---
 
@@ -24,7 +25,7 @@
 - A **decision** (`OD`) is a choice made by the project owner. Section 9 records them all.
 - IDs are stable, so issues, commits and status notes can refer to them (e.g. `AC-2.4`).
 
-This document specifies the **Must** deliverables (D0–D4) in full and the **Should** deliverables (D5, D6) in outline. **Could** deliverables (D7, D8) are specified only if they are started.
+This document specifies the **Must** deliverables (D0–D4) in full and the **Should** deliverables (D5, D6) in outline. The **Could** deliverable (D8) is specified only if it is started.
 
 ## 2. Requirements that apply to everything
 
@@ -58,7 +59,7 @@ A deliverable is done when:
 | ID | Requirement |
 |---|---|
 | R-0.1 | Collect 10–15 current role descriptions for innovation analyst or closely related roles. |
-| R-0.2 | Cover both target employer types: consultancies and corporate innovation teams. |
+| R-0.2 | Cover corporate and public-sector employers. Consultancies are not covered by the sample, so conclusions about them are not drawn from D0. |
 | R-0.3 | Code each description with one fixed scheme: methods, tools, domain knowledge, soft skills, years of experience. |
 | R-0.4 | Produce a frequency table (how many descriptions mention each item) and a half-page conclusion. |
 | R-0.5 | Compare the result with D1–D4 and record any gap as a change request to this document. |
@@ -66,7 +67,7 @@ A deliverable is done when:
 
 | ID | Acceptance criterion |
 |---|---|
-| AC-0.1 | At least 10 descriptions are coded, with at least 4 from each employer type. |
+| AC-0.1 | At least 10 descriptions are coded. |
 | AC-0.2 | The frequency table lists the 10 most-requested items per category. |
 | AC-0.3 | A written gap check exists: for each of the top 10 methods and tools, it states whether D1–D4 demonstrate it, and what happens if not (change request, Phase 2, or deliberately left out). |
 | AC-0.4 | Nothing from D0 appears in the repository except resulting changes to this document. |
@@ -144,6 +145,7 @@ A deliverable is done when:
 | R-3.8 | Outputs produced by the pipeline: ranked table, rank-stability chart, and a score-versus-time-horizon chart. |
 | R-3.9 | A recommendation that sorts each opportunity into pursue, explore or park, with reasons. |
 | R-3.10 | Reusable: another user can swap in their own opportunity list and configuration without changing code. The guide explains how. |
+| R-3.11 | A **cost-benefit view** for the two top-ranked opportunities, from the reference organisation's viewpoint: investment range, expected yearly benefit and payback period, each for a cautious, a base and an optimistic case. Every input is either sourced or marked as an assumption. |
 
 | ID | Acceptance criterion |
 |---|---|
@@ -156,6 +158,7 @@ A deliverable is done when:
 | AC-3.7 | Each opportunity is classified as pursue, explore or park, and the classification is consistent with the stated rule (e.g. "pursue = top 3 in at least 70% of runs"). |
 | AC-3.8 | A second, made-up input file runs through the model with a configuration change only (demonstrates R-3.10). |
 | AC-3.9 | The reference organisation and all scores are labelled as illustrative wherever they appear (G-2). |
+| AC-3.10 | The guide contains a cost-benefit table for the two top-ranked opportunities with investment, yearly benefit and payback for three cases. Every input is listed with a source or the word "assumption", and the table is labelled as illustrative. |
 
 ### D4 · Repository presentation
 
@@ -169,6 +172,7 @@ A deliverable is done when:
 | R-4.4 | Folder READMEs match what the folders contain; empty folders say what is planned. |
 | R-4.5 | The project documents show their final status, and `ROADMAP.md` reflects what was and was not delivered. |
 | R-4.6 | The GitHub repository description and topics are set by the owner. |
+| R-4.7 | The README Highlights section has a short paragraph on how the project was run (charter, phase gates, requirements with acceptance criteria, sprint backlog), with links. |
 
 | ID | Acceptance criterion |
 |---|---|
@@ -178,6 +182,7 @@ A deliverable is done when:
 | AC-4.4 | No placeholder text ("TODO", "planned topics" for delivered items, "lorem") remains in delivered content. |
 | AC-4.5 | The licence files are present and referenced from the README. |
 | AC-4.6 | The repository description and at least 3 topics are set on GitHub. |
+| AC-4.7 | The Highlights section links to the charter, the requirements document and the issue backlog. |
 
 ---
 
@@ -227,22 +232,24 @@ Hours are the owner's working time. Review by the assistant is not counted.
 | **2** (24–30 Nov) | Reference organisation, rubric, scores with evidence | D3 | 3 |
 | | Scoring and sensitivity code; tests; charts | D3 | 3 |
 | | Guide and recommendation | D3 | 1.5 |
+| | Cost-benefit view for the two top-ranked opportunities | D3 | 1.5 |
 | | Three Horizons write-up (if on track) | D5 | 2 |
-| | *Sprint total* | | *7.5 (9.5 with D5)* |
+| | *Sprint total* | | *9 (11 with D5)* |
 | **3** (1–7 Dec) | Self-review of D2 and D3; fixes | D2, D3 | 2 |
-| | README highlights, link check, statuses | D4 | 2 |
+| | README highlights (analyses and project approach), link check, statuses | D4 | 2.5 |
 | | Presentation dry run | | 1 |
 | | Case study (if on track) | D6 | 5 |
-| | *Sprint total* | | *5 (10 with D6)* |
+| | *Sprint total* | | *5.5 (10.5 with D6)* |
 | **Close** (8 Dec) | Acceptance check and lessons learned | | 1 |
 
-**Total for the Musts: about 29.5 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
+**Total for the Musts: about 31.5 hours**, against a stated minimum of 24 (4 weeks × 6 hours).
 
 ### Planning findings
 
 1. **Sprint 1 was overloaded** in the first draft (10 hours against 6). Decided in OD-7: the assistant supplies the pipeline scaffolding (folder layout, entry point, workflow file) in sprint 0, and the owner reads and annotates it before extending it. Sprint 1 is now 8.5 hours, still above the 6-hour minimum, so the owner should plan extra time that week.
 2. **Sprint 3 is the buffer.** If sprint 1 or 2 overruns, D6 is dropped first, then D5.
 3. **D6 is unlikely** within the minimum hours. It stays a Should, with no commitment.
+4. **Sprint 2 grew to 9 hours** with the cost-benefit view (v1.1). D5 is attempted only if the Must work of sprint 2 is finished.
 
 ### Ways of working
 
@@ -283,7 +290,7 @@ Filled in for D2 and D3 before their sprint review, and stored with the status n
 
 ## 8. Out of scope reminders
 
-Carried over from the charter so they are not reopened by accident: no scheduler or database, no paid data, no hosted dashboard, no sectors beyond the lead theme, no patents (OD-3).
+Carried over from the charter so they are not reopened by accident: no scheduler or database, no paid data, no hosted dashboard, no sectors beyond the lead theme, no patents (OD-3), no portfolio dashboard (moved to Phase 2 in v1.1).
 
 ---
 
