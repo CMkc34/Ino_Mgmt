@@ -7,6 +7,7 @@ connection: it records what was asked and hands back prepared answers.
 import datetime as dt
 import json
 
+import pandas as pd
 import pytest
 
 from pipelines import ingest, openalex
@@ -175,12 +176,13 @@ def small_config():
         "source": "OpenAlex",
         "first_year": 2024,
         "last_year": 2025,
+        "growth_window_years": 1,
         "work_types": ["article"],
         "context_terms": "manufacturing",
         "ai_terms": '"machine learning"',
         "subtopics": [
             {"id": "digital_twins", "label": "Digital twins", "title_terms": '"digital twin"'},
-            {"id": "robots", "label": "Robots", "title_terms": "robot", "title_also": "assembly"},
+            {"id": "robots", "label": "Robots", "title_terms": "robot", "title_also": "assembly", "title_ai_terms": "learning"},
         ],
     }
 
@@ -202,7 +204,7 @@ def test_field_filter_has_no_title_condition_and_subtopics_are_subsets_of_it():
     for subtopic_id in ("digital_twins", "robots"):
         assert set(field_conditions) <= set(filters[subtopic_id].split(","))
     assert filters["digital_twins"].startswith('title.search:("digital twin"),')
-    assert "title.search:(robot),title.search:(assembly)," in filters["robots"]
+    assert "title.search:(robot),title.search:(assembly),title.search:(learning)," in filters["robots"]
 
 
 def test_filters_can_be_built_for_other_years():
@@ -226,3 +228,59 @@ def test_snapshot_note_records_source_date_and_queries(tmp_path):
     assert note["fetch_date"] == "2026-11-12"
     assert set(note["filters"]) == {"_field", "digital_twins", "robots"}
     assert b"\r\n" not in note_path.read_bytes()
+
+
+# --- robustness variants and the discovery step -----------------------------
+
+
+def test_variant_without_ai_drops_every_ai_condition():
+    filters = ingest.build_filters(small_config(), variant="no_ai")
+    assert "machine learning" not in filters["_field"]
+    assert "title.search:(learning)" not in filters["robots"]
+    assert "title.search:(robot),title.search:(assembly)," in filters["robots"]
+
+
+def test_variant_articles_counts_only_articles():
+    config = small_config()
+    config["work_types"] = ["article", "review", "preprint"]
+    filters = ingest.build_filters(config, variant="articles")
+    assert all("type:article," in filter_text for filter_text in filters.values())
+
+
+def test_unknown_variant_is_rejected():
+    with pytest.raises(ValueError, match="unknown variant"):
+        ingest.build_filters(small_config(), variant="typo")
+
+
+def test_variant_snapshots_do_not_hide_the_main_snapshot(tmp_path):
+    counts = ingest.fetch_publication_counts(small_config(), FakeSession([grouped_answer({2024: 1})]))
+    main = ingest.save_snapshot(counts, dt.date(2026, 11, 12), tmp_path)
+    for prefix in ("robustness_no_ai_counts_", "robustness_articles_counts_"):
+        ingest.save_snapshot(counts, dt.date(2026, 12, 1), tmp_path, prefix=prefix)
+    assert ingest.find_latest_snapshot(tmp_path) == main
+    assert ingest.find_latest_snapshot(tmp_path, "robustness_no_ai_counts_").name == "robustness_no_ai_counts_2026-12-01.csv"
+
+
+def topic_answer(topics):
+    groups = [{"key": key, "key_display_name": name, "count": count} for key, name, count in topics]
+    return FakeResponse(payload={"group_by": groups})
+
+
+def test_discovery_combines_the_two_years_and_leaves_unknown_counts_empty(tmp_path):
+    session = FakeSession(
+        [
+            topic_answer([("T1", "Scheduling", 40), ("T2", "Welding", 35)]),  # first year
+            topic_answer([("T1", "Scheduling", 90), ("T3", "Language models", 70)]),  # last year
+        ]
+    )
+    table = ingest.fetch_discovery_topics(small_config(), session)
+    rows = {row["topic_id"]: row for row in table.to_dict("records")}
+    assert rows["T1"]["works_first_year"] == 40 and rows["T1"]["works_last_year"] == 90
+    assert pd.isna(rows["T2"]["works_last_year"])
+    assert pd.isna(rows["T3"]["works_first_year"])
+    assert "publication_year:2024-2024" in session.calls[0]["params"]["filter"]
+    assert "publication_year:2025-2025" in session.calls[1]["params"]["filter"]
+
+    path = ingest.save_discovery_topics(table, dt.date(2026, 11, 12), tmp_path)
+    assert path.name == "discovery_topics_2026-11-12.csv"
+    assert path.read_text(encoding="utf-8").splitlines()[0] == "topic_id,topic_name,works_first_year,works_last_year"

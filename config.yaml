@@ -16,6 +16,7 @@ trends:
   #
   #   title_terms     must be found in the TITLE, so the work is about the topic
   #   title_also      optional second block that must also be in the title
+  #   title_ai_terms  optional AI block that must also be in the title
   #   context_terms   must be found in the title or abstract   } these two define
   #   ai_terms        must be found in the title or abstract   } the field baseline
   #
@@ -61,7 +62,8 @@ trends:
       label: Additive manufacturing
       title_terms: '"additive manufacturing" OR "3D printing" OR "powder bed fusion" OR "directed energy deposition" OR "fused deposition modeling"'
       # Without this, many general reviews that mention AI in passing match.
-      title_also: 'learning OR neural OR "artificial intelligence" OR AI OR "data-driven" OR "computer vision" OR "machine vision"'
+      # (An AI block in the title: left out in the robustness test without AI terms.)
+      title_ai_terms: 'learning OR neural OR "artificial intelligence" OR AI OR "data-driven" OR "computer vision" OR "machine vision"'
     - id: industrial_copilots
       label: Industrial copilots (large language models on the shop floor)
       title_terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
