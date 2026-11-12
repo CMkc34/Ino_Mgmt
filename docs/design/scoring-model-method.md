@@ -3,11 +3,13 @@
 | | |
 |---|---|
 | **Deliverable** | D3 · Opportunity scoring model |
-| **Version** | 0.1 |
+| **Version** | 0.2 |
 | **Status** | Draft, awaiting the project owner's decisions (section 12) |
 | **Date** | 2026-11-12 |
 | **Implements** | Requirements R-3.1 to R-3.11 in [`02-requirements-and-plan.md`](../project/02-requirements-and-plan.md) |
 | **Input from** | The shortlist of the trend scan ([method](trend-scan-method.md), section 8) |
+
+**Changes in v0.2** (from the [design review](design-review.md)): pursue needs a minimum total score (finding 13); a second, wider weight test and a rule for near-ties added, and the test of uncertain scores is no longer optional (finding 14); trend momentum removed from the rubric (finding 17); the time-horizon chart no longer plots time against itself (finding 15); break-even view added to the business case (finding 16).
 
 Like the trend scan method, this note fixes the rules **before** any opportunity is scored: the rubric, the way scores are combined, the sensitivity check and the rule that turns numbers into a recommendation.
 
@@ -77,7 +79,9 @@ Five criteria, each scored from 1 to 5. Levels 1, 3 and 5 are described; 2 and 4
 |---|---|
 | 1 | Yearly value potential under EUR 0.5 million, or no identifiable paying customer or cost block |
 | 3 | EUR 1–3 million a year; demand or cost block is evident but not growing strongly |
-| 5 | Over EUR 5 million a year, with evidence that demand is growing (trend scan momentum above the field, or market sources) |
+| 5 | Over EUR 5 million a year, with evidence from market sources that demand is growing |
+
+The thresholds correspond to roughly 0.1%, 0.5% and over 1% of the reference organisation's revenue. A value estimate is always built from drivers (quantity × value, as in section 10.1) and recorded as the evidence for the score. Trend scan momentum is **not** evidence here: every shortlisted opportunity has momentum above the field by construction, so it cannot tell them apart.
 
 ### 4.2 Technical feasibility (weight 0.25)
 
@@ -176,6 +180,8 @@ Scores and weights are judgements. The check answers: *would a reasonable person
 
 This models *reasonable disagreement* about the weights, not arbitrary weights.
 
+**Second, wider test.** The base weights are close to each other, so changing them by half rarely reorders anything, and a test that cannot fail proves little. The same 1,000 runs are therefore repeated with weights drawn freely (any combination that sums to 1). Both top-3 shares are reported side by side. The first feeds the classification; the second shows how far the result depends on the weights at all.
+
 ### 7.2 Top-3 share
 
 For each opportunity: in what share of the 1,000 runs is it among the top three? This is the main stability measure and feeds the classification in section 8.
@@ -184,9 +190,13 @@ For each opportunity: in what share of the 1,000 runs is it among the top three?
 
 For each criterion in turn: raise or lower its weight in steps of 0.01 from 0 to 1, rescaling the other four in proportion, and note the first weight at which ranks 1 and 2 swap. Report the criterion with the smallest change needed, for example: *"A overtakes B if the weight of risk rises from 0.15 to 0.27."* If no weight between 0 and 1 produces a swap, rank 1 is said to be *dominant*.
 
-### 7.4 Uncertain scores (only if time allows)
+### 7.4 Uncertain scores
 
-Each score that rests on an assumption is moved by one point up and down, one at a time, and the ranking is recomputed. Report which single score changes, if any, alter the top three. This tests the scores, where 7.1 to 7.3 test the weights.
+Each score that rests on an assumption is moved by one point up and down, one at a time, and the ranking is recomputed. Report which single score changes, if any, alter the top three. This tests the scores, where 7.1 to 7.3 test the weights. It is the more important test: the scores, not the weights, are where most of the judgement sits.
+
+### 7.5 Near-ties
+
+Scores are whole numbers on five criteria, so totals often differ by a tenth or two. Two opportunities whose totals differ by less than 0.25 are reported as **practically tied**, and the recommendation does not rest on their order.
 
 ## 8. From numbers to a recommendation
 
@@ -194,9 +204,11 @@ The rule is fixed in advance:
 
 | Class | Rule |
 |---|---|
-| **Pursue** | In the top three in at least 70% of runs, **and** no score of 1 |
+| **Pursue** | In the top three in at least 70% of runs (section 7.1), **and** total score of at least 3.5, **and** no score of 1 |
 | **Park** | In the top three in fewer than 20% of runs, **or** total score below 2.5 |
 | **Explore** | Everything else |
+
+The minimum total matters because the list is short. With five or six opportunities, about three of them will be in the top three most of the time whatever their quality, so a rank-based rule alone would always produce three "pursue" results. The outcome "nothing qualifies for pursue" must be possible.
 
 "Explore" means a small, time-limited step to resolve the main uncertainty (named in the recommendation), not a general "maybe".
 
@@ -208,7 +220,7 @@ Both follow the chart rules (G-5) and are produced by the pipeline.
 
 **9.1 Rank stability.** Horizontal bars, one per opportunity, sorted by total score. Bar length is the top-3 share. Vertical lines at 70% and 20% mark the class boundaries. Each bar is labelled with the opportunity name and its total score.
 
-**9.2 Score against time horizon.** A scatter plot: x-axis is time to first value in months (the midpoint of the band from section 4.4), y-axis is the total score. Points are labelled directly. Three shaded bands mark the horizons: under 12 months, 12 to 36 months, over 36 months. The caption notes that the Three Horizons framework is about more than time; the framework write-up (D5) covers that.
+**9.2 Score against time horizon.** A scatter plot: x-axis is time to first value in months (the midpoint of the band from section 4.4), y-axis is the score on the **other four criteria** (their weights rescaled to sum to 1). Time to value is left out of the y-axis because it is already the x-axis; including it would build a correlation into the chart. Points are labelled directly. Three shaded bands mark the horizons: under 12 months, 12 to 36 months, over 36 months. The caption notes that the Three Horizons framework is about more than time; the framework write-up (D5) covers that.
 
 ## 10. Cost-benefit view for the top two (R-3.11)
 
@@ -250,7 +262,11 @@ Simple payback, without discounting. It is the measure most readers know and can
 
 Every input is a row: item, low, base, high, unit, and either a source or the word "assumption". The base-case result is compared with at least one published benchmark for a similar project. If they differ by more than a factor of two, the difference is explained.
 
-### 10.5 Link back to the ranking
+### 10.5 Break-even view
+
+Because the inputs are assumptions about a fictional company, a single payback figure would suggest more precision than exists. The business case therefore also answers the reverse question: *what would have to be true for this to pay back within three years?* It states the minimum value of the main benefit driver (for example, the reduction in downtime hours) at which payback is three years, and compares that with published benchmarks. A reader can then judge whether the required value is plausible, without having to trust the base case.
+
+### 10.6 Link back to the ranking
 
 The recommendation says whether the business case supports or weakens each classification. A top-ranked opportunity with no payback in the cautious case is still presented, with that tension stated openly.
 
@@ -287,8 +303,8 @@ Tests required by the acceptance criteria: weights sum to 1 (AC-3.5); every scor
 | SD-1 | Reference organisation profile | As drafted in section 2; the owner adjusts it to their own engineering experience |
 | SD-2 | Rubric wording and the money thresholds for market attractiveness | As drafted in section 4 |
 | SD-3 | Knock-out rule | Adopt (section 5) |
-| SD-4 | Range of the random weights | Each weight varied by up to ±50% |
-| SD-5 | Class thresholds | Pursue from 70%, park under 20% or total under 2.5 |
-| SD-6 | Test of uncertain scores (section 7.4) | Only if time allows |
-| SD-7 | Business case measure | Simple payback in three cases |
+| SD-4 | Range of the random weights | Each weight varied by up to ±50% for the classification; free weights as a second, reported test |
+| SD-5 | Class thresholds | Pursue from 70% and a total of at least 3.5; park under 20% or total under 2.5; totals within 0.25 are practically tied |
+| SD-6 | Test of uncertain scores (section 7.4) | Required (changed in v0.2) |
+| SD-7 | Business case measure | Simple payback in three cases, plus the break-even view |
 | SD-8 | Weights | Keep the starting weights of OD-5 unless the owner's reasoning for the profile says otherwise |

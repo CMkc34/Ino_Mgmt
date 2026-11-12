@@ -22,7 +22,7 @@ trends:
   # source yet. Validate each with the query-quality check (R-2.6):
   #     python -m pipelines sample <sub-topic id>
   context_terms: 'manufacturing OR "industrial production" OR "production line" OR "shop floor" OR factory OR "industry 4.0" OR "smart factory"'
-  ai_terms: '"artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "reinforcement learning" OR "large language model" OR "generative AI"'
+  ai_terms: '"artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "reinforcement learning" OR "large language model" OR "generative AI" OR "computer vision" OR "random forest" OR "support vector machine" OR LSTM OR "data-driven"'
 
   # Sub-topics from decision OD-2.
   subtopics:

@@ -3,10 +3,12 @@
 | | |
 |---|---|
 | **Deliverable** | D2 · Trend scan: AI in industrial manufacturing |
-| **Version** | 0.1 |
+| **Version** | 0.2 |
 | **Status** | Draft, awaiting the project owner's decisions (section 10) |
 | **Date** | 2026-11-12 |
 | **Implements** | Requirements R-2.1 to R-2.10 in [`02-requirements-and-plan.md`](../project/02-requirements-and-plan.md) |
+
+**Changes in v0.2** (from the [design review](design-review.md)): AI terms broadened (finding 8); robustness test D added; rule on the order of decisions and first fetch added (section 10).
 
 This note fixes **how** the trend scan is done before any result is seen. Writing the method and the shortlist rule down first is deliberate: it prevents choosing, after the fact, the definitions that produce the most appealing result.
 
@@ -62,6 +64,7 @@ Design rules used for the drafts:
 - British and American spellings where they differ (optimisation, optimization).
 - Short acronyms only where they are unambiguous in this context. `LLM` is included; `AM` (additive manufacturing) and `PdM` are not.
 - No commas or pipe characters (they have a special meaning in the source's filter syntax).
+- The AI block includes common method names (for example "random forest", "computer vision", "data-driven"), because many applied papers name the method and never say "machine learning". Ambiguous words are left out: "transformer" is also an electrical component.
 
 Things to look at when testing the drafts:
 
@@ -188,8 +191,9 @@ The ranking by relative momentum is recomputed under three alternative choices. 
 | A. Shifted window | Momentum from 2019 to 2024 instead of 2020 to 2025 | Dependence on the two end years and on the incomplete 2025 |
 | B. Smoothed ends | Start value = average of 2019–2020, end value = average of 2024–2025 | Dependence on single-year noise |
 | C. Articles only | Counts restricted to the work type "article" | Whether preprints or other types drive a trend. Needs a second fetch; done only if time allows |
+| D. Without the AI block | Sub-topic queries as `(sub-topic terms) AND (context terms)`, compared with a field of `(context terms)` only | Whether the ranking is an artefact of how papers name their methods. Mature applications may use AI without saying so in the abstract. Needs a second fetch |
 
-A sub-topic's result is called **robust** if it stays on the same side of the field line (above or below) in tests A and B.
+A sub-topic's result is called **robust** if it stays on the same side of the field line (above or below) in tests A and B. Test D is reported separately: a sub-topic that changes sides in test D is discussed in the write-up, because its trend may be a trend in wording.
 
 ## 8. From results to shortlist
 
@@ -220,6 +224,8 @@ Required by R-2.9, plus those that follow from this design:
 
 ## 10. Decisions for the project owner
 
+**Order matters.** The claim that the method was fixed before the results were seen is only true if these decisions are merged into `main` *before* the first data snapshot is committed. Git history then proves the order. After that, search terms may change only as a result of the query-quality check, and each change is recorded.
+
 | ID | Decision | Proposal |
 |---|---|---|
 | MD-1 | Query structure: three blocks, every sub-topic requires the AI block | As in section 3.1 |
@@ -230,6 +236,7 @@ Required by R-2.9, plus those that follow from this design:
 | MD-6 | Query-quality threshold and sample | 70% of 20, at most two refinements |
 | MD-7 | Shortlist rule | As in section 8 |
 | MD-8 | Robustness test C (articles only) | Only if time allows |
+| MD-9 | Robustness test D (without the AI block) | Adopt; one additional fetch |
 
 ## 11. What changes in the configuration
 
