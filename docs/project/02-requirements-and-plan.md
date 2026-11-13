@@ -3,9 +3,9 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.3 |
+| **Version** | 1.4 |
 | **Status** | Approved |
-| **Date** | 2026-11-12 |
+| **Date** | 2026-11-13 |
 | **Based on** | [Project charter v1.2](01-project-charter.md) |
 
 ### Change history
@@ -17,6 +17,7 @@
 | 1.1 | 2026-11-12 | Changes approved by the project owner after the requirements research (D0). CR-1: cost-benefit view added to D3 (R-3.11, AC-3.10; +1.5 h). CR-2: portfolio dashboard (D7) moved to Phase 2. CR-3: README highlights how the project was run (R-4.7, AC-4.7; +0.5 h). CR-4 (slide deck from the dry run): rejected for this phase. R-0.2 and AC-0.1 changed: the research covers corporate and public-sector employers; consultancies are not covered |
 | 1.2 | 2026-11-12 | CR-5, requested by the project owner: the assistant writes the reference implementation of the data fetch (`pipelines/openalex.py` and the fetch in `pipelines/ingest.py`), as a stated exception to G-7. G-6 still applies: the owner reviews and annotates the code and must be able to explain it before D1 is accepted. Design work for D2 is moved forward into sprint 0 ([method design note](../design/trend-scan-method.md)). Sprint 1 estimate for ingest and transform reduced from 2.5 h to 1.5 h |
 | 1.3 | 2026-11-12 | Method decisions MD-1 to MD-9 and SD-1 to SD-8 and review decisions D-1 to D-7 approved by the project owner. Added: adoption level (R-2.11), discovery step (R-2.12), proof of order (AC-2.12), cited profile figures (AC-3.11), test of uncertain scores (AC-3.12), cold-read test. Changed: shortlist rule (R-2.8, AC-2.6, AC-3.13). Moved to Phase 2: D5 and D6. No further project documents; from now on change requests may only remove scope. Must total now about 34.5 h |
+| 1.4 | 2026-11-13 | CR-6, requested by the project owner: the assistant writes the analysis code (metric calculation, robustness tests, shortlist rule, charts, pipeline wiring and their tests). The owner does not write Python and does not aim at roles that require it. G-7 is changed accordingly. G-6 still applies: the owner reads the code with a guided walk-through and must be able to explain what it does. The owner's own contributions are the decisions and their reasoning, the spot-check of the query ratings, the adoption research, the scores and their evidence, the interpretation and the write-ups. The repository states this division of work openly (R-4.3, now in the README). Owner hours for sprint 1 coding are replaced by the walk-through |
 
 ---
 
@@ -39,7 +40,7 @@ This document specifies the **Must** deliverables (D0–D4). The **Could** deliv
 | G-4 | No secrets, API keys, personal data or confidential material in the repository, including its history. |
 | G-5 | Every chart has a title, labelled axes with units, and a source note. Colour is never the only way to tell series apart. |
 | G-6 | The owner can explain every line of code and every claim (charter, authorship rule). |
-| G-7 | Analysis content is committed by the owner under their own Git identity. Exception (CR-5): the data fetch from the source is a reference implementation by the assistant. |
+| G-7 | The code is written by the AI assistant at the owner's direction (CR-5, CR-6). The owner's judgement, research, scores and written analysis are committed by the owner under their own Git identity. The README states who did what. |
 
 ### Definition of Done (per deliverable)
 
