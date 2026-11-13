@@ -2,6 +2,10 @@
 
 Analysis-ready CSV files written by the pipeline. Do not edit by hand: change the code or `config.yaml` and re-run.
 
+## `discovery_top_topics.csv`
+
+The discovery step: the 15 topic labels of the source that grew fastest within the field, among labels with at least 30 works in 2020. `closest_subtopic` says which of the ten sub-topics a label corresponds to; "none" marks a label the list does not cover. Labels are the source's own classification of each work, which is coarser than the sub-topics and has no label for some of them.
+
 ## `trend_metrics.csv`
 
 One row per sub-topic, strongest growth relative to the field first, emerging sub-topics last. Definitions are in the [trend scan method](../../docs/design/trend-scan-method.md).

@@ -255,3 +255,43 @@ def test_results_are_sorted_strongest_first_with_emerging_last():
     # topic_e grows fastest: (170 / 40) ** (1/5) - 1 = 0.336, ahead of topic_a at 0.320.
     assert order[:2] == ["topic_e", "topic_a"]
     assert order[-1] == "topic_c"
+
+
+# --- the discovery step -----------------------------------------------------
+
+
+def example_topics() -> pd.DataFrame:
+    rows = [
+        ("T1", "Fast and large enough", 40, 400),      # (400/40) ** (1/5) - 1 = 0.585
+        ("T2", "Slower", 100, 200),                    # 0.149
+        ("T3", "Too small at the start", 10, 500),     # under the threshold of 30
+        ("T4", "No count for the last year", 80, None),
+        ("T5", "No count for the first year", None, 300),
+        ("T6", "Middle", 50, 200),                     # 0.320
+    ]
+    return pd.DataFrame(rows, columns=["topic_id", "topic_name", "works_first_year", "works_last_year"])
+
+
+DISCOVERY_CONFIG = dict(EXAMPLE_CONFIG, discovery_top_n=2)
+
+
+def test_discovery_ranks_eligible_labels_by_growth_and_keeps_the_top_n():
+    ranking = transform.discovery_ranking(example_topics(), 0.1487, DISCOVERY_CONFIG)
+    assert list(ranking["topic_id"]) == ["T1", "T6"]
+    assert ranking.loc[0, "momentum"] == pytest.approx(0.585, abs=1e-3)
+    assert ranking.loc[0, "relative_momentum"] == pytest.approx(0.585 - 0.1487, abs=1e-3)
+
+
+def test_discovery_leaves_out_small_and_incomplete_labels():
+    config = dict(EXAMPLE_CONFIG, discovery_top_n=10)
+    ranked = set(transform.discovery_ranking(example_topics(), 0.1487, config)["topic_id"])
+    assert ranked == {"T1", "T2", "T6"}
+
+
+def test_discovery_adds_the_mapping_to_the_subtopics():
+    mapping = pd.DataFrame(
+        {"topic_id": ["T1"], "closest_subtopic": ["topic_a"], "comment": ["same area"]}
+    )
+    ranking = transform.discovery_ranking(example_topics(), 0.1487, DISCOVERY_CONFIG, mapping=mapping)
+    assert ranking.loc[0, "closest_subtopic"] == "topic_a"
+    assert pd.isna(ranking.loc[1, "closest_subtopic"])  # T6 is not in the mapping yet

@@ -1,0 +1,16 @@
+topic_id,topic_name,closest_subtopic,comment
+https://openalex.org/T14260,Impact of AI and Big Data on Business and Society,none,General and management literature on AI. Not an application area.
+https://openalex.org/T10400,Network Security and Intrusion Detection,none,Candidate the list missed: security of connected factories and industrial networks.
+https://openalex.org/T13904,Artificial Intelligence Applications,none,General label. Not an application area.
+https://openalex.org/T10551,Scheduling and Optimization Algorithms,production_planning,
+https://openalex.org/T10783,Additive Manufacturing and 3D Printing Technologies,additive_manufacturing,
+https://openalex.org/T10705,Additive Manufacturing Materials and Processes,additive_manufacturing,
+https://openalex.org/T12111,Industrial Vision Systems and Defect Detection,visual_quality_inspection,
+https://openalex.org/T11948,Machine Learning in Materials Science,none,Candidate the list missed: AI for developing materials and alloys.
+https://openalex.org/T10616,Smart Agriculture and AI,none,Another sector. Matches the field search through words such as production or factory.
+https://openalex.org/T10780,Reliability and Maintenance Optimization,predictive_maintenance,
+https://openalex.org/T10763,Digital Transformation in Industry,none,"General label, and the largest of the fifteen. Not an application area."
+https://openalex.org/T10036,Advanced Neural Network Applications,none,"A label for a method, not for an application area."
+https://openalex.org/T11159,Manufacturing Process and Optimization,process_optimisation,
+https://openalex.org/T11918,Forecasting Techniques and Applications,none,Candidate the list missed: forecasting of demand and production.
+https://openalex.org/T10220,Machine Fault Diagnosis Techniques,predictive_maintenance,

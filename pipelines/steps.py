@@ -58,11 +58,28 @@ def run_trends(config: dict, refresh: bool = False) -> str:
     save_figure(figures.plot_time_series(counts, results, trends_config, fetch_date), "trend_time_series")
     save_figure(figures.plot_trend_map(results, trends_config, fetch_date), "trend_map")
 
+    # Discovery step: which of the source's own topic labels grew fastest?
+    discovery_note = ""
+    discovery_snapshot = ingest.find_latest_snapshot(prefix=ingest.DISCOVERY_PREFIX)
+    if discovery_snapshot is not None:
+        field = transform.yearly_table(counts).loc[transform.FIELD_ID]
+        last_year = trends_config["last_year"]
+        steps = trends_config["growth_window_years"]
+        field_momentum = transform.compound_annual_growth_rate(field[last_year - steps], field[last_year], steps)
+        ranking = transform.discovery_ranking(
+            ingest.load_discovery_topics(discovery_snapshot),
+            field_momentum,
+            trends_config,
+            mapping=ingest.load_discovery_mapping(),
+        )
+        write_csv(ranking, PROCESSED_DIR / "discovery_top_topics.csv")
+        discovery_note = ", discovery_top_topics.csv"
+
     shortlisted = int(results["on_shortlist_by_rule"].sum())
     return (
         f"snapshot {snapshot.name}: {len(results)} sub-topics, "
         f"{int(results['emerging'].sum())} emerging, {shortlisted} on the shortlist by rule; "
-        "wrote trend_metrics.csv and 2 charts"
+        f"wrote trend_metrics.csv{discovery_note} and 2 charts"
     )
 
 

@@ -7,6 +7,7 @@ Files here are filled in by hand and read by the pipeline. Each file is describe
 | `query_quality.csv` | Result of each round of the query-quality check, per sub-topic | [Trend scan method](../../docs/design/trend-scan-method.md), section 5 |
 | `adoption.csv` | Adoption level (0 to 3) per sub-topic with its source, the date checked and a comment. Rules and status below | [Trend scan method](../../docs/design/trend-scan-method.md), section 6.3 |
 | `source_growth_check_2026-11-12.csv` | A one-off check of how the whole source grew per year, to judge the jump in 2025. Each row has its filter, so it can be repeated. Findings below | Trend scan method, section 2 (latest year) |
+| `discovery_mapping.csv` | For each of the fastest-growing topic labels of the source: which sub-topic it corresponds to, or "none", with a comment. First pass by the AI assistant; to be confirmed by the owner | Trend scan method, section 6.4 |
 | `query_quality_ratings.csv` | The 200 works rated in the final round, with the reason for each "not relevant" | Same |
 
 The ratings so far come from two AI sessions (column `rater`). The owner's spot-check is added as further rows.
