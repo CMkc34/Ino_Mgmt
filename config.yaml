@@ -11,6 +11,8 @@ trends:
                           # window, no growth rate is computed ("emerging")
   quality_threshold: 0.70 # share of relevant works a search must reach in the
                           # query-quality check
+  discovery_top_n: 15     # discovery step: how many of the source's own topic
+                          # labels are compared with the sub-topics
 
   # Only these types of work are counted. Editorials, peer-review records,
   # whole books, datasets and similar are left out.

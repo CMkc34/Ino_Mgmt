@@ -232,3 +232,44 @@ def build_trend_results(
         ["emerging", "relative_momentum", "volume"], ascending=[True, False, False], kind="stable"
     )
     return results.reset_index(drop=True)
+
+
+def discovery_ranking(
+    topics: pd.DataFrame,
+    field_momentum: float,
+    trends_config: dict,
+    mapping: pd.DataFrame | None = None,
+) -> pd.DataFrame:
+    """The fastest-growing topic labels of the source within the field (method note, section 6.4).
+
+    Input:  the discovery table (topic_id, topic_name, works_first_year,
+            works_last_year), counted for the two ends of the growth window.
+    Output: the `discovery_top_n` labels with the strongest growth, with
+        momentum            compound annual growth over the window
+        relative_momentum   momentum minus the field's momentum
+        closest_subtopic    which of the sub-topics the label corresponds to,
+        comment             or "none"; both from the hand-made mapping file
+
+    A label is only ranked if it has at least `emerging_threshold` works in
+    the first year (the same rule as for sub-topics) and a count for the
+    last year. Labels are the source's own classification of each work.
+    """
+    steps = trends_config["growth_window_years"]
+    eligible = topics[
+        (topics["works_first_year"] >= trends_config["emerging_threshold"]) & topics["works_last_year"].notna()
+    ].copy()
+    eligible["momentum"] = [
+        compound_annual_growth_rate(first, last, steps)
+        for first, last in zip(eligible["works_first_year"], eligible["works_last_year"])
+    ]
+    eligible["relative_momentum"] = eligible["momentum"] - field_momentum
+    # Strongest growth first; the id breaks ties, so the order is always the same.
+    eligible = eligible.sort_values(["momentum", "topic_id"], ascending=[False, True])
+    ranking = eligible.head(trends_config["discovery_top_n"]).reset_index(drop=True)
+
+    if mapping is not None:
+        ranking = ranking.merge(mapping[["topic_id", "closest_subtopic", "comment"]], on="topic_id", how="left")
+    else:
+        ranking["closest_subtopic"] = pd.NA
+        ranking["comment"] = pd.NA
+    return ranking

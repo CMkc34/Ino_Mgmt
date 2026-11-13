@@ -202,6 +202,16 @@ def save_discovery_topics(table: pd.DataFrame, fetch_date: dt.date, raw_dir: Pat
     return path
 
 
+
+def load_discovery_topics(path: Path) -> pd.DataFrame:
+    """Read a discovery table and check that it has the expected columns."""
+    topics = read_csv(path)
+    missing = set(DISCOVERY_COLUMNS) - set(topics.columns)
+    if missing:
+        raise ValueError(f"{path.name} is missing columns: {sorted(missing)}")
+    return topics[DISCOVERY_COLUMNS]
+
+
 # --- hand-maintained files (data/manual/) -------------------------------------
 
 
@@ -226,3 +236,15 @@ def load_adoption(manual_dir: Path = MANUAL_DIR) -> pd.DataFrame | None:
     if not adoption["level"].isin([0, 1, 2, 3]).all():
         raise ValueError("adoption.csv: every level must be 0, 1, 2 or 3")
     return adoption
+
+
+def load_discovery_mapping(manual_dir: Path = MANUAL_DIR) -> pd.DataFrame | None:
+    """Read which sub-topic each discovered topic label corresponds to, or None if not made yet."""
+    path = manual_dir / "discovery_mapping.csv"
+    if not path.exists():
+        return None
+    mapping = read_csv(path)
+    missing = {"topic_id", "closest_subtopic", "comment"} - set(mapping.columns)
+    if missing:
+        raise ValueError(f"discovery_mapping.csv is missing columns: {sorted(missing)}")
+    return mapping

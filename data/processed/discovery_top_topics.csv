@@ -1,0 +1,16 @@
+topic_id,topic_name,works_first_year,works_last_year,momentum,relative_momentum,closest_subtopic,comment
+https://openalex.org/T14260,Impact of AI and Big Data on Business and Society,58.000000,810.000000,0.694382,0.340886,none,General and management literature on AI. Not an application area.
+https://openalex.org/T10400,Network Security and Intrusion Detection,33.000000,250.000000,0.499289,0.145792,none,Candidate the list missed: security of connected factories and industrial networks.
+https://openalex.org/T13904,Artificial Intelligence Applications,45.000000,300.000000,0.461443,0.107946,none,General label. Not an application area.
+https://openalex.org/T10551,Scheduling and Optimization Algorithms,74.000000,475.000000,0.450415,0.096919,production_planning,
+https://openalex.org/T10783,Additive Manufacturing and 3D Printing Technologies,89.000000,538.000000,0.433106,0.079610,additive_manufacturing,
+https://openalex.org/T10705,Additive Manufacturing Materials and Processes,116.000000,547.000000,0.363659,0.010163,additive_manufacturing,
+https://openalex.org/T12111,Industrial Vision Systems and Defect Detection,321.000000,1455.000000,0.352918,-0.000578,visual_quality_inspection,
+https://openalex.org/T11948,Machine Learning in Materials Science,68.000000,305.000000,0.350076,-0.003421,none,Candidate the list missed: AI for developing materials and alloys.
+https://openalex.org/T10616,Smart Agriculture and AI,39.000000,169.000000,0.340801,-0.012695,none,Another sector. Matches the field search through words such as production or factory.
+https://openalex.org/T10780,Reliability and Maintenance Optimization,63.000000,271.000000,0.338831,-0.014666,predictive_maintenance,
+https://openalex.org/T10763,Digital Transformation in Industry,501.000000,2050.000000,0.325511,-0.027986,none,"General label, and the largest of the fifteen. Not an application area."
+https://openalex.org/T10036,Advanced Neural Network Applications,60.000000,240.000000,0.319508,-0.033989,none,"A label for a method, not for an application area."
+https://openalex.org/T11159,Manufacturing Process and Optimization,44.000000,172.000000,0.313455,-0.040042,process_optimisation,
+https://openalex.org/T11918,Forecasting Techniques and Applications,30.000000,117.000000,0.312843,-0.040653,none,Candidate the list missed: forecasting of demand and production.
+https://openalex.org/T10220,Machine Fault Diagnosis Techniques,210.000000,759.000000,0.293018,-0.060479,predictive_maintenance,
