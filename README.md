@@ -55,7 +55,8 @@ A small project, managed like a real one:
 | [`outputs/`](outputs/) | Charts produced by the pipeline |
 | [`tests/`](tests/) | Automatic tests of the calculations, the charts and the documents |
 | [`frameworks/`](frameworks/) | Framework write-ups: [Three Horizons](frameworks/three-horizons.md), applied to the scoring results |
-| [`case-studies/`](case-studies/), [`notes/`](notes/) | Planned; see the [roadmap](ROADMAP.md) |
+| [`case-studies/`](case-studies/) | Case studies from public sources: [DMG MORI and the digital twin](case-studies/2026-11_dmg-mori-digital-twin.md) |
+| [`notes/`](notes/) | Planned; see the [roadmap](ROADMAP.md) |
 
 ## Approach
 
