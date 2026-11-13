@@ -34,8 +34,8 @@ This repository collects applied material on how organisations find, evaluate an
 
 This project was built with an AI assistant (Claude Code), and the division of work is stated here so nothing is misread.
 
-- **By the project owner:** the scope and priorities, the decisions on method (approved before any data was fetched), the checks of the assistant's work, the rules and levels for adoption, the scores and their evidence, the interpretation and the written analyses.
-- **By the AI assistant, at the owner's direction:** the Python code and its tests, the data fetch, drafts of the project documents and method notes, a first rating of the search results, the search for and checking of adoption sources, and reviews, including a critical review of its own designs.
+- **By the project owner:** the scope and priorities, the decisions on method (approved before any data was fetched), the checks of the assistant's work, the rules and levels for adoption, the scores and their evidence, and the review and final wording of the written analyses.
+- **By the AI assistant, at the owner's direction:** the Python code and its tests, the data fetch, drafts of the project documents and method notes, a first rating of the search results, the search for and checking of adoption sources, first drafts of the written analyses, and reviews, including a critical review of its own designs.
 
 The project documents record each decision and change request, and the Git history shows who committed what.
 
