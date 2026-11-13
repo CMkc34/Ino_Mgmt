@@ -7,6 +7,7 @@ Chart rules for this project (requirement G-5): a title, labelled axes with
 units, a source note, and never colour alone to tell series apart.
 """
 
+import io
 from pathlib import Path
 
 import matplotlib
@@ -20,6 +21,7 @@ matplotlib.rcdefaults()
 matplotlib.rcParams["font.family"] = "DejaVu Sans"
 
 import matplotlib.pyplot as plt  # noqa: E402  (must come after the line above)
+from matplotlib import image  # noqa: E402
 import matplotlib.ticker as ticker  # noqa: E402
 import pandas as pd  # noqa: E402
 from matplotlib.figure import Figure  # noqa: E402
@@ -28,16 +30,37 @@ from matplotlib.transforms import Bbox  # noqa: E402
 from pipelines.paths import FIGURES_DIR  # noqa: E402
 
 
+def same_picture(first_png: bytes, second_png: bytes) -> bool:
+    """True if two PNG files show exactly the same picture, pixel for pixel.
+
+    Two files can hold the identical picture and still differ as files,
+    because computers compress images in slightly different ways.
+    """
+    first = image.imread(io.BytesIO(first_png))
+    second = image.imread(io.BytesIO(second_png))
+    return first.shape == second.shape and bool((first == second).all())
+
+
 def save_figure(figure: Figure, name: str, figures_dir: Path = FIGURES_DIR) -> Path:
     """Save a chart as PNG and return its path.
+
+    The chart is drawn at a fixed size and resolution. If a file with the
+    same picture already exists, it is left untouched. So a chart file only
+    changes when the picture changes, and not because a different computer
+    compressed it differently.
 
     The "Software" entry normally stores the matplotlib version inside the
     file. It is removed so the file does not change between versions.
     """
     figures_dir.mkdir(parents=True, exist_ok=True)
     path = figures_dir / f"{name}.png"
-    figure.savefig(path, dpi=150, bbox_inches="tight", metadata={"Software": None})
+
+    drawn = io.BytesIO()
+    figure.savefig(drawn, format="png", dpi=150, metadata={"Software": None})
     plt.close(figure)
+
+    if not (path.exists() and same_picture(path.read_bytes(), drawn.getvalue())):
+        path.write_bytes(drawn.getvalue())
     return path
 
 
@@ -99,16 +122,17 @@ def plot_time_series(counts: pd.DataFrame, results: pd.DataFrame, trends_config:
         x=0.01, ha="left", fontsize=13, fontweight="bold",
     )
     figure.supylabel("Works published per year (number)", fontsize=9.5)
-    figure.supxlabel("Publication year", fontsize=9.5)
+    figure.supxlabel("Publication year", fontsize=9.5, y=0.11)
     figure.text(
-        0.01, -0.03,
+        0.01, 0.015,
         "Each panel has its own vertical scale: compare shapes, not heights. "
         f"Hollow marker: {last_year}, the latest year. Panels are sorted by growth relative to the field; "
         "\"emerging\" sub-topics had too few works at the start to compute a growth rate.\n"
         + source_note(trends_config, fetch_date),
-        fontsize=8, color=MUTED, ha="left", va="top",
+        fontsize=8, color=MUTED, ha="left", va="bottom",
     )
-    figure.tight_layout(rect=(0.01, 0, 1, 0.97))
+    # Leave room for the title above and the note below the panels.
+    figure.tight_layout(rect=(0.01, 0.13, 1, 0.95))
     return figure
 
 
@@ -169,8 +193,8 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     rated = results[~results["emerging"]]
     emerging = results[results["emerging"]]
 
-    figure, axes = plt.subplots(figsize=(11, 6.2))
-    figure.subplots_adjust(left=0.08, right=0.70, top=0.86, bottom=0.20)
+    figure, axes = plt.subplots(figsize=(12.5, 6.4))
+    figure.subplots_adjust(left=0.07, right=0.64, top=0.88, bottom=0.21)
 
     axes.set_xscale("log")
     if len(rated) > 0:
@@ -227,7 +251,7 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     if len(emerging) == 0:
         lines.append("none")
     figure.text(
-        0.72, 0.84, "\n".join(lines), fontsize=9, color=INK, va="top", ha="left", linespacing=1.5,
+        0.67, 0.86, "\n".join(lines), fontsize=9, color=INK, va="top", ha="left", linespacing=1.5,
         bbox=dict(boxstyle="round,pad=0.6", facecolor="white", edgecolor=MUTED),
     )
 

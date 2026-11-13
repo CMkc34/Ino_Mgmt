@@ -1,7 +1,10 @@
 """Tests for pipelines/figures.py."""
 
+import io
+
 import matplotlib.pyplot as plt
 import pandas as pd
+from PIL import Image
 
 from pipelines import figures, transform
 from pipelines.figures import save_figure
@@ -18,6 +21,37 @@ def test_saving_the_same_chart_twice_gives_identical_files(tmp_path):
     first = save_figure(simple_chart(), "example", tmp_path).read_bytes()
     second = save_figure(simple_chart(), "example", tmp_path).read_bytes()
     assert first == second
+
+
+def recompressed(png: bytes) -> bytes:
+    """The same picture, stored with a different compression setting."""
+    picture = Image.open(io.BytesIO(png))
+    stored = io.BytesIO()
+    picture.save(stored, format="png", compress_level=1)
+    return stored.getvalue()
+
+
+def test_a_file_with_the_same_picture_is_left_untouched(tmp_path):
+    # This is the situation on another computer: the chart file in the
+    # repository shows the same picture but was compressed differently.
+    path = save_figure(simple_chart(), "example", tmp_path)
+    other_computer = recompressed(path.read_bytes())
+    assert other_computer != path.read_bytes()
+    path.write_bytes(other_computer)
+
+    save_figure(simple_chart(), "example", tmp_path)
+    assert path.read_bytes() == other_computer
+
+
+def test_a_changed_picture_replaces_the_file(tmp_path):
+    path = save_figure(simple_chart(), "example", tmp_path)
+    before = path.read_bytes()
+
+    changed, axes = plt.subplots()
+    axes.plot([2023, 2024, 2025], [10, 20, 41])  # one value differs
+    axes.set_title("Example")
+    save_figure(changed, "example", tmp_path)
+    assert path.read_bytes() != before
 
 
 # --- the two trend scan charts ----------------------------------------------

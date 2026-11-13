@@ -29,3 +29,8 @@ jobs:
         run: python -m pipelines run all
       - name: Check that the run changed no tracked files
         run: git diff --exit-code
+      - name: Explain chart differences
+        # Runs only when a step above failed. If a chart was redrawn, this
+        # shows how far the new picture is from the one in the repository.
+        if: failure()
+        run: python tools/compare_charts.py
