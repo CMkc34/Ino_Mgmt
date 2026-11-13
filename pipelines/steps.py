@@ -8,10 +8,10 @@ built.
 
 import datetime as dt
 
-from pipelines import figures, ingest, transform
+from pipelines import figures, ingest, scoring, transform
 from pipelines.figures import save_figure
 from pipelines.io import write_csv
-from pipelines.paths import PROCESSED_DIR
+from pipelines.paths import PROCESSED_DIR, in_repo
 
 
 def run_trends(config: dict, refresh: bool = False) -> str:
@@ -84,10 +84,35 @@ def run_trends(config: dict, refresh: bool = False) -> str:
 
 
 def run_scoring(config: dict, refresh: bool = False) -> str:
-    """Opportunity scoring (deliverable D3). Built in sprint 2."""
-    # TODO (owner, sprint 2): read the opportunity list, score, run the
-    # sensitivity check, write the tables and charts.
-    return "skipped (built in sprint 2)"
+    """Opportunity scoring: inputs -> ranking -> sensitivity tests -> charts (deliverable D3)."""
+    scoring_config = config["scoring"]
+    input_dir = in_repo(scoring_config["input_dir"])
+    if not (input_dir / "scores.csv").exists():
+        return f"skipped (no scores.csv in {scoring_config['input_dir']})"
+
+    opportunities, scores, business_case = scoring.load_inputs(input_dir, scoring_config["weights"])
+
+    ranking = scoring.build_ranking(opportunities, scores, scoring_config)
+    write_csv(ranking, PROCESSED_DIR / "scoring_ranking.csv")
+
+    table = scoring.score_table(scores, scoring_config["weights"])
+    write_csv(scoring.swap_points(table, scoring_config["weights"]), PROCESSED_DIR / "scoring_swap_points.csv")
+    write_csv(
+        scoring.uncertain_score_test(opportunities, scores, scoring_config),
+        PROCESSED_DIR / "scoring_uncertain_scores.csv",
+    )
+    if business_case is not None:
+        write_csv(
+            scoring.business_case_results(business_case, scoring_config["breakeven_years"]),
+            PROCESSED_DIR / "scoring_business_case.csv",
+        )
+
+    save_figure(figures.plot_rank_stability(ranking, scoring_config), "scoring_rank_stability")
+    save_figure(figures.plot_time_horizon(ranking, scoring_config), "scoring_time_horizon")
+
+    classes = ranking["classification"].value_counts()
+    summary = ", ".join(f"{classes.get(name, 0)} {name}" for name in ("pursue", "explore", "park"))
+    return f"{len(ranking)} opportunities from {scoring_config['input_dir']}: {summary}; wrote 4 tables and 2 charts"
 
 
 # Order matters: `run all` goes through this dictionary from top to bottom.

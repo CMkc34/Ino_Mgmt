@@ -1,0 +1,3 @@
+opportunity_id,criterion,direction,score_from,score_to,new_total,top_group_changed,top_order_changed,classification_changes
+A,market_attractiveness,down,5,4,4.050000,False,True,
+C,risk,up,1,2,3.400000,False,False,

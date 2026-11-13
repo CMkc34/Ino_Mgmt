@@ -14,3 +14,8 @@ MANUAL_DIR = REPO_ROOT / "data" / "manual"        # files filled in by hand
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"  # analysis-ready CSV files
 FIGURES_DIR = REPO_ROOT / "outputs" / "figures"   # charts
 SCORING_DIR = REPO_ROOT / "tools" / "opportunity-scoring"
+
+
+def in_repo(relative_path: str) -> Path:
+    """Turn a path written in config.yaml (relative to the repository) into a full path."""
+    return REPO_ROOT / relative_path

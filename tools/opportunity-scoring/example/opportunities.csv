@@ -1,0 +1,6 @@
+id,name,subtopic_id,use,description
+A,Example A: strong all round,example,offering,Made-up opportunity. High scores on most criteria.
+B,Example B: quick and feasible,example,internal,"Made-up opportunity. Almost as strong as A, and faster."
+C,Example C: attractive but risky,example,offering,Made-up opportunity. Has a score of 1 on risk.
+D,Example D: modest,example,internal,Made-up opportunity. Middling scores.
+E,Example E: weak,example,internal,Made-up opportunity. Low scores.

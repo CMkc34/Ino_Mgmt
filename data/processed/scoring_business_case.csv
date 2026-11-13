@@ -1,0 +1,5 @@
+opportunity_id,case,investment,yearly_benefit,yearly_running_cost,yearly_net_benefit,payback_years,breakeven_driver,breakeven_quantity,breakeven_unit,base_quantity
+A,cautious,500000.000000,200000.000000,60000.000000,140000.000000,3.571429,,,,
+A,base,400000.000000,300000.000000,60000.000000,240000.000000,1.666667,,,,
+A,optimistic,300000.000000,400000.000000,60000.000000,340000.000000,0.882353,,,,
+A,break-even for payback in 3 years,400000.000000,193333.333333,60000.000000,133333.333333,3.000000,Downtime hours avoided per year,386.666667,hours,600.000000

@@ -49,3 +49,16 @@ def test_trends_step_writes_one_result_row_per_subtopic():
     assert set(results["subtopic_id"]) == {subtopic["id"] for subtopic in load_config()["trends"]["subtopics"]}
     assert (FIGURES_DIR / "trend_map.png").exists()
     assert (FIGURES_DIR / "trend_time_series.png").exists()
+
+
+def test_scoring_step_runs_on_the_configured_input_set():
+    from pipelines.io import read_csv
+    from pipelines.paths import FIGURES_DIR, PROCESSED_DIR, in_repo
+
+    scoring_config = load_config()["scoring"]
+    assert (in_repo(scoring_config["input_dir"]) / "scores.csv").exists()
+    assert main(["run", "scoring"]) == 0
+    ranking = read_csv(PROCESSED_DIR / "scoring_ranking.csv")
+    assert set(ranking["classification"]) <= {"pursue", "explore", "park"}
+    assert (FIGURES_DIR / "scoring_rank_stability.png").exists()
+    assert (FIGURES_DIR / "scoring_time_horizon.png").exists()

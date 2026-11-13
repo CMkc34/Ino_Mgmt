@@ -1,0 +1,6 @@
+id,name,subtopic_id,use,market_attractiveness,technical_feasibility,strategic_fit,time_to_value,risk,total,rank,practically_tied,top_share,first_share,top_share_free,has_score_of_one,classification,reason,months_to_value,score_without_time
+A,Example A: strong all round,example,offering,5,4,5,3,4,4.300000,1,B,1.000000,0.695000,1.000000,False,pursue,"stable in the top group, strong total, no score of 1",18,4.529412
+B,Example B: quick and feasible,example,internal,4,5,3,5,4,4.200000,2,A,1.000000,0.305000,1.000000,False,pursue,"stable in the top group, strong total, no score of 1",3,4.058824
+C,Example C: attractive but risky,example,offering,5,3,4,2,1,3.250000,3,,0.982000,0.000000,0.585000,True,explore,total below the bar for pursue; has a score of 1 (knock-out rule),30,3.470588
+D,Example D: modest,example,internal,2,3,2,4,3,2.700000,4,,0.018000,0.000000,0.415000,False,park,rarely in the top group,9,2.470588
+E,Example E: weak,example,internal,3,2,2,2,2,2.250000,5,,0.000000,0.000000,0.000000,False,park,rarely in the top group,30,2.294118

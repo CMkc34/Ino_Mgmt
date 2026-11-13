@@ -147,3 +147,34 @@ def test_trend_charts_come_out_identical_on_every_run(tmp_path):
         first = save_figure(draw(name), name, tmp_path).read_bytes()
         second = save_figure(draw(name), name, tmp_path).read_bytes()
         assert first == second
+
+
+# --- the two scoring charts -------------------------------------------------
+
+
+def small_ranking() -> tuple[pd.DataFrame, dict]:
+    from tests.test_scoring import CONFIG, opportunities, scores
+    from pipelines import scoring
+
+    config = dict(CONFIG, data_label="Made-up example data.")
+    return scoring.build_ranking(opportunities(), scores(), config), config
+
+
+def test_rank_stability_chart_has_one_bar_per_opportunity_and_names_the_class():
+    ranking, config = small_ranking()
+    figure = figures.plot_rank_stability(ranking, config)
+    assert len(figure.axes[0].patches) == len(ranking)
+    text = all_text(figure)
+    assert "pursue" in text and "park" in text
+    assert "Made-up example data." in text and "illustrative" in text
+    plt.close(figure)
+
+
+def test_time_horizon_chart_labels_every_opportunity_and_is_marked_illustrative():
+    ranking, config = small_ranking()
+    figure = figures.plot_time_horizon(ranking, config)
+    labels_in_plot = " ".join(text.get_text() for text in figure.axes[0].texts)
+    for name in ranking["name"]:
+        assert name in labels_in_plot
+    assert "illustrative" in all_text(figure)
+    plt.close(figure)

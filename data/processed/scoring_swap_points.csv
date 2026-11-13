@@ -1,0 +1,6 @@
+criterion,base_weight,swap_weight,change_needed,rank_1,rank_2
+market_attractiveness,0.250000,0.160000,0.090000,A,B
+technical_feasibility,0.250000,0.320000,0.070000,A,B
+strategic_fit,0.200000,0.150000,0.050000,A,B
+time_to_value,0.150000,0.200000,0.050000,A,B
+risk,0.150000,,,A,B
