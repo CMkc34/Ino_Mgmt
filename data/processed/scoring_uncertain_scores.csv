@@ -1,0 +1,39 @@
+opportunity_id,criterion,direction,score_from,score_to,new_total,top_group_changed,top_order_changed,classification_changes
+digital_twin,market_attractiveness,up,4,5,4.100000,False,False,
+digital_twin,market_attractiveness,down,4,3,3.600000,False,False,
+digital_twin,time_to_value,up,3,4,4.000000,False,False,
+digital_twin,time_to_value,down,3,2,3.700000,False,False,
+visual_inspection,market_attractiveness,up,3,4,3.500000,False,True,visual_inspection: explore to pursue; service_copilot: explore to park; production_scheduling: explore to park
+visual_inspection,market_attractiveness,down,3,2,3.000000,True,True,visual_inspection: explore to park
+visual_inspection,time_to_value,up,3,4,3.400000,False,True,service_copilot: explore to park; production_scheduling: explore to park
+visual_inspection,time_to_value,down,3,2,3.100000,True,True,
+visual_inspection,risk,up,3,4,3.400000,False,True,production_scheduling: explore to park
+visual_inspection,risk,down,3,2,3.100000,True,True,visual_inspection: explore to park
+additive_manufacturing,market_attractiveness,up,2,3,2.550000,False,False,
+additive_manufacturing,market_attractiveness,down,2,1,2.050000,False,False,
+additive_manufacturing,time_to_value,up,2,3,2.450000,False,False,
+additive_manufacturing,time_to_value,down,2,1,2.150000,False,False,
+additive_manufacturing,risk,up,4,5,2.450000,False,False,
+additive_manufacturing,risk,down,4,3,2.150000,False,False,
+service_copilot,market_attractiveness,up,3,4,3.450000,True,True,production_scheduling: explore to park
+service_copilot,market_attractiveness,down,3,2,2.950000,False,False,service_copilot: explore to park
+service_copilot,time_to_value,up,4,5,3.350000,True,True,production_scheduling: explore to park
+service_copilot,time_to_value,down,4,3,3.050000,False,False,service_copilot: explore to park
+service_copilot,risk,up,2,3,3.350000,True,True,production_scheduling: explore to park
+service_copilot,risk,down,2,1,3.050000,False,False,service_copilot: explore to park
+production_scheduling,market_attractiveness,up,3,4,3.400000,True,True,service_copilot: explore to park
+production_scheduling,market_attractiveness,down,3,2,2.900000,False,False,production_scheduling: explore to park
+production_scheduling,time_to_value,up,3,4,3.300000,True,True,service_copilot: explore to park
+production_scheduling,time_to_value,down,3,2,3.000000,False,False,production_scheduling: explore to park
+production_scheduling,risk,up,4,5,3.300000,True,True,
+production_scheduling,risk,down,4,3,3.000000,False,False,production_scheduling: explore to park
+energy_optimisation,market_attractiveness,up,2,3,2.600000,False,False,
+energy_optimisation,market_attractiveness,down,2,1,2.100000,False,False,
+energy_optimisation,time_to_value,up,2,3,2.500000,False,False,
+energy_optimisation,time_to_value,down,2,1,2.200000,False,False,
+energy_optimisation,risk,up,3,4,2.500000,False,False,
+energy_optimisation,risk,down,3,2,2.200000,False,False,
+predictive_maintenance,market_attractiveness,up,3,4,3.500000,False,False,predictive_maintenance: explore to pursue; production_scheduling: explore to park
+predictive_maintenance,market_attractiveness,down,3,2,3.000000,True,True,predictive_maintenance: explore to park
+predictive_maintenance,time_to_value,up,3,4,3.400000,False,False,production_scheduling: explore to park
+predictive_maintenance,time_to_value,down,3,2,3.100000,True,True,

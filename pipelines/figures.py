@@ -275,3 +275,93 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
         fontsize=8, color=MUTED, ha="left", va="bottom",
     )
     return figure
+
+
+# --- charts for the scoring model (method note, section 9) --------------------
+
+
+def plot_rank_stability(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
+    """Horizontal bars: in what share of the runs is each opportunity in the top group?
+
+    Bars follow the ranking, best total at the top. The two vertical lines
+    are the limits of the classification rule. The class is written after
+    each bar, so it does not depend on colour.
+    """
+    rules = scoring_config["rules"]
+    figure, axes = plt.subplots(figsize=(12.5, 1.6 + 0.62 * len(ranking)))
+    figure.subplots_adjust(left=0.40, right=0.84, top=0.80, bottom=0.30)
+
+    positions = range(len(ranking))
+    shares = ranking["top_share"] * 100
+    axes.barh(positions, shares, color=INK, height=0.55)
+    axes.set_yticks(positions)
+    axes.set_yticklabels([f"{row.name}  (total {row.total:.2f})" for row in ranking.itertuples()], fontsize=9.5)
+    axes.invert_yaxis()  # best total at the top
+    axes.set_xlim(0, 100)
+    for limit, text in ((rules["pursue_top_share"], "pursue from here"), (rules["park_top_share"], "park below")):
+        axes.axvline(limit * 100, color=MUTED, linewidth=1, linestyle=":")
+        axes.text(limit * 100, -0.75, text, fontsize=8.5, color=MUTED, ha="center", va="bottom")
+    for position, row in zip(positions, ranking.itertuples()):
+        axes.text(101.5, position, f"{row.top_share * 100:.0f}%   {row.classification}", fontsize=9.5, va="center", color=INK)
+
+    axes.set_xlabel(f"Share of {scoring_config['sensitivity_runs']:,} runs with varied weights in which it is in the top {rules['top_n']} (%)")
+    axes.spines[["top", "right"]].set_visible(False)
+    figure.suptitle("How stable is the ranking when the weights change?", x=0.01, ha="left", fontsize=13, fontweight="bold")
+    figure.text(
+        0.01, 0.02,
+        f"Each weight was varied by up to {scoring_config['weight_variation'] * 100:.0f}% at random. "
+        f"Pursue also needs a total of at least {rules['pursue_min_total']} and no score of 1; "
+        f"a total below {rules['park_max_total']} means park.\n"
+        f"Scores are judgements for an illustrative reference organisation. {scoring_config['data_label']}",
+        fontsize=8, color=MUTED, ha="left", va="bottom",
+    )
+    return figure
+
+
+def plot_time_horizon(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
+    """Scatter: time to first value against the score on all other criteria.
+
+    Time to value is left out of the vertical axis because it is already the
+    horizontal one. The three bands are the time horizons.
+    """
+    figure, axes = plt.subplots(figsize=(12.5, 6))
+    figure.subplots_adjust(left=0.07, right=0.60, top=0.86, bottom=0.21)
+
+    bands = ((0, 12, "under 12 months"), (12, 36, "12 to 36 months"), (36, 48, "over 36 months"))
+    for index, (start, end, text) in enumerate(bands):
+        if index % 2 == 0:
+            axes.axvspan(start, end, color="#f0f0f0", zorder=0)
+        axes.text((start + end) / 2, 5.05, text, fontsize=9, color=MUTED, ha="center", va="bottom")
+
+    # Each point is labelled with its rank; the names are in the key beside
+    # the plot. Opportunities at the same position share one point.
+    positioned = ranking.assign(height=ranking["score_without_time"].round(3))
+    texts = []
+    for (months, height), group in positioned.groupby(["months_to_value", "height"], sort=True):
+        axes.plot(months, height, "o", markersize=9, color=INK)
+        texts.append((" / ".join(str(rank) for rank in group["rank"]), months, height))
+    axes.set_xlim(0, 48)
+    axes.set_ylim(1, 5)
+    place_labels(figure, axes, texts)
+
+    key = ["Rank, opportunity and class", ""]
+    for row in ranking.itertuples():
+        key.append(f"{row.rank}  {row.name}")
+        key.append(f"     total {row.total:.2f}; {row.classification}")
+    figure.text(
+        0.62, 0.86, "\n".join(key), fontsize=8.5, color=INK, va="top", ha="left", linespacing=1.45,
+        bbox=dict(boxstyle="round,pad=0.6", facecolor="white", edgecolor=MUTED),
+    )
+
+    axes.set_xlabel("Time to first measurable value (months, midpoint of the scored band)")
+    axes.set_ylabel("Score on the other criteria (1 to 5)")
+    axes.spines[["top", "right"]].set_visible(False)
+    figure.suptitle("How good, and how soon?", x=0.01, ha="left", fontsize=13, fontweight="bold")
+    figure.text(
+        0.01, 0.02,
+        "Numbers are ranks by total score. Vertical axis: weighted score without the time criterion, weights rescaled to sum to 1.\n"
+        "The Three Horizons framework covers more than time; the bands only show the time dimension.\n"
+        f"Scores are judgements for an illustrative reference organisation. {scoring_config['data_label']}",
+        fontsize=8, color=MUTED, ha="left", va="bottom",
+    )
+    return figure

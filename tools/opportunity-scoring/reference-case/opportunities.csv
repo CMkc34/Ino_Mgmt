@@ -1,0 +1,8 @@
+id,name,subtopic_id,use,description
+digital_twin,Digital twin for virtual commissioning,digital_twins,internal,A simulation model of each machine is built during engineering and used to test the control software before the machine is assembled. The same model is handed to the customer as the basis for later digital services.
+visual_inspection,AI visual inspection as a machine option,visual_quality_inspection,offering,"Camera-based AI quality inspection is offered as an integrated option on new machines, checking the customer's parts inside the machine."
+additive_manufacturing,AI-supported 3D printing of spare and tooling parts,additive_manufacturing,internal,"Spare parts and tooling are 3D printed on demand, with AI-based process control to secure quality at small quantities."
+service_copilot,Service copilot for technicians and operators,industrial_copilots,offering,"A language-model assistant answers questions from service technicians and customers' operators from the machine documentation, service reports and fault histories."
+production_scheduling,AI-based scheduling in the company's own plants,production_planning,internal,Assembly and machining orders in the three plants are scheduled by a learning system instead of manual planning.
+energy_optimisation,Energy-optimised operating mode for machines,energy_optimisation,offering,Machines are sold with an AI function that adapts process settings to cut energy use per part.
+predictive_maintenance,Predictive maintenance as a service for the installed base,predictive_maintenance,offering,"Connected machines at customers are monitored, and failures are predicted, as a yearly service contract."

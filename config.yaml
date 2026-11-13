@@ -75,6 +75,12 @@ trends:
       title_terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
 
 scoring:
+  # The folder with the opportunity list and the scores. Change this line to
+  # run the model on another set of opportunities; no code changes needed.
+  input_dir: tools/opportunity-scoring/reference-case
+  # Shown on the charts, so nobody mistakes the numbers for facts.
+  data_label: "First-pass scores, to be reviewed by the project owner."
+
   # Starting weights from decision OD-5. They must sum to 1.
   weights:
     market_attractiveness: 0.25
@@ -84,3 +90,20 @@ scoring:
     risk: 0.15
   sensitivity_runs: 1000
   random_seed: 42
+  weight_variation: 0.5     # each weight is varied by up to +/- 50% (decision SD-4)
+
+  # The classification rule (method note, section 8; decision SD-5).
+  rules:
+    top_n: 3                # "the top group" = the three highest totals
+    pursue_top_share: 0.70  # pursue: in the top group in at least 70% of runs ...
+    pursue_min_total: 3.5   # ... and a total of at least 3.5 (and no score of 1)
+    park_top_share: 0.20    # park: in the top group in fewer than 20% of runs ...
+    park_max_total: 2.5     # ... or a total below 2.5
+    near_tie: 0.25          # totals closer than this are "practically tied"
+
+  # Time to first value: the criterion that holds it, and the midpoint in
+  # months of the band behind each score (rubric, method note 4.4).
+  time_criterion: time_to_value
+  months_to_value: {5: 3, 4: 9, 3: 18, 2: 30, 1: 42}
+
+  breakeven_years: 3        # business case: "what must be true for payback in 3 years?"

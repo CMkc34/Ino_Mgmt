@@ -28,3 +28,14 @@ One row per sub-topic, strongest growth relative to the field first, emerging su
 | `rising_three_years` | The yearly count rose in each of the last three years |
 | `on_shortlist_by_rule` | Rules 1 to 3 of the shortlist rule. Rules 4 and 5 need judgement and are applied in the write-up |
 | `adoption_level` | From `data/manual/adoption.csv`; empty until that file is filled in |
+
+## Scoring model
+
+Written by `python -m pipelines run scoring` from the input set named in `config.yaml` (`scoring.input_dir`). Definitions are in the [scoring model method](../../docs/design/scoring-model-method.md). The input is the reference case in `tools/opportunity-scoring/reference-case/`: first-pass scores for a fictional organisation. The results are illustrative.
+
+| File | Content |
+|---|---|
+| `scoring_ranking.csv` | One row per opportunity, best total first: the scores, `total`, `rank`, `practically_tied` (totals closer than 0.25), `top_share` (share of runs in the top three, weights varied by up to 50%), `first_share`, `top_share_free` (the same with freely drawn weights), `has_score_of_one`, `classification` (pursue, explore, park) with its `reason`, `months_to_value` and `score_without_time` |
+| `scoring_swap_points.csv` | For each criterion: the weight at which ranks 1 and 2 would swap, or empty if they never do |
+| `scoring_uncertain_scores.csv` | Each score that rests on an assumption, moved one point up and down: the new total and what changed in the top group and the classification |
+| `scoring_business_case.csv` | Payback in a cautious, a base and an optimistic case, and the break-even row: how large the main benefit driver must be for payback within three years |

@@ -1,0 +1,9 @@
+opportunity_id,case,investment,yearly_benefit,yearly_running_cost,yearly_net_benefit,payback_years,breakeven_driver,breakeven_quantity,breakeven_unit,base_quantity
+digital_twin,cautious,800000.000000,510000.000000,150000.000000,360000.000000,2.222222,,,,
+digital_twin,base,600000.000000,1020000.000000,150000.000000,870000.000000,0.689655,,,,
+digital_twin,optimistic,400000.000000,1530000.000000,150000.000000,1380000.000000,0.289855,,,,
+digital_twin,break-even for payback in 3 years,600000.000000,350000.000000,150000.000000,200000.000000,3.000000,Commissioning hours saved per year,4117.647059,hours,12000.000000
+predictive_maintenance,cautious,1200000.000000,800000.000000,250000.000000,550000.000000,2.181818,,,,
+predictive_maintenance,base,900000.000000,1600000.000000,250000.000000,1350000.000000,0.666667,,,,
+predictive_maintenance,optimistic,600000.000000,2400000.000000,250000.000000,2150000.000000,0.279070,,,,
+predictive_maintenance,break-even for payback in 3 years,900000.000000,550000.000000,250000.000000,300000.000000,3.000000,Service contracts in force,68.750000,contracts,200.000000

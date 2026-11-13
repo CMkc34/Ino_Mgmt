@@ -1,0 +1,4 @@
+opportunity_id,kind,item,low,base,high,unit,unit_value,source
+A,investment,One-off investment,300000,400000,500000,EUR,,assumption: made-up example
+A,running_cost,Yearly running cost,60000,60000,60000,EUR,,assumption: made-up example
+A,benefit,Downtime hours avoided per year,400,600,800,hours,500,assumption: made-up example

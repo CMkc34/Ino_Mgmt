@@ -1,0 +1,7 @@
+opportunity_id,kind,item,low,base,high,unit,unit_value,source
+digital_twin,benefit,Commissioning hours saved per year,6000,12000,18000,hours,85,"assumption: 5% / 10% / 15% of 120,000 commissioning hours (P-13), valued at EUR 85 an hour; vendor-reported cases give 25% to 70% (ISA InTech 2020; Siemens case studies)"
+digital_twin,investment,"Simulation software, model library and training",400000,600000,800000,EUR,,assumption
+digital_twin,running_cost,Licences and upkeep of the model library,150000,150000,150000,EUR,,assumption
+predictive_maintenance,benefit,Service contracts in force,100,200,300,contracts,8000,"assumption: 10% / 20% / 30% of 1,000 connected machines (P-5); contribution of EUR 8,000 per contract from a price of EUR 12,000"
+predictive_maintenance,investment,"Platform, integration and connectivity upgrades",600000,900000,1200000,EUR,,assumption
+predictive_maintenance,running_cost,Monitoring team and cloud services,250000,250000,250000,EUR,,assumption
