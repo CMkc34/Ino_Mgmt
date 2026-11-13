@@ -12,9 +12,9 @@
 
 ## Summary
 
-This model ranks opportunities for one organisation on five weighted criteria and tests how far the ranking can be trusted. Applied to seven AI opportunities for a fictional machine builder, it gives one clear result and one honest non-result. **A digital twin for virtual commissioning** ranks first in every one of 1,000 runs with varied weights and is the only opportunity that qualifies as "pursue". Four opportunities (predictive maintenance as a service, AI visual inspection, a service copilot, AI-based scheduling) lie within 0.10 points of each other: their order depends on the weights and on single uncertain scores. Two are parked.
+This model ranks opportunities for one organisation on five weighted criteria (value, feasibility, strategic fit, time and risk, each scored 1 to 5) and tests how far the ranking can be trusted. Here it is applied to seven AI opportunities for a **fictional** machine builder. **A digital twin for virtual commissioning** scores 3.85 of 5, ranks first in all 1,000 runs with varied weights, and alone meets the bar for "pursue". Four others (predictive maintenance as a service, AI visual inspection, a service copilot, AI-based scheduling) score 3.15 to 3.25: too close to rank, because one point on a single estimated score reorders them. Two (an energy-saving machine mode, 3D printing of parts) score under 2.5 and are parked.
 
-**Recommendation:** start with the digital twin. For the four close contenders, do not pick by rank. Resolve the one uncertainty that decides each of them first.
+**Recommendation for the example company:** start with the digital twin. Do not rank the four close ones; first firm up the estimate that decides each, mostly its yearly value.
 
 ## 1. How the model works
 
@@ -31,7 +31,15 @@ This model ranks opportunities for one organisation on five weighted criteria an
 | Park | In the top three in fewer than 20% of runs, **or** a total below 2.5 |
 | Explore | Everything else |
 
-**Weights:** market attractiveness 0.25, technical feasibility 0.25, strategic fit 0.20, time to value 0.15, risk 0.15. They were set before scoring. The reasoning for each weight is still to be written by the project owner.
+**Weights.** They were set before scoring (decision OD-5) and not changed afterwards.
+
+| Criterion | Weight | Reasoning (first draft, for the owner to confirm) |
+|---|---|---|
+| Market attractiveness | 0.25 | With a digital budget of about EUR 2 million a year, an opportunity has to be worth enough to matter |
+| Technical feasibility | 0.25 | A data team of about ten cannot carry research-stage technology; what cannot be built is worth nothing |
+| Strategic fit | 0.20 | Important, but the three goals are broad, so most opportunities fit at least one |
+| Time to value | 0.15 | A cautious, family-owned company wants early proof, but not at the price of the larger prize |
+| Risk | 0.15 | Matters to cautious owners; kept below value and feasibility because most risks here can be limited by starting small |
 
 ## 2. The opportunities
 
@@ -167,6 +175,6 @@ This section is removed once the draft is approved.
 
 1. **The scores.** All 35 are a first pass by the AI assistant. Review each against the rubric and change what you would score differently. Start with the 19 that rest on assumptions, and with strategic fit.
 2. **The reference organisation.** Rewrite the profile in your own words and adjust it to your engineering experience (design review, decision D-4).
-3. **The weights.** Confirm or change them, and write one sentence of reasoning per weight.
+3. **The weights.** Confirm or change them. The reasoning in section 1 is a first draft by the AI assistant; replace it with your own.
 4. **The opportunity definitions.** Each area became one concrete use. You may define a use differently or split an area into an internal use and an offering.
 5. **The second business case.** Predictive maintenance was chosen over the tied AI visual inspection. Confirm or switch.

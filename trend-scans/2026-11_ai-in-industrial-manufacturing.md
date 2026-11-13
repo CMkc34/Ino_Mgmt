@@ -6,13 +6,15 @@
 | **Status** | Draft for the project owner's review (see "Open decisions" at the end) |
 | **Data** | OpenAlex, fetched 12 November 2026; complete years 2015 to 2025 |
 | **Method** | [Trend scan method v1.0](../docs/design/trend-scan-method.md), approved before the data was fetched |
-| **Results** | [`trend_metrics.csv`](../data/processed/trend_metrics.csv), [`discovery_top_topics.csv`](../data/processed/discovery_top_topics.csv) |
+| **Results** | [`trend_metrics.csv`](../data/processed/trend_metrics.csv), [`trend_counts_by_year.csv`](../data/processed/trend_counts_by_year.csv), [`discovery_top_topics.csv`](../data/processed/discovery_top_topics.csv) |
 
 ## Summary
 
-Research on AI in industrial manufacturing grew about 35% a year from 2020 to 2025. Measured against that pace, ten application areas fall into three groups. **Digital twins, visual quality inspection and additive manufacturing** grow faster than the field, and the result holds in every robustness test. **Industrial copilots, production planning and energy optimisation** are too young for a growth rate but have risen every year; copilots went from almost nothing to 608 papers in 2025, yet no production use was confirmed. **Predictive maintenance, process optimisation and robotics** are large and still growing fast, but only at the field's pace. Digital twins lead on both signals: the fastest research growth and the widest industrial use.
+**Question:** which AI application areas in industrial manufacturing are gaining ground, and which deserve a closer look?
 
-**Recommendation:** take seven areas into the opportunity scoring: the six that meet the shortlist rule, plus predictive maintenance as the one permitted exception, because its industrial use is documented.
+Two signals were used: growth in research papers, and evidence of use in industry. Research on AI in manufacturing grew about 35% a year from 2020 to 2025, so an area only stands out if it grows faster. Of ten areas, **digital twins, visual quality inspection and additive manufacturing** do, in all four robustness tests. **Industrial copilots, production planning and energy optimisation** are too new for a growth rate but rose every year; copilots went from 1 paper in 2020 to 608 in 2025, with no production use confirmed. **Predictive maintenance, process optimisation and robotics** are established and only keep pace. Generative design is small and uneven. Digital twins lead on both signals.
+
+**Recommendation:** evaluate seven areas further: the first six, plus predictive maintenance, the most widely used of the established areas.
 
 ## 1. Question
 
@@ -95,7 +97,26 @@ Growth relative to the field, in percentage points a year:
 
 Production planning missed the threshold by one work. The rule is applied as written; it is a borderline case.
 
-### 3.6 Discovery: what did the list of ten miss?
+### 3.6 Query quality
+
+Each search was checked on a random sample of 20 works from 2023 to 2025, rated independently by two raters. The lower share counts. The threshold is 70%.
+
+| Sub-topic | Relevant, rater 1 | Relevant, rater 2 | Share that counts | Result |
+|---|---|---|---|---|
+| Predictive maintenance | 19 of 20 | 19 of 20 | 95% | pass |
+| Visual quality inspection | 19 of 20 | 20 of 20 | 95% | pass |
+| Production planning and scheduling | 19 of 20 | 20 of 20 | 95% | pass |
+| Additive manufacturing | 19 of 20 | 18 of 20 | 90% | pass |
+| Robotics and cobots | 18 of 20 | 18 of 20 | 90% | pass |
+| Process optimisation and control | 18 of 20 | 18 of 20 | 90% | pass |
+| Generative design | 18 of 20 | 17 of 20 | 85% | pass |
+| Energy optimisation | 16 of 20 | 15 of 20 | 75% | pass |
+| Digital twins | 15 of 20 | 14 of 20 | 70% | pass, at the threshold |
+| Industrial copilots | 14 of 20 | 14 of 20 | 70% | pass, at the threshold |
+
+No search is under the threshold, so none is flagged as unreliable. Two are exactly on it and are marked as such where their results are discussed. The first version of the searches failed this check for nine of ten sub-topics and was replaced before any counts were fetched; the rounds are recorded in [`query_quality.csv`](../data/manual/query_quality.csv). Both raters were sessions of the same AI model (see limitation 5).
+
+### 3.7 Discovery: what did the list of ten miss?
 
 The fifteen fastest-growing topic labels that OpenAlex itself assigns within the field (at least 30 works in 2020):
 

@@ -1,5 +1,7 @@
 # Case Studies
 
+> Planned for a later phase; see the [roadmap](../ROADMAP.md). This page describes the intended format.
+
 Analyses of innovation decisions at public companies, using publicly available sources only.
 
 Each case study follows the same structure:
