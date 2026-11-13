@@ -12,10 +12,10 @@ This repository is run as a small, structured project. The documents here record
 
 | # | Phase | Key output | Where | Status |
 |---|---|---|---|---|
-| 1 | Initiation | Project charter: why, what, priorities, success criteria | [`01-project-charter.md`](01-project-charter.md) | Approved (v1.2, 2026-11-12) |
-| 2 | Requirements and planning | Specification and acceptance criteria per deliverable; work breakdown; risk register | [`02-requirements-and-plan.md`](02-requirements-and-plan.md) | Approved (v1.5, 2026-11-13) |
+| 1 | Initiation | Project charter: why, what, priorities, success criteria | [`01-project-charter.md`](01-project-charter.md) | Approved (v1.3, 2026-11-13) |
+| 2 | Requirements and planning | Specification and acceptance criteria per deliverable; work breakdown; risk register | [`02-requirements-and-plan.md`](02-requirements-and-plan.md) | Approved (v1.6, 2026-11-13) |
 | 3 | Execution and monitoring | Sprint backlog as GitHub Issues; short status notes; the self-review record | GitHub Issues, [`status.md`](status.md) | Drafts of all Must deliverables complete; owner's review open |
-| 4 | Closure | Acceptance sign-off and lessons learned | `03-closure.md` | Not started |
+| 4 | Closure | Acceptance sign-off and lessons learned | [`03-closure.md`](03-closure.md) | Draft prepared; awaiting the owner's review, the dry run and sign-off |
 
 ## Rules
 

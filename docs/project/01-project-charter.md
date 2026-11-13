@@ -3,9 +3,9 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.2 |
+| **Version** | 1.3 |
 | **Status** | Approved |
-| **Date** | 2026-11-12 |
+| **Date** | 2026-11-13 |
 | **Project owner / sponsor** | Repository owner |
 
 ### Change history
@@ -17,6 +17,7 @@
 | 1.0 | 2026-11-11 | Approved by the project owner with one change: external review is deferred (no reviewers planned for this phase) and replaced by a structured self-review; licence decided (MIT for code, CC BY 4.0 for text); assumptions confirmed |
 | 1.1 | 2026-11-12 | Change approved by the project owner after the requirements research: portfolio dashboard (D7) moved to Phase 2; a cost-benefit view added to D3. Details in the requirements document, v1.1 |
 | 1.2 | 2026-11-12 | After the design review: Three Horizons write-up (D5) and case study (D6) moved to Phase 2; an adoption signal and a discovery step added to D2. Details in the requirements document, v1.3 |
+| 1.3 | 2026-11-13 | Scope extended by the project owner (change request CR-7 in the requirements document): Three Horizons write-up (D5) and case study (D6) back in scope; added a German one-page summary (D9) and a second trend scan (D10). All four are additions beyond the Must deliverables |
 
 ---
 
@@ -50,10 +51,12 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 | D2 | Must | Trend scan | Lead theme measured with open publication or patent data; trend radar; shortlist of opportunities |
 | D3 | Must | Opportunity scoring model | Weighted multi-criteria ranking of the D2 shortlist, each score backed by a stated rubric and evidence; sensitivity check; cost-benefit view for the top two; recommendation |
 | D4 | Must | Repository presentation | README highlights, run instructions, licence (MIT for code, CC BY 4.0 for text), consistent documentation |
-| D5 | Moved to Phase 2 | Framework write-up: Three Horizons | Removed from this phase in v1.2 |
-| D6 | Moved to Phase 2 | Case study | Removed from this phase in v1.2 |
+| D5 | Addition | Framework write-up: Three Horizons | Applied to the D3 results. Back in scope in v1.3 |
+| D6 | Addition | Case study | One public company, two frameworks. Back in scope in v1.3 |
 | D7 | Moved to Phase 2 | Portfolio dashboard | Removed from this phase in v1.1 |
 | D8 | Could | Framework write-up: Technology S-curve | Used to interpret D2 |
+| D9 | Addition | German one-page summary | Both analyses on one page, in German. Added in v1.3 |
+| D10 | Addition | Second trend scan | Another sector, reusing the pipeline and the method. Added in v1.3 |
 
 ### Out of scope (for this phase)
 
@@ -61,7 +64,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 - Portfolio dashboard (D7, moved to Phase 2 in v1.1)
 - Paid or proprietary data sources
 - Web apps or hosted dashboards
-- Content in languages other than English
+- Content in languages other than English, except the German one-page summary (D9)
 
 ## 5. Roles and authorship
 
@@ -80,7 +83,7 @@ Priorities follow MoSCoW. **Must** items define project success. **Should** item
 - **Data:** public or synthetic only; synthetic data is always labelled
 - **Tools:** Python (pipeline, analysis)
 - **Publication:** public repository, so no confidential, copyrighted or personal content
-- **Language:** English
+- **Language:** English; one German summary page (D9)
 
 ## 7. Assumptions (confirmed by the owner on 2026-11-11)
 
