@@ -10,7 +10,8 @@ Not committed. Items are picked up after Phase 1 closes, or earlier through chan
 
 - [x] Framework write-up: Three Horizons (draft, 2026-11-13)
 - [x] German one-page summary of both analyses (draft, 2026-11-13)
-- [ ] Case study, possibly with a real company as the reference organisation (moved here from Phase 1, 2026-11-12)
+- [x] Case study: DMG MORI and the digital twin (draft, 2026-11-13)
+- [ ] Scoring model, next version: score the digital twin twice, as an internal tool and as an offering (from the case study)
 - [ ] Framework write-up: Technology S-curve, if not delivered in Phase 1
 - [ ] Portfolio dashboard (moved here from Phase 1 by change request, 2026-11-12)
 - [ ] Trend scan: AI in diagnostics / medtech (reusing the pipeline)

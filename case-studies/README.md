@@ -1,6 +1,8 @@
 # Case Studies
 
-> Planned for a later phase; see the [roadmap](../ROADMAP.md). This page describes the intended format.
+| Case study | Status |
+|---|---|
+| [DMG MORI: the digital twin as a product](2026-11_dmg-mori-digital-twin.md) | Draft for review |
 
 Analyses of innovation decisions at public companies, using publicly available sources only.
 
