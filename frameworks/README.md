@@ -1,5 +1,7 @@
 # Frameworks
 
+> Planned for a later phase. This page describes the intended format.
+
 Concise write-ups of innovation management frameworks. Each one covers:
 
 1. **What it is** – the core idea in a few sentences
@@ -8,4 +10,4 @@ Concise write-ups of innovation management frameworks. Each one covers:
 4. **Worked example** – applied to a real or illustrative case
 5. **Sources** – original authors and further reading
 
-Planned topics: Stage-Gate, Three Horizons, Jobs-to-be-Done, Lean Startup, Open Innovation, Organisational Ambidexterity, Disruptive Innovation.
+No write-ups yet. They are planned for a later phase; see the [roadmap](../ROADMAP.md).

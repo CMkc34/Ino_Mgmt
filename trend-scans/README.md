@@ -8,4 +8,4 @@ File naming: `YYYY-MM_topic.md` (e.g. `2026-11_generative-ai-in-retail.md`).
 |---|---|
 | [AI in industrial manufacturing](2026-11_ai-in-industrial-manufacturing.md) (November 2026) | Draft for review |
 
-Each scan covers: key signals, drivers, likely impact and time horizon, open questions, and sources.
+Each scan covers: the question, the method, results, interpretation, a shortlist with a recommendation, limitations and sources.

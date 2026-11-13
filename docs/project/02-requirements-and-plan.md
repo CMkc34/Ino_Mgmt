@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Project** | Ino_Mgmt: applied innovation analysis |
-| **Version** | 1.4 |
+| **Version** | 1.5 |
 | **Status** | Approved |
 | **Date** | 2026-11-13 |
 | **Based on** | [Project charter v1.2](01-project-charter.md) |
@@ -18,6 +18,7 @@
 | 1.2 | 2026-11-12 | CR-5, requested by the project owner: the assistant writes the reference implementation of the data fetch (`pipelines/openalex.py` and the fetch in `pipelines/ingest.py`), as a stated exception to G-7. G-6 still applies: the owner reviews and annotates the code and must be able to explain it before D1 is accepted. Design work for D2 is moved forward into sprint 0 ([method design note](../design/trend-scan-method.md)). Sprint 1 estimate for ingest and transform reduced from 2.5 h to 1.5 h |
 | 1.3 | 2026-11-12 | Method decisions MD-1 to MD-9 and SD-1 to SD-8 and review decisions D-1 to D-7 approved by the project owner. Added: adoption level (R-2.11), discovery step (R-2.12), proof of order (AC-2.12), cited profile figures (AC-3.11), test of uncertain scores (AC-3.12), cold-read test. Changed: shortlist rule (R-2.8, AC-2.6, AC-3.13). Moved to Phase 2: D5 and D6. No further project documents; from now on change requests may only remove scope. Must total now about 34.5 h |
 | 1.4 | 2026-11-13 | CR-6, requested by the project owner: the assistant writes the analysis code (metric calculation, robustness tests, shortlist rule, charts, pipeline wiring and their tests). The owner does not write Python and does not aim at roles that require it. G-7 is changed accordingly. G-6 still applies: the owner reads the code with a guided walk-through and must be able to explain what it does. The owner's own contributions are the decisions and their reasoning, the spot-check of the query ratings, the adoption research, the scores and their evidence, the interpretation and the write-ups. The repository states this division of work openly (R-4.3, now in the README). Owner hours for sprint 1 coding are replaced by the walk-through |
+| 1.5 | 2026-11-13 | Requested by the project owner: until 16 November the assistant works through the remaining issues without step-by-step approval, including first drafts of the scores, the write-ups and the self-review, to make use of a time-limited model access. The owner reviews the results afterwards and returns to the slower, learning-oriented way of working. The owner's own tasks are unchanged: reading the code (#7), own reasoning for the method decisions (#26), review of the drafts and their open decisions, the dry run (#17) and final acceptance (#19) |
 
 ---
 

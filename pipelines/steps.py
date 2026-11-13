@@ -54,6 +54,10 @@ def run_trends(config: dict, refresh: bool = False) -> str:
         adoption=ingest.load_adoption(),
     )
     write_csv(results, PROCESSED_DIR / "trend_metrics.csv")
+    # The yearly counts as one table (one row per sub-topic, one column per
+    # year), so every count quoted in the write-up can be looked up here.
+    yearly = transform.yearly_table(counts).rename(columns=str).reset_index()
+    write_csv(yearly, PROCESSED_DIR / "trend_counts_by_year.csv")
 
     save_figure(figures.plot_time_series(counts, results, trends_config, fetch_date), "trend_time_series")
     save_figure(figures.plot_trend_map(results, trends_config, fetch_date), "trend_map")

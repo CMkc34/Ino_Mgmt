@@ -257,6 +257,33 @@ def test_results_are_sorted_strongest_first_with_emerging_last():
     assert order[-1] == "topic_c"
 
 
+# --- the two small building blocks, tested directly --------------------------
+
+
+def test_growth_rates_leave_small_starts_empty_but_always_compute_the_field():
+    table = transform.yearly_table(example_counts())
+    rates = transform.growth_rates(table, [2020], [2025], steps=5, threshold=30)
+    assert rates["topic_a"] == pytest.approx(0.3195, abs=1e-4)
+    assert pd.isna(rates["topic_c"])                               # start of 10 is under 30
+    assert rates["_field"] == pytest.approx(0.1487, abs=1e-4)
+    # Even with an absurdly high threshold the field keeps its rate.
+    assert not pd.isna(transform.growth_rates(table, [2020], [2025], 5, threshold=10**9)["_field"])
+
+
+def test_growth_rates_average_the_years_they_are_given():
+    table = transform.yearly_table(example_counts())
+    rates = transform.growth_rates(table, [2019, 2020], [2024, 2025], steps=5, threshold=30)
+    assert rates["topic_a"] == pytest.approx((350 / 90) ** (1 / 5) - 1)
+
+
+def test_rose_every_year_needs_a_rise_in_each_of_the_last_three_years():
+    table = transform.yearly_table(example_counts())
+    rising = transform.rose_every_year(table, last_year=2025)
+    assert rising["topic_a"]        # 200 < 250 < 300 < 400
+    assert not rising["topic_b"]    # 60, 60, 55, 50
+    assert not rising["topic_d"]    # flat at 30
+
+
 # --- the discovery step -----------------------------------------------------
 
 
