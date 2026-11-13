@@ -37,3 +37,15 @@ def test_default_run_finishes_without_error():
 def test_unknown_step_is_rejected():
     with pytest.raises(SystemExit):
         main(["run", "no_such_step"])
+
+
+def test_trends_step_writes_one_result_row_per_subtopic():
+    # The default run above has written the result table from the stored snapshot.
+    from pipelines.io import read_csv
+    from pipelines.paths import FIGURES_DIR, PROCESSED_DIR
+
+    assert main(["run", "trends"]) == 0
+    results = read_csv(PROCESSED_DIR / "trend_metrics.csv")
+    assert set(results["subtopic_id"]) == {subtopic["id"] for subtopic in load_config()["trends"]["subtopics"]}
+    assert (FIGURES_DIR / "trend_map.png").exists()
+    assert (FIGURES_DIR / "trend_time_series.png").exists()

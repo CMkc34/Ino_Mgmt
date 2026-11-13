@@ -7,6 +7,10 @@ trends:
   last_year: 2025
   volume_window_years: 3  # "volume" = works in the last 3 complete years
   growth_window_years: 5  # "momentum" = compound annual growth over 5 years
+  emerging_threshold: 30  # under this many works at the start of the growth
+                          # window, no growth rate is computed ("emerging")
+  quality_threshold: 0.70 # share of relevant works a search must reach in the
+                          # query-quality check
 
   # Only these types of work are counted. Editorials, peer-review records,
   # whole books, datasets and similar are left out.

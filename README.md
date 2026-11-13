@@ -30,6 +30,15 @@ This repository collects applied material on how organisations find, evaluate an
 - **Evidence-based:** claims cite public sources; assumptions are stated.
 - **Reusable:** templates are meant to be copied and adapted.
 
+## How this work was made
+
+This project was built with an AI assistant (Claude Code), and the division of work is stated here so nothing is misread.
+
+- **By the project owner:** the scope and priorities, the decisions on method (approved before any data was fetched), the checks of the assistant's work, the research on adoption and industry figures, the scores and their evidence, the interpretation and the written analyses.
+- **By the AI assistant, at the owner's direction:** the Python code and its tests, the data fetch, drafts of the project documents and method notes, a first rating of the search results, and reviews, including a critical review of its own designs.
+
+The project documents record each decision and change request, and the Git history shows who committed what.
+
 ## Running the pipeline
 
 Requires Python 3.12.

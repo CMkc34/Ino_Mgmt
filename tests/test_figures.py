@@ -1,7 +1,9 @@
 """Tests for pipelines/figures.py."""
 
 import matplotlib.pyplot as plt
+import pandas as pd
 
+from pipelines import figures, transform
 from pipelines.figures import save_figure
 
 
@@ -16,3 +18,97 @@ def test_saving_the_same_chart_twice_gives_identical_files(tmp_path):
     first = save_figure(simple_chart(), "example", tmp_path).read_bytes()
     second = save_figure(simple_chart(), "example", tmp_path).read_bytes()
     assert first == second
+
+
+# --- the two trend scan charts ----------------------------------------------
+#
+# What a chart looks like cannot be tested by a program. These tests check
+# that each chart can be drawn from a small table, contains the expected
+# parts, and comes out identical on every run.
+
+CONFIG = {
+    "source": "OpenAlex",
+    "last_year": 2025,
+    "volume_window_years": 3,
+    "growth_window_years": 5,
+    "emerging_threshold": 30,
+    "quality_threshold": 0.70,
+    "subtopics": [
+        {"id": "topic_a", "label": "Topic A (with an explanation)"},
+        {"id": "topic_b", "label": "Topic B"},
+        {"id": "topic_c", "label": "Topic C"},
+    ],
+}
+YEARS = list(range(2019, 2026))
+DATA = {
+    "_field": [900, 1000, 1200, 1400, 1600, 1800, 2000],
+    "topic_a": [80, 100, 150, 200, 250, 300, 400],
+    "topic_b": [50, 50, 55, 60, 60, 55, 50],
+    "topic_c": [5, 10, 15, 25, 40, 90, 200],  # emerging
+}
+
+
+def small_counts() -> pd.DataFrame:
+    rows = [
+        {"subtopic_id": subtopic_id, "year": year, "works_count": count}
+        for subtopic_id, counts in DATA.items()
+        for year, count in zip(YEARS, counts)
+    ]
+    return pd.DataFrame(rows)
+
+
+def small_results() -> pd.DataFrame:
+    quality = pd.DataFrame(
+        {"subtopic_id": ["topic_a", "topic_b", "topic_c"], "round": 0, "sample_size": 20, "relevant": [18, 18, 18]}
+    )
+    return transform.build_trend_results(small_counts(), CONFIG, quality)
+
+
+def all_text(figure) -> str:
+    return " | ".join(text.get_text() for text in figure.findobj(plt.Text))
+
+
+def test_short_label_drops_the_explanation_in_brackets():
+    assert figures.short_label("Topic A (with an explanation)") == "Topic A"
+
+
+def test_time_series_has_one_panel_per_subtopic_and_names_the_source():
+    figure = figures.plot_time_series(small_counts(), small_results(), CONFIG, "2026-11-12")
+    visible_panels = [panel for panel in figure.axes if panel.get_visible()]
+    assert len(visible_panels) == 3
+    text = all_text(figure)
+    assert "Topic A" in text and "emerging" in text
+    assert "Source: OpenAlex" in text and "2026-11-12" in text
+    plt.close(figure)
+
+
+def test_trend_map_labels_rated_subtopics_and_lists_emerging_ones_in_the_box():
+    figure = figures.plot_trend_map(small_results(), CONFIG, "2026-11-12")
+    axes = figure.axes[0]
+    labels_in_plot = [text.get_text() for text in axes.texts]
+    assert "Topic A" in labels_in_plot and "Topic B" in labels_in_plot
+    assert "Topic C" not in labels_in_plot  # emerging: no point in the plot
+    assert "Topic C" in all_text(figure)    # but listed in the box
+    assert axes.get_xscale() == "log"
+    assert "Source: OpenAlex" in all_text(figure)
+    plt.close(figure)
+
+
+def test_trend_map_shows_the_adoption_level_once_it_is_filled_in():
+    results = small_results()
+    results["adoption_level"] = pd.array([2, pd.NA, pd.NA], dtype="Int64")  # first row is topic_a
+    figure = figures.plot_trend_map(results, CONFIG, "2026-11-12")
+    assert "Topic A (adoption 2)" in [text.get_text() for text in figure.axes[0].texts]
+    plt.close(figure)
+
+
+def test_trend_charts_come_out_identical_on_every_run(tmp_path):
+    def draw(name):
+        if name == "map":
+            return figures.plot_trend_map(small_results(), CONFIG, "2026-11-12")
+        return figures.plot_time_series(small_counts(), small_results(), CONFIG, "2026-11-12")
+
+    for name in ("map", "series"):
+        first = save_figure(draw(name), name, tmp_path).read_bytes()
+        second = save_figure(draw(name), name, tmp_path).read_bytes()
+        assert first == second

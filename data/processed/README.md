@@ -1,3 +1,26 @@
 # Processed data
 
 Analysis-ready CSV files written by the pipeline. Do not edit by hand: change the code or `config.yaml` and re-run.
+
+## `trend_metrics.csv`
+
+One row per sub-topic, strongest growth relative to the field first, emerging sub-topics last. Definitions are in the [trend scan method](../../docs/design/trend-scan-method.md).
+
+| Column | Meaning |
+|---|---|
+| `works_start`, `works_end` | Works in the first and last year of the growth window (2020 and 2025) |
+| `volume` | Works in the last three years |
+| `share` | Volume divided by the field's volume |
+| `emerging` | True if `works_start` is under the threshold (30); then no growth rate is computed |
+| `momentum` | Compound annual growth rate over the window (0.35 means 35% a year) |
+| `relative_momentum` | Momentum minus the field's momentum. Above 0: outgrows the field |
+| `relative_momentum_shifted` | Robustness test A: window 2019 to 2024 |
+| `relative_momentum_smoothed` | Robustness test B: start and end are two-year averages |
+| `robustness` | `robust` (same side of the field in the main result and tests A and B), `not robust`, `not testable` (a test has no rate because its start value is under the threshold) or `emerging` |
+| `relative_momentum_no_ai` | Robustness test D: the same calculation without any AI condition in the search |
+| `relative_momentum_articles` | Robustness test C: works of type "article" only |
+| `quality_share` | Share of relevant works in the query-quality check (lowest rater, last round) |
+| `passes_quality` | `quality_share` reaches the threshold (0.70) |
+| `rising_three_years` | The yearly count rose in each of the last three years |
+| `on_shortlist_by_rule` | Rules 1 to 3 of the shortlist rule. Rules 4 and 5 need judgement and are applied in the write-up |
+| `adoption_level` | From `data/manual/adoption.csv`; empty until that file is filled in |

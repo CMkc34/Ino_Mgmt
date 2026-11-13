@@ -10,6 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 
 CONFIG_FILE = REPO_ROOT / "config.yaml"
 RAW_DIR = REPO_ROOT / "data" / "raw"              # source snapshots
+MANUAL_DIR = REPO_ROOT / "data" / "manual"        # files filled in by hand
 PROCESSED_DIR = REPO_ROOT / "data" / "processed"  # analysis-ready CSV files
 FIGURES_DIR = REPO_ROOT / "outputs" / "figures"   # charts
 SCORING_DIR = REPO_ROOT / "tools" / "opportunity-scoring"

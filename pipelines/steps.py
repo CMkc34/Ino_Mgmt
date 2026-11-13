@@ -8,7 +8,10 @@ built.
 
 import datetime as dt
 
-from pipelines import ingest
+from pipelines import figures, ingest, transform
+from pipelines.figures import save_figure
+from pipelines.io import write_csv
+from pipelines.paths import PROCESSED_DIR
 
 
 def run_trends(config: dict, refresh: bool = False) -> str:
@@ -32,13 +35,35 @@ def run_trends(config: dict, refresh: bool = False) -> str:
         return "skipped (no snapshot in data/raw/ yet; run with --refresh to fetch one)"
 
     counts = ingest.load_snapshot(snapshot)
+    fetch_date = snapshot.stem.removeprefix(ingest.SNAPSHOT_PREFIX)  # the date in the file name
 
-    # TODO (owner, sprint 1): from here on, wire up the analysis:
-    #   metrics = transform.compute_trend_metrics(counts, trends_config)
-    #   write_csv(metrics, PROCESSED_DIR / "trend_metrics.csv")
-    #   save_figure(plot_time_series(...), "trend_time_series")
-    #   save_figure(plot_trend_radar(...), "trend_radar")
-    return f"snapshot {snapshot.name} loaded ({len(counts)} rows); analysis not wired up yet"
+    # The robustness data sets, where a snapshot of them exists.
+    variant_counts = {}
+    for variant, prefix in ingest.VARIANTS.items():
+        if variant == "main":
+            continue
+        variant_snapshot = ingest.find_latest_snapshot(prefix=prefix)
+        if variant_snapshot is not None:
+            variant_counts[variant] = ingest.load_snapshot(variant_snapshot)
+
+    results = transform.build_trend_results(
+        counts,
+        trends_config,
+        quality=ingest.load_query_quality(),
+        variant_counts=variant_counts,
+        adoption=ingest.load_adoption(),
+    )
+    write_csv(results, PROCESSED_DIR / "trend_metrics.csv")
+
+    save_figure(figures.plot_time_series(counts, results, trends_config, fetch_date), "trend_time_series")
+    save_figure(figures.plot_trend_map(results, trends_config, fetch_date), "trend_map")
+
+    shortlisted = int(results["on_shortlist_by_rule"].sum())
+    return (
+        f"snapshot {snapshot.name}: {len(results)} sub-topics, "
+        f"{int(results['emerging'].sum())} emerging, {shortlisted} on the shortlist by rule; "
+        "wrote trend_metrics.csv and 2 charts"
+    )
 
 
 def run_scoring(config: dict, refresh: bool = False) -> str:

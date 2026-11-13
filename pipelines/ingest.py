@@ -25,7 +25,7 @@ import pandas as pd
 
 from pipelines import openalex
 from pipelines.io import read_csv, write_csv
-from pipelines.paths import RAW_DIR
+from pipelines.paths import MANUAL_DIR, RAW_DIR
 
 SNAPSHOT_PREFIX = "publication_counts_"
 SNAPSHOT_COLUMNS = ["subtopic_id", "year", "works_count"]
@@ -200,3 +200,29 @@ def save_discovery_topics(table: pd.DataFrame, fetch_date: dt.date, raw_dir: Pat
     path = raw_dir / f"{DISCOVERY_PREFIX}{fetch_date.isoformat()}.csv"
     write_csv(table[DISCOVERY_COLUMNS], path)
     return path
+
+
+# --- hand-maintained files (data/manual/) -------------------------------------
+
+
+def load_query_quality(manual_dir: Path = MANUAL_DIR) -> pd.DataFrame:
+    """Read the results of the query-quality check (method note, section 5)."""
+    quality = read_csv(manual_dir / "query_quality.csv")
+    missing = {"subtopic_id", "round", "sample_size", "relevant"} - set(quality.columns)
+    if missing:
+        raise ValueError(f"query_quality.csv is missing columns: {sorted(missing)}")
+    return quality
+
+
+def load_adoption(manual_dir: Path = MANUAL_DIR) -> pd.DataFrame | None:
+    """Read the adoption levels (method note, section 6.3), or None if not filled in yet."""
+    path = manual_dir / "adoption.csv"
+    if not path.exists():
+        return None
+    adoption = read_csv(path)
+    missing = {"subtopic_id", "level"} - set(adoption.columns)
+    if missing:
+        raise ValueError(f"adoption.csv is missing columns: {sorted(missing)}")
+    if not adoption["level"].isin([0, 1, 2, 3]).all():
+        raise ValueError("adoption.csv: every level must be 0, 1, 2 or 3")
+    return adoption

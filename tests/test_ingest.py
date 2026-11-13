@@ -52,3 +52,24 @@ def test_snapshot_with_a_missing_column_is_rejected(tmp_path):
     broken.write_text("subtopic_id,year\ndigital_twins,2024\n", encoding="utf-8")
     with pytest.raises(ValueError, match="works_count"):
         ingest.load_snapshot(broken)
+
+
+# --- hand-maintained files ---------------------------------------------------
+
+
+def test_adoption_file_is_optional(tmp_path):
+    assert ingest.load_adoption(tmp_path) is None
+
+
+def test_adoption_levels_must_be_between_0_and_3(tmp_path):
+    (tmp_path / "adoption.csv").write_text("subtopic_id,level\ndigital_twins,2\n", encoding="utf-8")
+    assert ingest.load_adoption(tmp_path)["level"].tolist() == [2]
+    (tmp_path / "adoption.csv").write_text("subtopic_id,level\ndigital_twins,4\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="0, 1, 2 or 3"):
+        ingest.load_adoption(tmp_path)
+
+
+def test_quality_file_with_a_missing_column_is_rejected(tmp_path):
+    (tmp_path / "query_quality.csv").write_text("subtopic_id,round\ndigital_twins,0\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="relevant"):
+        ingest.load_query_quality(tmp_path)
