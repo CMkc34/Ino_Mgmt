@@ -2,10 +2,10 @@ subtopic_id,works_start,works_end,volume,share,emerging,momentum,relative_moment
 digital_twins,76.000000,705.000000,1461,0.031563,False,0.561260,0.207763,0.295187,0.240942,robust,0.247834,0.181645,0.700000,True,True,True,3
 visual_quality_inspection,103.000000,631.000000,1367,0.029532,False,0.436939,0.083443,0.053631,0.070393,robust,0.354360,0.070395,0.950000,True,True,True,2
 additive_manufacturing,113.000000,626.000000,1415,0.030569,False,0.408313,0.054816,0.131114,0.085169,robust,0.066236,0.064954,0.900000,True,True,True,1
-process_optimisation,72.000000,319.000000,684,0.014777,False,0.346764,-0.006732,-0.067953,-0.034291,robust,0.049084,0.005317,0.900000,True,True,False,1
+process_optimisation,72.000000,319.000000,684,0.014777,False,0.346764,-0.006732,-0.067953,-0.034291,robust,0.049084,0.005317,0.900000,True,True,False,2
 predictive_maintenance,139.000000,615.000000,1157,0.024996,False,0.346394,-0.007103,-0.051688,-0.023312,robust,0.193647,-0.024624,0.950000,True,True,False,2
 robotics_cobots,48.000000,200.000000,422,0.009117,False,0.330325,-0.023172,,0.010593,not testable,0.106190,-0.089555,0.900000,True,True,False,2
 industrial_copilots,1.000000,608.000000,899,0.019422,True,,,,,emerging,,,0.700000,True,True,True,1
 production_planning,29.000000,257.000000,488,0.010543,True,,,,,emerging,0.074979,,0.950000,True,True,True,2
-energy_optimisation,17.000000,113.000000,219,0.004731,True,,,,,emerging,0.071481,,0.750000,True,True,True,1
+energy_optimisation,17.000000,113.000000,219,0.004731,True,,,,,emerging,0.071481,,0.750000,True,True,True,2
 generative_design,9.000000,47.000000,113,0.002441,True,,,,,emerging,0.069965,,0.850000,True,False,False,2
