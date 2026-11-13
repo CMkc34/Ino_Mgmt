@@ -64,6 +64,7 @@ How the levels were set: the AI assistant searched for sources and opened the pa
 
 Open points:
 
-- **Process optimisation and energy optimisation** are at level 1 because the pages reporting named deployments could not be opened. Confirming one named site each would raise them to 2.
+- **Process optimisation and energy optimisation rest on one and the same case**: the AI kiln control at Heidelberg Materials' Mokra cement plant. The figures are from its first month of operation, and the reports were found by search without the assistant opening the pages. A second case outside the cement industry would strengthen both.
+- **Industrial copilots** stay at level 1: products are on offer, but only pilots and planned rollouts were found, not confirmed use in production.
 - **Several sources are not independent**: suppliers and vendors reporting on their own customers or markets. The comments say where.
 - **Evidence ages quickly.** Each row carries the date it was checked.
