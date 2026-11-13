@@ -5,7 +5,7 @@ Files here are filled in by hand and read by the pipeline. Each file is describe
 | File | Content | Defined in |
 |---|---|---|
 | `query_quality.csv` | Result of each round of the query-quality check, per sub-topic | [Trend scan method](../../docs/design/trend-scan-method.md), section 5 |
-| `adoption.csv` | Adoption level (0 to 3) per sub-topic with its source. To be filled in by the owner | [Trend scan method](../../docs/design/trend-scan-method.md), section 6.3 |
+| `adoption.csv` | Adoption level (0 to 3) per sub-topic with its source, the date checked and a comment. Rules and status below | [Trend scan method](../../docs/design/trend-scan-method.md), section 6.3 |
 | `source_growth_check_2026-11-12.csv` | A one-off check of how the whole source grew per year, to judge the jump in 2025. Each row has its filter, so it can be repeated. Findings below | Trend scan method, section 2 (latest year) |
 | `query_quality_ratings.csv` | The 200 works rated in the final round, with the reason for each "not relevant" | Same |
 
@@ -52,3 +52,18 @@ Reading:
 - **What the counts cannot tell:** whether there is more AI research, or more papers that mention AI in their abstract.
 
 For the write-up: state this next to the 2025 figures, and treat robustness test A (2019 to 2024) and test C (articles only) as the checks on it.
+
+## Adoption levels (2026-11-13)
+
+The scale is defined in the trend scan method, section 6.3. Two rules were set by the project owner before the levels were assigned, because the method note left them open:
+
+- **Level 3 ("widespread")** needs a survey in which at least 25% of manufacturers say they use the technology in operation. Piloting and planning do not count. A share of equipment installed is not a survey of manufacturers.
+- **What is rated** is the application area in industrial use. Most sources do not separate AI-based use from other use; the comment column says for each row whether the source is specific to AI. The adoption signal is therefore broader than the publication counts, which require an AI method.
+
+How the levels were set: the AI assistant searched for sources and opened the pages it could reach; the owner checked the sources for the first three sub-topics, set the two rules and decided all ten levels. The comment column records for each row who checked the page.
+
+Open points:
+
+- **Process optimisation and energy optimisation** are at level 1 because the pages reporting named deployments could not be opened. Confirming one named site each would raise them to 2.
+- **Several sources are not independent**: suppliers and vendors reporting on their own customers or markets. The comments say where.
+- **Evidence ages quickly.** Each row carries the date it was checked.

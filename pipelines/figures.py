@@ -185,7 +185,8 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     Vertical axis: relative momentum in percentage points; the line at 0
     means "growing exactly as fast as the field".
     Filled marker: the result is robust. Hollow marker: it is not, or could
-    not be tested. Emerging sub-topics have no growth rate and are listed
+    not be tested. A number in square brackets after a label is the adoption
+    level, once data/manual/adoption.csv is filled in. Emerging sub-topics have no growth rate and are listed
     in a box beside the plot.
     """
     labels = labels_by_id(trends_config)
@@ -194,7 +195,7 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     emerging = results[results["emerging"]]
 
     figure, axes = plt.subplots(figsize=(12.5, 6.4))
-    figure.subplots_adjust(left=0.07, right=0.64, top=0.88, bottom=0.21)
+    figure.subplots_adjust(left=0.07, right=0.64, top=0.88, bottom=0.235)
 
     axes.set_xscale("log")
     if len(rated) > 0:
@@ -220,7 +221,7 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
         )
         label = labels[row.subtopic_id]
         if not pd.isna(row.adoption_level):
-            label += f" (adoption {int(row.adoption_level)})"
+            label += f" [{int(row.adoption_level)}]"
         if not row.passes_quality:
             label += " (search unreliable)"
         texts.append((label, row.volume, points))
@@ -246,7 +247,8 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     lines = ["Emerging: no growth rate", f"(works in {last_year}, 3-year volume)", ""]
     for row in emerging.sort_values("volume", ascending=False).itertuples():
         mark = "rising" if row.rising_three_years else "not rising every year"
-        lines.append(f"{labels[row.subtopic_id]}")
+        level = "" if pd.isna(row.adoption_level) else f" [{int(row.adoption_level)}]"
+        lines.append(f"{labels[row.subtopic_id]}{level}")
         lines.append(f"   {int(row.works_end)} in {last_year}, {int(row.volume)} in 3 years; {mark}")
     if len(emerging) == 0:
         lines.append("none")
@@ -256,12 +258,19 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     )
 
     start_year = last_year - trends_config["growth_window_years"]
+    adoption_note = ""
+    if results["adoption_level"].notna().any():
+        adoption_note = (
+            "In square brackets: adoption in industry, from 0 (no commercial offer found) and 1 (offered by vendors) "
+            "to 2 (documented use at a named manufacturer) and 3 (widespread according to a survey).\n"
+        )
     figure.text(
         0.01, 0.02,
         f"Growth is the compound annual rate {start_year} to {last_year}, minus the same rate for the whole field. "
         "Horizontal line: grows as fast as the field. Dotted line: median volume.\n"
         "Filled marker: same side of the line in both robustness tests. Hollow marker: side changes, or a test "
         f"could not be run. A sub-topic is \"emerging\" with fewer than {trends_config['emerging_threshold']} works in {start_year}.\n"
+        + adoption_note
         + source_note(trends_config, fetch_date),
         fontsize=8, color=MUTED, ha="left", va="bottom",
     )

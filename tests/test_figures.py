@@ -132,7 +132,8 @@ def test_trend_map_shows_the_adoption_level_once_it_is_filled_in():
     results = small_results()
     results["adoption_level"] = pd.array([2, pd.NA, pd.NA], dtype="Int64")  # first row is topic_a
     figure = figures.plot_trend_map(results, CONFIG, "2026-11-12")
-    assert "Topic A (adoption 2)" in [text.get_text() for text in figure.axes[0].texts]
+    assert "Topic A [2]" in [text.get_text() for text in figure.axes[0].texts]
+    assert "In square brackets: adoption in industry" in all_text(figure)
     plt.close(figure)
 
 
