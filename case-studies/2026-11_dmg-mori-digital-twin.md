@@ -12,7 +12,7 @@
 
 ## Summary
 
-DMG MORI, a machine-tool builder, sells a digital twin of each customer's machine. With Siemens it offers twins of the controller, the machine and the workpiece, so customers can program and test before the real machine runs. The companies claim up to 40% faster production ramp-up and up to 75% less unproductive machine time; one named customer reports about 20% higher performance. For the fictional machine builder of this project, the case shows a second use the scoring had not considered: the twin as a paid offering to customers, not only as an internal tool for commissioning. It also shows the price of the fast route: the offering is built on one supplier's control system. The claims are the sellers' own best-case figures; no independent evidence was found.
+DMG MORI, a machine-tool builder, sells a digital twin of each customer's machine. With Siemens it offers twins of the controller, the machine and the workpiece, so customers can program and test before the real machine runs. The companies claim up to 40% faster production ramp-up and up to 75% less unproductive machine time; one named customer reports about 20% higher performance. For the fictional machine builder of this project, the case shows a second use the scoring had not considered: the twin as a paid offering to customers, not only as an internal tool for commissioning. It shows the price of the fast route: the offering is built on one supplier's control system. The claims are the sellers' own best-case figures; no independent evidence was found.
 
 **Takeaway:** score the digital twin twice, as an internal tool and as an offering, and measure its effect before quoting anyone else's numbers.
 
