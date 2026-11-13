@@ -173,8 +173,11 @@ def test_rank_stability_chart_has_one_bar_per_opportunity_and_names_the_class():
 def test_time_horizon_chart_labels_every_opportunity_and_is_marked_illustrative():
     ranking, config = small_ranking()
     figure = figures.plot_time_horizon(ranking, config)
-    labels_in_plot = " ".join(text.get_text() for text in figure.axes[0].texts)
+    text = all_text(figure)
     for name in ranking["name"]:
-        assert name in labels_in_plot
-    assert "illustrative" in all_text(figure)
+        assert name in text  # every opportunity is named in the key
+    rank_labels = " ".join(label.get_text() for label in figure.axes[0].texts)
+    for rank in ranking["rank"]:
+        assert str(rank) in rank_labels  # and marked by its rank in the plot
+    assert "illustrative" in text
     plt.close(figure)

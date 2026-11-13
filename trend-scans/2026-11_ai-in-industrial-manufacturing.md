@@ -18,7 +18,7 @@ Research on AI in industrial manufacturing grew about 35% a year from 2020 to 20
 
 Which AI application areas in industrial manufacturing show the strongest momentum, and which deserve a closer evaluation?
 
-The answer feeds the opportunity scoring model ([method](../docs/design/scoring-model-method.md)), which ranks the shortlisted areas for a reference company.
+The answer feeds the [opportunity scoring model](../tools/opportunity-scoring/), which ranks the shortlisted areas for a reference company.
 
 ## 2. Method in brief
 
@@ -157,7 +157,7 @@ Rules from the method, applied in order:
 1. Only areas that pass the query-quality check: all ten pass.
 2. Areas above the field line and robust: **digital twins, visual quality inspection, additive manufacturing**.
 3. Emerging areas that rose in each of the last three years: **industrial copilots, production planning, energy optimisation**.
-4. At most one exception from below the field line, if its adoption level is 2 or 3: **predictive maintenance** (proposed; see below).
+4. At most one exception from below the field line, if its adoption level is 2 or 3: **predictive maintenance** (confirmed by the project owner; see below).
 5. At most eight areas; the list is not padded.
 
 | # | Area | Basis | Reason in one line |
@@ -214,6 +214,7 @@ Rules from the method, applied in order:
 
 This section is removed once the draft is approved.
 
-1. **The exception (rule 4).** Predictive maintenance is proposed. Alternatives: process optimisation, robotics, or no exception (six areas).
-2. **The discovery mapping.** Confirm [`discovery_mapping.csv`](../data/manual/discovery_mapping.csv), in particular "machine fault diagnosis" counted as predictive maintenance, and "network security" treated as a missed area.
-3. **The summary and interpretation.** Drafted by the AI assistant from the data. Check that each statement says what you would say, and rewrite in your own words where it does not.
+Decided on 13 November 2026: the project owner confirmed all seven areas, with predictive maintenance as the exception under rule 4.
+
+1. **The discovery mapping.** Confirm [`discovery_mapping.csv`](../data/manual/discovery_mapping.csv), in particular "machine fault diagnosis" counted as predictive maintenance, and "network security" treated as a missed area.
+2. **The summary and interpretation.** Drafted by the AI assistant from the data. Check that each statement says what you would say, and rewrite in your own words where it does not.

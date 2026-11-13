@@ -77,9 +77,9 @@ trends:
 scoring:
   # The folder with the opportunity list and the scores. Change this line to
   # run the model on another set of opportunities; no code changes needed.
-  input_dir: tools/opportunity-scoring/example
+  input_dir: tools/opportunity-scoring/reference-case
   # Shown on the charts, so nobody mistakes the numbers for facts.
-  data_label: "Made-up example data, used to test the model."
+  data_label: "First-pass scores, to be reviewed by the project owner."
 
   # Starting weights from decision OD-5. They must sum to 1.
   weights:

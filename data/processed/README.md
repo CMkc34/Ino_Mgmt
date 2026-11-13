@@ -31,7 +31,7 @@ One row per sub-topic, strongest growth relative to the field first, emerging su
 
 ## Scoring model
 
-Written by `python -m pipelines run scoring` from the input set named in `config.yaml` (`scoring.input_dir`). Definitions are in the [scoring model method](../../docs/design/scoring-model-method.md). **At present the input is the made-up example set, so these files show how the model works and are not findings.**
+Written by `python -m pipelines run scoring` from the input set named in `config.yaml` (`scoring.input_dir`). Definitions are in the [scoring model method](../../docs/design/scoring-model-method.md). The input is the reference case in `tools/opportunity-scoring/reference-case/`: first-pass scores for a fictional organisation. The results are illustrative.
 
 | File | Content |
 |---|---|

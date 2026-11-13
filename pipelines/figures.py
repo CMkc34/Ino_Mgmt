@@ -288,8 +288,8 @@ def plot_rank_stability(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
     each bar, so it does not depend on colour.
     """
     rules = scoring_config["rules"]
-    figure, axes = plt.subplots(figsize=(11, 1.6 + 0.62 * len(ranking)))
-    figure.subplots_adjust(left=0.30, right=0.80, top=0.80, bottom=0.30)
+    figure, axes = plt.subplots(figsize=(12.5, 1.6 + 0.62 * len(ranking)))
+    figure.subplots_adjust(left=0.40, right=0.84, top=0.80, bottom=0.30)
 
     positions = range(len(ranking))
     shares = ranking["top_share"] * 100
@@ -324,8 +324,8 @@ def plot_time_horizon(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
     Time to value is left out of the vertical axis because it is already the
     horizontal one. The three bands are the time horizons.
     """
-    figure, axes = plt.subplots(figsize=(11, 6))
-    figure.subplots_adjust(left=0.08, right=0.97, top=0.86, bottom=0.21)
+    figure, axes = plt.subplots(figsize=(12.5, 6))
+    figure.subplots_adjust(left=0.07, right=0.60, top=0.86, bottom=0.21)
 
     bands = ((0, 12, "under 12 months"), (12, 36, "12 to 36 months"), (36, 48, "over 36 months"))
     for index, (start, end, text) in enumerate(bands):
@@ -333,14 +333,25 @@ def plot_time_horizon(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
             axes.axvspan(start, end, color="#f0f0f0", zorder=0)
         axes.text((start + end) / 2, 5.05, text, fontsize=9, color=MUTED, ha="center", va="bottom")
 
+    # Each point is labelled with its rank; the names are in the key beside
+    # the plot. Opportunities at the same position share one point.
+    positioned = ranking.assign(height=ranking["score_without_time"].round(3))
     texts = []
-    # Opportunities with the same position are drawn once and named together.
-    for (months, score), group in ranking.groupby(["months_to_value", "score_without_time"], sort=True):
-        axes.plot(months, score, "o", markersize=9, color=INK)
-        texts.append((" / ".join(group["name"]), months, score))
+    for (months, height), group in positioned.groupby(["months_to_value", "height"], sort=True):
+        axes.plot(months, height, "o", markersize=9, color=INK)
+        texts.append((" / ".join(str(rank) for rank in group["rank"]), months, height))
     axes.set_xlim(0, 48)
     axes.set_ylim(1, 5)
     place_labels(figure, axes, texts)
+
+    key = ["Rank, opportunity and class", ""]
+    for row in ranking.itertuples():
+        key.append(f"{row.rank}  {row.name}")
+        key.append(f"     total {row.total:.2f}; {row.classification}")
+    figure.text(
+        0.62, 0.86, "\n".join(key), fontsize=8.5, color=INK, va="top", ha="left", linespacing=1.45,
+        bbox=dict(boxstyle="round,pad=0.6", facecolor="white", edgecolor=MUTED),
+    )
 
     axes.set_xlabel("Time to first measurable value (months, midpoint of the scored band)")
     axes.set_ylabel("Score on the other criteria (1 to 5)")
@@ -348,7 +359,7 @@ def plot_time_horizon(ranking: pd.DataFrame, scoring_config: dict) -> Figure:
     figure.suptitle("How good, and how soon?", x=0.01, ha="left", fontsize=13, fontweight="bold")
     figure.text(
         0.01, 0.02,
-        "Vertical axis: weighted score without the time criterion, weights rescaled to sum to 1. "
+        "Numbers are ranks by total score. Vertical axis: weighted score without the time criterion, weights rescaled to sum to 1.\n"
         "The Three Horizons framework covers more than time; the bands only show the time dimension.\n"
         f"Scores are judgements for an illustrative reference organisation. {scoring_config['data_label']}",
         fontsize=8, color=MUTED, ha="left", va="bottom",

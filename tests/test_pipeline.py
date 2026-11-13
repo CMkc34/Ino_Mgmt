@@ -62,3 +62,17 @@ def test_scoring_step_runs_on_the_configured_input_set():
     assert set(ranking["classification"]) <= {"pursue", "explore", "park"}
     assert (FIGURES_DIR / "scoring_rank_stability.png").exists()
     assert (FIGURES_DIR / "scoring_time_horizon.png").exists()
+
+
+def test_the_example_set_runs_through_the_model_by_changing_only_the_input_folder():
+    # Acceptance criterion AC-3.8: another input set needs no code change.
+    from pipelines import scoring
+    from pipelines.paths import in_repo
+
+    scoring_config = load_config()["scoring"]
+    example = in_repo("tools/opportunity-scoring/example")
+    opportunities, scores, business_case = scoring.load_inputs(example, scoring_config["weights"])
+    ranking = scoring.build_ranking(opportunities, scores, scoring_config)
+    assert list(ranking["id"]) == ["A", "B", "C", "D", "E"]
+    assert list(ranking["classification"]) == ["pursue", "pursue", "explore", "park", "park"]
+    assert business_case is not None
