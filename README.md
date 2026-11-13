@@ -4,6 +4,8 @@ Notes, tools and case work on innovation management.
 
 This repository collects applied material on how organisations find, evaluate and scale new ideas: concise framework write-ups, case analyses of public companies, reusable templates, and periodic trend scans.
 
+*Eine deutsche Kurzfassung der beiden Analysen: [Kurzfassung](docs/zusammenfassung-de.md).*
+
 ## Highlights
 
 Two connected analyses on one theme, **AI in industrial manufacturing**, built on a reproducible data pipeline.
@@ -52,7 +54,8 @@ A small project, managed like a real one:
 | [`data/`](data/) | Source snapshots (`raw/`), hand-maintained inputs (`manual/`) and results (`processed/`) |
 | [`outputs/`](outputs/) | Charts produced by the pipeline |
 | [`tests/`](tests/) | Automatic tests of the calculations, the charts and the documents |
-| [`frameworks/`](frameworks/), [`case-studies/`](case-studies/), [`notes/`](notes/) | Planned for a later phase; see the [roadmap](ROADMAP.md) |
+| [`frameworks/`](frameworks/) | Framework write-ups: [Three Horizons](frameworks/three-horizons.md), applied to the scoring results |
+| [`case-studies/`](case-studies/), [`notes/`](notes/) | Planned; see the [roadmap](ROADMAP.md) |
 
 ## Approach
 
