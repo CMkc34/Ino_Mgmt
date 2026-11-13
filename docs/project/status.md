@@ -6,6 +6,14 @@ The dates show that the work ran far ahead of the charter's schedule. From 13 No
 
 ---
 
+## Additions after the Must scope, from 13 November 2026
+
+The project owner lifted the scope freeze for five items (change request CR-7).
+
+- **Done:** Draft closure report. Three Horizons write-up, applied to the scoring results. German one-page summary.
+- **Next:** Case study. Second trend scan in another sector.
+- **Risk:** Each addition is one more draft for the owner to review.
+
 ## Sprint 3 work, done 13 November 2026
 
 - **Done:** Self-review of the trend scan and the scoring model against every acceptance criterion (below). Cold-read test of both summaries. README with highlights, project approach and status. Automatic link check over all documents. Placeholder pages marked as planned.
