@@ -33,12 +33,18 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sample.add_argument("subtopic_id", help="a sub-topic id from config.yaml, or _field")
     sample.add_argument("--size", type=int, default=20, help="number of works (default 20)")
+    sample.add_argument(
+        "--scan", default="trends", help="the section of config.yaml that defines the scan (default: trends)"
+    )
     return parser
 
 
-def print_sample(config: dict, subtopic_id: str, size: int) -> int:
+def print_sample(config: dict, subtopic_id: str, size: int, scan: str = "trends") -> int:
     """Print random recent works for one sub-topic, to judge the query by hand."""
-    trends_config = config["trends"]
+    if scan not in config or "subtopics" not in config[scan]:
+        print(f"unknown scan '{scan}'")
+        return 1
+    trends_config = config[scan]
 
     # Sample from the same years that the "volume" metric uses.
     last_year = trends_config["last_year"]
@@ -63,7 +69,7 @@ def main(arguments: list[str] | None = None) -> int:
 
     try:
         if args.command == "sample":
-            return print_sample(config, args.subtopic_id, args.size)
+            return print_sample(config, args.subtopic_id, args.size, args.scan)
 
         step_names = list(STEPS) if args.step == "all" else [args.step]
         for name in step_names:

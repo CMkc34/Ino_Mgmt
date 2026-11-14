@@ -217,7 +217,11 @@ def load_discovery_topics(path: Path) -> pd.DataFrame:
 
 def load_query_quality(manual_dir: Path = MANUAL_DIR) -> pd.DataFrame:
     """Read the results of the query-quality check (method note, section 5)."""
-    quality = read_csv(manual_dir / "query_quality.csv")
+    path = manual_dir / "query_quality.csv"
+    if not path.exists():
+        # No check recorded yet: every sub-topic then counts as not passed.
+        return pd.DataFrame(columns=["subtopic_id", "round", "sample_size", "relevant"])
+    quality = read_csv(path)
     missing = {"subtopic_id", "round", "sample_size", "relevant"} - set(quality.columns)
     if missing:
         raise ValueError(f"query_quality.csv is missing columns: {sorted(missing)}")

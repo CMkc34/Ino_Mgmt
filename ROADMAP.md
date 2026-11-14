@@ -14,7 +14,8 @@ Not committed. Items are picked up after Phase 1 closes, or earlier through chan
 - [ ] Scoring model, next version: score the digital twin twice, as an internal tool and as an offering (from the case study)
 - [ ] Framework write-up: Technology S-curve, if not delivered in Phase 1
 - [ ] Portfolio dashboard (moved here from Phase 1 by change request, 2026-11-12)
-- [ ] Trend scan: AI in diagnostics / medtech (reusing the pipeline)
+- [x] Trend scan: AI in medical technology (draft, 2026-11-14)
+- [ ] Next scans, candidates from the discovery steps: security of connected factories; AI in materials development; drug safety monitoring; digital mental health; dental imaging
 - [ ] Trend scan: energy transition technologies (e.g. grid storage, hydrogen)
 - [ ] Scheduled monthly refresh of trend data
 - [ ] Framework write-ups: Stage-Gate, Jobs-to-be-Done, Lean Startup, Open Innovation, Ambidexterity

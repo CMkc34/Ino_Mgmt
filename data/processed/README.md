@@ -1,6 +1,6 @@
 # Processed data
 
-Analysis-ready CSV files written by the pipeline. Do not edit by hand: change the code or `config.yaml` and re-run.
+Analysis-ready CSV files written by the pipeline. The sub-folder `medtech/` holds the same trend files for the second scan (AI in medical technology). Do not edit by hand: change the code or `config.yaml` and re-run.
 
 ## `discovery_top_topics.csv`
 

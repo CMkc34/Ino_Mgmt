@@ -1,0 +1,201 @@
+subtopic_id,work_id,year,type,title,relevant,relevant_second_rater,second_rater_unsure,second_rater_reason
+radiology_imaging,https://openalex.org/W4395678022,2024,review,Applications of deep learning in trauma radiology: A narrative review,1,1,0,
+radiology_imaging,https://openalex.org/W7225878538,2025,article,Artificial Intelligence-Driven Dental Age Estimation in Panoramic Radiographs via the Demirjian Method,1,1,0,
+radiology_imaging,https://openalex.org/W4415708965,2025,conference-paper,DeepYOLO11: A Multi-Scale Feature Fusion Approach for Radiological Images,1,1,0,
+radiology_imaging,https://openalex.org/W7117104805,2025,article,International Retrospective Observational Study of Continual Learning for AI on Endotracheal Tube Placement from Chest Radiographs,1,1,0,
+radiology_imaging,https://openalex.org/W4399898618,2024,article,Prediction of metastases in confusing mediastinal lymph nodes based on flourine-18 fluorodeoxyglucose (18F-FDG) positron emission tomography/computed tomography (PET/CT) imaging using machine learning,1,1,0,
+radiology_imaging,https://openalex.org/W4409252533,2025,article,How Do Radiologists Currently Monitor AI in Radiology and What Challenges Do They Face? An Interview Study and Qualitative Analysis,1,1,0,
+radiology_imaging,https://openalex.org/W4416871782,2025,article,Radiology reporting errors and how to avoid them,0,0,0,Reporting errors; no AI method indicated
+radiology_imaging,https://openalex.org/W7150773478,2025,article,Accurate Periodontal Disease Classification from Dental Radiographs Using Deep Learning Models,1,1,0,
+radiology_imaging,https://openalex.org/W4377987123,2023,article,Machine Learning for Detecting Total Knee Arthroplasty Implant Loosening on Plain Radiographs,1,1,0,
+radiology_imaging,https://openalex.org/W4402564823,2024,article,Large Language Model Use in Radiology Residency Applications: Unwelcomed but Inevitable,0,0,0,"LLMs in residency applications, not image analysis"
+radiology_imaging,https://openalex.org/W4388772808,2023,article,Impact of real-life use of artificial intelligence as support for human reading in a population-based breast cancer screening program with mammography and tomosynthesis,1,1,0,
+radiology_imaging,https://openalex.org/W4403212862,2024,conference-paper,Digital Transformation in Dental Care: An Artificial Intelligence Application for Automated Dental Radiology Diagnosis,1,1,0,
+radiology_imaging,https://openalex.org/W4409822711,2025,article,Study Among Dentists of Udaipur Regarding their Awareness Among Artificial Intelligence in Oral Medicine and Radiology: A Cross-Sectional Study,0,1,1,"Awareness survey about AI in oral radiology, not a method study"
+radiology_imaging,https://openalex.org/W4386372448,2023,article,Improving traumatic fracture detection on radiographs with artificial intelligence support: a multi-reader study,1,1,0,
+radiology_imaging,https://openalex.org/W4403216354,2024,article,A Machine Learning-Based Clustering Using Radiomics of F-18 Fluorodeoxyglucose Positron Emission Tomography/Computed Tomography for the Prediction of Prognosis in Patients with Intrahepatic Cholangiocarcinoma,1,1,0,
+radiology_imaging,https://openalex.org/W4412828507,2025,article,Advanced Computer Vision Model for Lung Tumor Segmentation and Detection in Radiology and Histopathology Images,1,1,0,
+radiology_imaging,https://openalex.org/W4401453778,2024,conference-paper,Data Domain Adaptation in Federated Learning in the Breast Mammography Image Classification Problem,1,1,0,
+radiology_imaging,https://openalex.org/W4415125266,2025,conference-paper,Vision Transformer Implementation for Automated Pneumonia Detection Using Chest Radiographs,1,1,0,
+radiology_imaging,https://openalex.org/W4387810000,2023,article,176P Enhancing immunotherapy response prediction via multimodal integration of radiology and pathology deep learning models,1,1,0,
+radiology_imaging,https://openalex.org/W4413659938,2025,article,A connectome-based functional magnetic resonance imaging study of visuospatial analogical reasoning in stroke,0,0,1,Neuroscience fMRI connectome study; no diagnostic AI evident
+digital_pathology,https://openalex.org/W4401028495,2024,conference-paper,AI in Neuro-Oncology: Predicting EGFR Amplification in Glioblastoma from Whole Slide Images Using Weakly Supervised Deep Learning,1,1,0,
+digital_pathology,https://openalex.org/W4376618684,2023,article,Evolution of LiverNet 2.x: Architectures for automated liver cancer grade classification from H&E stained liver histopathological images,1,1,0,
+digital_pathology,https://openalex.org/W4414299823,2025,article,Evaluating the robustness of slide-level AI predictions on out-of-focus whole slide images: A retrospective observational study,1,1,0,
+digital_pathology,https://openalex.org/W4406736394,2025,book-chapter,BCNet: A Novel Deep Learning Model for Enhanced Breast Cancer Classification Using Histopathological Images,1,1,0,
+digital_pathology,https://openalex.org/W4321232154,2023,conference-paper,Patient-Level Microsatellite Stability Assessment from Whole Slide Images by Combining Momentum Contrast Learning and Group Patch Embeddings,1,1,0,
+digital_pathology,https://openalex.org/W4412027496,2025,article,A Pilot Study of Breast Cancer Histopathological Image Classification Using Google Teachable Machine: A No-Code Artificial Intelligence Approach,1,1,0,
+digital_pathology,https://openalex.org/W7126111860,2025,dissertation,Deep Learning in Oesophageal Cancer Development: Integrating Multi-Stain Histopathology Images of the Capsule Sponge,1,1,0,
+digital_pathology,https://openalex.org/W7162709256,2025,article,Pyramid Graph Transformer for survival prediction from gigapixel whole slide images,1,1,0,
+digital_pathology,https://openalex.org/W4412828507,2025,article,Advanced Computer Vision Model for Lung Tumor Segmentation and Detection in Radiology and Histopathology Images,1,1,0,
+digital_pathology,https://openalex.org/W4405219105,2024,article,AI-Powered Histopathological Analysis for Intelligent and Early Detection of Colon Cancer: A Synergistic Approach with Inception v3 and Machine Learning,1,1,0,
+digital_pathology,https://openalex.org/W4391448220,2024,article,Transforming Breast Cancer Identification: An In-Depth Examination of Advanced Machine Learning Models Applied to Histopathological Images,1,1,0,
+digital_pathology,https://openalex.org/W4416528817,2025,article,Optimized multi-dimensional attention spiking neural network based breast cancer detection from histopathology images,1,1,0,
+digital_pathology,https://openalex.org/W4407862482,2025,article,Robust Deep Learning Approach for Automating the Epithelial Dysplasia Detection in Histopathology Images,1,1,0,
+digital_pathology,https://openalex.org/W4366137380,2023,review,Digital Histopathology by Infrared Spectroscopic Imaging,0,1,1,Title lacks AI; IR digital histopathology usually relies on machine learning
+digital_pathology,https://openalex.org/W4361212423,2023,article,MAMC-Net: an effective deep learning framework for whole-slide image tumor segmentation,1,1,0,
+digital_pathology,https://openalex.org/W4407646807,2025,article,Predicting HRD Results In Patient With Ovarian Cancer Using Deep Learning Models On 40x Whole Slide Images,1,1,0,
+digital_pathology,https://openalex.org/W4391655762,2024,article,Deep learning model to differentiate Crohn’s disease from intestinal tuberculosis using histopathological whole slide images from intestinal specimens,1,1,0,
+digital_pathology,https://openalex.org/W4387211348,2023,conference-paper,Deep Cellular Embeddings: An Explainable Plug and Play Improvement for Feature Representation in Histopathology,1,1,0,
+digital_pathology,https://openalex.org/W4390424545,2023,article,Classification of Histopathological Images in Automatic Detection of Breast Cancer with Deep Learning Approach,1,1,0,
+digital_pathology,https://openalex.org/W4410859009,2025,article,Automatic Deep Learning-based Histopathologic Image Classification,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4403960695,2024,article,Artificial Intelligence–Based Fully Automated Quantitative Coronary Angiography vs Optical Coherence Tomography–Guided PCI,0,0,0,Coronary angiography and intravascular OCT; cardiology not ophthalmic
+ophthalmic_imaging,https://openalex.org/W4412734457,2024,article,PREDICTION OF DIABETIC RETINOPATHY AMONG DIABETIC NEUROPATHY IN T2DM PATIENTS USING DATA MINING ALGORITHM,0,0,0,"Predicts retinopathy from clinical data, not eye images"
+ophthalmic_imaging,https://openalex.org/W4401300884,2024,article,DiabSense: early diagnosis of non-insulin-dependent diabetes mellitus using smartphone-based human activity recognition and diabetic retinopathy analysis with Graph Neural Network,0,1,1,Diabetic retinopathy analysis likely image-based but mixed with activity recognition
+ophthalmic_imaging,https://openalex.org/W4417114225,2025,preprint,Deep Learning for Retinal Degeneration Assessment: A Comprehensive Analysis of the MARIO Challenge,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4384197552,2023,article,Vessel Density Features of Optical Coherence Tomography Angiography for Classification of Optic Neuropathies Using Machine Learning,1,1,0,
+ophthalmic_imaging,https://openalex.org/W7171257541,2025,article,Glaucoma Identification Using Deep Convolutional Neural Networks,1,1,0,
+ophthalmic_imaging,https://openalex.org/W7220662318,2025,article,Detection and Classification of Diabetic Retinopathy in Fundus Images Using Deep Learning Models,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4399701349,2024,review,Diabetic retinopathy screening through artificial intelligence algorithms: A systematic review,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4323056340,2023,book-chapter,Fast bilateral filter with unsharp masking for the preprocessing of optical coherence tomography images—an aid for segmentation and classification,1,1,1,OCT image preprocessing filter aiding classification; AI role indirect
+ophthalmic_imaging,https://openalex.org/W4388464619,2023,article,Artifact Correction in Retinal Nerve Fiber Layer Thickness Maps Using Deep Learning and Its Clinical Utility in Glaucoma,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4416106165,2025,article,Decoding diabetic retinopathy risk through hybrid modeling: integrative assessment of machine learning algorithms and advanced regression frameworks leveraging estimated glucose disposal rate (eGDR),0,0,0,"Retinopathy risk from clinical metabolic data, not images"
+ophthalmic_imaging,https://openalex.org/W4414118052,2025,conference-paper,AI-Driven Glaucoma Detection Using Deep Learning,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4399039900,2024,conference-paper,Progressive Deep Transfer Learning for Accurate Glaucoma Detection in Medical Imaging,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4415422772,2025,article,Teleophthalmology versus standard of care for community optometry referrals of retinal disease (HERMES): a cluster randomised controlled trial with linked prospective diagnostic accuracy assessment of artificial intelligence support,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4416158844,2025,article,Severity level prediction of diabetic retinopathy and diabetic macular edema using deep and transfer learning approaches from fundus images,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4403556782,2024,article,Grading of diabetic retinopathy using a pre‐segmenting deep learning classification model: Validation of an automated algorithm,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4415850533,2025,conference-paper,AN INNOVATIVE APPROACH TO INTELLIGENT MANAGEMENT OF RETINAL PATHOLOGY RECOGNITION BASED ON DEEP LEARNING AND INTUITIONISTIC FUZZY SETS,1,1,0,
+ophthalmic_imaging,https://openalex.org/W7128222791,2025,review,A Systematic Review on Diabetic Retinopathy Classification Using AI Techniques and IoMT,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4409846097,2025,conference-paper,Calibrated Models for DME Progression Prediction from Ultra-Wide Field Retinal Images,1,1,0,
+ophthalmic_imaging,https://openalex.org/W4324366873,2023,article,Performance of Automated Machine Learning for Diabetic Retinopathy Image Classification from Multi-field Handheld Retinal Images,1,1,0,
+dermatology_imaging,https://openalex.org/W4387583566,2023,conference-paper,Exploiting hybrid features extracted from color spaces of dermoscopic images,1,1,0,
+dermatology_imaging,https://openalex.org/W4401553557,2024,conference-paper,Integrating Artificial Intelligence and Machine Learning for Accurate Identification of Melanoma in Medical Imaging,1,1,0,
+dermatology_imaging,https://openalex.org/W4413832412,2025,book-chapter,Precision medication in therapy of eye melanoma,0,0,0,Eye melanoma therapy; not skin imaging AI
+dermatology_imaging,https://openalex.org/W4411175037,2025,article,SMART DERMATOLOGY: SKIN DISEASE DETECTION AND RECOMMENDATION SYSTEM USING VISION TRANSFER,1,1,0,
+dermatology_imaging,https://openalex.org/W7117545698,2025,preprint,A Global Atlas of Digital Dermatology to Map Innovation and Disparities,1,1,1,Atlas of digital dermatology; AI imaging focus likely but unclear
+dermatology_imaging,https://openalex.org/W4411600455,2025,conference-paper,"Advancing Skin Cancer Detection with CNNs, and Max Pooling Layers",1,1,0,
+dermatology_imaging,https://openalex.org/W7117685814,2025,conference-paper,Skewness-Guided Pruning of Multimodal Swin Transformers for Federated Skin Lesion Classification on Edge Devices,1,1,0,
+dermatology_imaging,https://openalex.org/W4403071283,2024,conference-paper,PASSION for Dermatology: Bridging the Diversity Gap with Pigmented Skin Images from Sub-Saharan Africa,1,1,0,
+dermatology_imaging,https://openalex.org/W4391992955,2023,conference-paper,Feature Extraction in Dermoscopic Images for Analysing Dryness Using Second Order GLCM Techniques,1,1,1,Texture feature extraction on dermoscopic images; AI component limited
+dermatology_imaging,https://openalex.org/W4387405741,2023,article,The ethics of artificial intelligence-driven diagnostic testing in dermatology,1,1,1,Ethics paper on AI dermatology diagnostics; imaging implied
+dermatology_imaging,https://openalex.org/W7130161826,2025,conference-paper,DermCascade: A Cascaded Deep Learning Framework for Reliable Skin Cancer Assessment,1,1,0,
+dermatology_imaging,https://openalex.org/W4414599112,2025,article,Identification of prognostic biomarkers associated with T and melanoma cell subpopulations in melanoma through integrating machine learning and multiomics,0,0,0,"Multiomics biomarker study, not skin imaging"
+dermatology_imaging,https://openalex.org/W4391266558,2023,conference-paper,Skin Cancer Detection using Machine Learning and Deep Learning,1,1,0,
+dermatology_imaging,https://openalex.org/W4406067061,2024,conference-paper,Skin Cancer Detection Using Deep Learning,1,1,0,
+dermatology_imaging,https://openalex.org/W4403202166,2024,article,"""Identification of Melanoma Cancer Using Feature Extraction from Medical Image Textures by Artificial Intelligence""",1,1,0,
+dermatology_imaging,https://openalex.org/W4404031090,2024,conference-paper,Enhancing Skin Cancer Diagnosis using Dermoscopic Images: A Feature Fusion based Deep Learning Approach,1,1,0,
+dermatology_imaging,https://openalex.org/W4409336865,2024,article,ADVANCES IN MELANOMA DETECTION: A COMPREHENSIVE REVIEW OF EMERGING TECHNOLOGIES AND TECHNIQUES,1,1,1,Melanoma detection technology review; AI likely but not stated
+dermatology_imaging,https://openalex.org/W4416126395,2025,preprint,Multi-label transformer for dermoscopic artifact detection with an imbalance-aware and confidence-penalizing loss,1,1,0,
+dermatology_imaging,https://openalex.org/W4412713336,2025,conference-paper,EffiDerm: An Efficient Deep Learning Model for Skin Cancer Prediction,1,1,0,
+dermatology_imaging,https://openalex.org/W4414333095,2025,article,Doxorubicin Intercalated Co‐Al Layered Double Hydroxide Nanocarrier With pH‐Responsive Controlled Release and Selective Melanoma Suppression: Toward Next‐Generation Nanotherapeutics,0,0,0,"Nanocarrier drug delivery; materials science, no AI"
+cardiac_signals,https://openalex.org/W7152009065,2023,dissertation,Interpretability of Neural Networks applied to Electrocardiograms : Translational Applications in Cardiovascular Diseases,1,1,0,
+cardiac_signals,https://openalex.org/W4410697695,2025,article,Evaluation of AI-based ECG analysis accuracy using Chat GPT-4 and Gemini AI models,1,1,0,
+cardiac_signals,https://openalex.org/W4398777357,2024,article,Predicting post-operative atrial fibrillation after cardiac surgery using an artificial intelligence-enabled electrocardiogram algorithm,1,1,0,
+cardiac_signals,https://openalex.org/W4360838509,2023,article,Short:VANet: An Intuitive Light-Weight Deep Learning Solution Towards Ventricular Arrhythmia Detection,1,1,0,
+cardiac_signals,https://openalex.org/W4410622228,2025,article,A Deep Learning‐Based Multimodal Fusion Model for Recurrence Prediction in Persistent Atrial Fibrillation Patients,1,1,0,
+cardiac_signals,https://openalex.org/W4389028959,2023,article,337. Association of atrial fibrillation burden with in-hospital mortality in patients with sepsis: Analysis of MIMIC-III database,0,0,1,Statistical association study of AF burden; no AI method
+cardiac_signals,https://openalex.org/W4388937690,2023,conference-paper,Recognition of Obstructive Sleep Apnea from a Single Lead Electrocardiogram Signal Using a ResNet Model,1,1,1,"Deep learning on ECG, but target is sleep apnea"
+cardiac_signals,https://openalex.org/W4377984034,2023,article,Artificial intelligence-estimated biological heart age using 12 lead electrocardiogram predicts mortality and cardiovascular outcomes,1,1,0,
+cardiac_signals,https://openalex.org/W4393997910,2024,article,PREDICTING PAROXYSMAL ATRIAL FIBRILLATION IN CRYPTOGENIC STROKE PATIENTS FROM AN ELECTROCARDIOGRAM IN SINUS RHYTHM USING ARTIFICIAL INTELLIGENCE,1,1,0,
+cardiac_signals,https://openalex.org/W4388342824,2023,article,"A new epileptic seizure prediction model based on maximal overlap discrete wavelet packet transform, homogeneity index, and machine learning using ECG signals",0,1,1,"Machine learning on ECG, but target is epileptic seizures"
+cardiac_signals,https://openalex.org/W4410509903,2025,article,Electrocardiogram-based diagnosis of liver diseases: an externally validated and explainable machine learning approach,1,1,1,"Machine learning on ECG, but target is liver disease"
+cardiac_signals,https://openalex.org/W4417089309,2025,review,"From image to insight: an AI-enabled framework for echocardiography acquisition, reconstruction, interpretation and interaction",1,1,0,
+cardiac_signals,https://openalex.org/W4417147188,2025,article,Deep Spectra P2E: AI-Driven Spectral ECG Reconstruction from PPG for Continuous Cardiovascular Monitoring,1,1,0,
+cardiac_signals,https://openalex.org/W4416145715,2025,article,Implementation and Impact of a Clinical Decision Support System in Healthcare: A Focus on Atrial Fibrillation Management,0,0,1,"Decision support for AF management; not signal analysis, AI unclear"
+cardiac_signals,https://openalex.org/W4319592812,2023,article,Correlation between artificial intelligence-enabled electrocardiogram and echocardiographic features in aortic stenosis,1,1,0,
+cardiac_signals,https://openalex.org/W4410620913,2025,article,Prediction and classification of aortic stenosis severity based on electrocardiogram with deep learning model,1,1,0,
+cardiac_signals,https://openalex.org/W7160664436,2025,conference-paper,A Hybrid Deep Learning Model for Classifying Myocardial Infarction Complications Through ECG Images with XAI,1,1,0,
+cardiac_signals,https://openalex.org/W4415760599,2025,conference-paper,Detection of Cardiovascular Disease by ECG Images Using LSTM,1,1,0,
+cardiac_signals,https://openalex.org/W4390481482,2023,conference-paper,Anomaly detection in ECG using recurrent networks optimized by modified metaheuristic algorithm,1,1,0,
+cardiac_signals,https://openalex.org/W7117154198,2025,article,DEEP NEURAL NETWORK CONV-LSTM FOR ECG-BASED CARDIAC DISORDER IDENTIFICATION,1,1,0,
+endoscopy,https://openalex.org/W4413180444,2025,conference-paper,Advancing Colorectal Polyp Detection and Segmentation Through YOLOv11 Architecture,1,1,0,
+endoscopy,https://openalex.org/W4396936366,2024,review,Artificial intelligence and endo-histo-omics: new dimensions of precision endoscopy and histology in inflammatory bowel disease,1,1,0,
+endoscopy,https://openalex.org/W4411987563,2025,article,A temporal convolutional network-based approach and a benchmark dataset for colonoscopy video temporal segmentation,1,1,0,
+endoscopy,https://openalex.org/W4414994369,2025,article,AI-assisted precise identification and segmentation of parathyroid glands in multi-approach endoscopic and robotic thyroid surgeries,1,1,1,Endoscopic surgery video AI rather than diagnostic endoscopy
+endoscopy,https://openalex.org/W4395052598,2024,article,Gastroenterology-Specific AI Model GastroGPT Outperforms Attending Physicians’ and ChatGPT in Analyses of Clinical Notes of Real-World Endoscopy Cases,0,0,1,"LLM text analysis of clinical notes, not endoscopic images"
+endoscopy,https://openalex.org/W7162969652,2024,dissertation,Detection and endoscopic treatment of esophageal neoplasia,0,0,1,No AI indicated in title
+endoscopy,https://openalex.org/W4407507451,2025,article,"Artificial intelligence for dysplasia detection during surveillance colonoscopy in patients with ulcerative colitis: A cross-sectional, non-inferiority, diagnostic test comparison study",1,1,0,
+endoscopy,https://openalex.org/W4387423121,2023,article,Federated Deep Learning for Wireless Capsule Endoscopy Analysis: Enabling Collaboration Across Multiple Data Centers for Robust Learning of Diverse Pathologies,1,1,0,
+endoscopy,https://openalex.org/W4413228741,2025,article,DeepPolyp: an artificial intelligence framework for polyp detection and segmentation,1,1,0,
+endoscopy,https://openalex.org/W4415754189,2025,article,Research progress on the application of artificial intelligence in colonoscopy,1,1,0,
+endoscopy,https://openalex.org/W4385828814,2023,article,MCSF-Net: a multi-scale channel spatial fusion network for real-time polyp segmentation,1,1,0,
+endoscopy,https://openalex.org/W4415222798,2025,article,"A prospective single-masked, non-inferiority, parallel-group randomized controlled trial of the efficacy of a ChatGPT-based AI chatbot to improve Boston bowel preparation scores for colonoscopy preparation: A trial protocol",0,1,1,Chatbot for bowel preparation; supports exam but not image analysis
+endoscopy,https://openalex.org/W4408419362,2025,article,CNN-based Classification of Bladder Tissue Lesions from Endoscopy Images,1,1,0,
+endoscopy,https://openalex.org/W4396729988,2024,article,Few-shot learning with task adaptation for multi-category gastrointestinal endoscopy classification,1,1,0,
+endoscopy,https://openalex.org/W4409231663,2025,conference-paper,Automated segmentation of central airway obstruction from endoscopic video stream with deep learning,1,1,0,
+endoscopy,https://openalex.org/W4399668567,2024,article,Clinical consequences of computer-aided colorectal polyp detection,1,1,0,
+endoscopy,https://openalex.org/W4395039116,2024,preprint,VCE-AnomalyNet: A New Dataset Fueling AI Precision in Anomaly Detection for Video Capsule Endoscopy ⋆,1,1,0,
+endoscopy,https://openalex.org/W4386712735,2023,article,THE USE OF THE EFFICIENTDET NEURAL NETWORK IN THE TASK OF DETECTING STOMACH PATHOLOGIES ON VIDEO IMAGES OF ENDOSCOPIC EXAMINATION,1,1,0,
+endoscopy,https://openalex.org/W4390481597,2023,conference-paper,Automated Anatomical Classification and Quality Assessment of Endoscopy by Temporal-Spatial Analysis,1,1,0,
+endoscopy,https://openalex.org/W4399895431,2024,article,Smartphone application for artificial intelligence‐based evaluation of stool state during bowel preparation before colonoscopy,1,1,1,"AI on stool photos for bowel prep; supports exam, not endoscopic images"
+wearables_monitoring,https://openalex.org/W4412534092,2025,review,Wearable Technologies in Head and Neck Oncology: Scoping Review,1,0,1,Wearables review; no AI indicated in title
+wearables_monitoring,https://openalex.org/W4400794945,2024,article,A matter of annotation: an empirical study on in situ and self-recall activity annotations from wearable sensors,1,0,1,Activity annotation methodology; no medical application evident
+wearables_monitoring,https://openalex.org/W7127404733,2025,conference-paper,Next-Generation Adaptive Wearable Devices for Dual-Mode Therapy: Integration of Bioinformatics and Real-Time Computational Intelligence,1,1,1,Vague title; wearable therapy with computational intelligence
+wearables_monitoring,https://openalex.org/W4387461628,2023,book-chapter,Smart AI-Powered Wearable Sensors for Pregnant Women,1,1,0,
+wearables_monitoring,https://openalex.org/W4407836688,2024,article,AI-Enabled Telemedicine: Revolutionizing Chronic Disease Management with Remote Patient Monitoring Technologies,1,1,0,
+wearables_monitoring,https://openalex.org/W4392346324,2024,article,"Closed‐Loop Wearable Device Network of Intrinsically‐Controlled, Bilateral Coordinated Functional Electrical Stimulation for Stroke",0,0,1,Wearable stimulation device; no AI or data-driven method evident
+wearables_monitoring,https://openalex.org/W4417284381,2025,article,Multi-Task Learning for Gait Phase and Gait Cycle Percentage Prediction With Wearable Sensors in Frail Older Adults,1,1,0,
+wearables_monitoring,https://openalex.org/W4414059906,2025,review,"Advancing mental health diagnostics: a review on the role of smartphones, wearable devices, and artificial intelligence in depression and anxiety detection",1,1,0,
+wearables_monitoring,https://openalex.org/W4404693543,2024,article,Improved Deep Learning for Parkinson’s Diagnosis Based on Wearable Sensors,1,1,0,
+wearables_monitoring,https://openalex.org/W4413440391,2025,article,Wearable sensor-based analysis of heart rate variability as a biomarker for ischemic heart disease,1,1,1,Wearable HRV biomarker analysis; AI method not explicit
+wearables_monitoring,https://openalex.org/W4385968804,2023,article,Evolution of the Stethoscope: Advances with the Adoption of Machine Learning and Development of Wearable Devices,1,1,0,
+wearables_monitoring,https://openalex.org/W7220789754,2025,dissertation,Machine learning enhancements for wearable device investigation of acute anxiety and cardiovascular diseases,1,1,0,
+wearables_monitoring,https://openalex.org/W4380364520,2023,article,Using AI–ML to Augment the Capabilities of Social Media for Telehealth and Remote Patient Monitoring,1,1,1,Social media focus; remote monitoring with AI is stated
+wearables_monitoring,https://openalex.org/W4410226954,2025,article,AI Pipeline for Real-Time Health Event Detection from Wearable Devices,1,1,0,
+wearables_monitoring,https://openalex.org/W4396753595,2024,article,Pulse2AI: An Adaptive Framework to Standardize and Process Pulsatile Wearable Sensor Data for Clinical Applications,1,1,0,
+wearables_monitoring,https://openalex.org/W4387780327,2023,article,Impact of AI in Personalised Health Monitoring Using Wearable Devices,1,1,0,
+wearables_monitoring,https://openalex.org/W4390037028,2023,book-chapter,Remote Patient Monitoring,0,0,1,Generic remote monitoring chapter; no AI indicated
+wearables_monitoring,https://openalex.org/W4410810011,2025,conference-paper,Bit-Heart: Wearable Device for Healthcare Diagnosis Employing IOT and Machine Learning,1,1,0,
+wearables_monitoring,https://openalex.org/W4411886814,2025,book-chapter,Wearable Biosensors,0,0,1,Generic wearable biosensors chapter; no AI indicated
+wearables_monitoring,https://openalex.org/W4416978681,2025,review,Non-Invasive Remote Monitoring in Heart Failure: Towards Wearable Devices and Artificial Intelligence Solutions,1,1,0,
+surgical_robotics,https://openalex.org/W4376118840,2023,book-chapter,A New Liver Segmentation Based on Digital Liver Portal Vein Ramification Using Computer-Assisted Surgery System: Exploring Artificial Intelligence,0,1,1,"Surgical planning segmentation; AI only exploratory, not robotics"
+surgical_robotics,https://openalex.org/W4406428566,2025,article,The Effect of Nursing Students' Artificial Intelligence Anxiety on Their Knowledge of Robotic Surgery: The Mediating Role of Individual Innovativeness,0,0,1,Nursing student attitudes survey; not an AI surgical application
+surgical_robotics,https://openalex.org/W4401647203,2024,article,AI-Assisted Surgical Robotics: A Review of Current State and Future Possibilities,1,1,0,
+surgical_robotics,https://openalex.org/W4400187978,2024,article,Autonomous Blood Suction for Robot-Assisted Surgery: A Sim-to-Real Reinforcement Learning Approach,1,1,0,
+surgical_robotics,https://openalex.org/W4416020227,2025,conference-paper,Surgical Action Collaboration Through Multimodal Large Language Model-Driven Surgical Tool Dialogue in Robotic Assisted Surgery,1,1,0,
+surgical_robotics,https://openalex.org/W4413498368,2025,article,Hands‐Free Camera Assistant: Autonomous Laparoscope Manipulation in Robot‐Assisted Surgery,1,1,0,
+surgical_robotics,https://openalex.org/W4409283685,2025,article,How AI is Revolutionizing Healthcare: From Personalized Medicine and Diagnostic Tools to Drug Discovery and Robot-Assisted Surgery,0,0,1,Broad healthcare AI overview; robotic surgery in passing
+surgical_robotics,https://openalex.org/W4319947115,2023,article,Improving the safety of robotic surgery with a new artificial intelligence-based system,1,1,0,
+surgical_robotics,https://openalex.org/W4412519954,2025,article,An AI Approach to Markerless Augmented Reality in Surgical Robots,1,1,0,
+surgical_robotics,https://openalex.org/W4399184637,2024,article,Research trends on kinematics analysis of surgical robotics using machine learning techniques,1,1,0,
+surgical_robotics,https://openalex.org/W4411608018,2025,article,Artificial Intelligence Driven CBCT Segmentation and 3D Modelling of Anterior Maxillary Wall for Computer-Assisted Surgery: A Comparison of Multiple Algorithms,1,1,1,CBCT segmentation for computer-assisted surgery planning; borderline imaging
+surgical_robotics,https://openalex.org/W4409103788,2024,conference-paper,Development of Operational Framework and Standard Requirements for AI Assisted Robotic Surgery: Analysis Level of Autonomy,1,1,0,
+surgical_robotics,https://openalex.org/W4386187847,2023,article,3D printed models and Artificial Intelligence: A review of their impact in robotic surgery training,1,1,0,
+surgical_robotics,https://openalex.org/W4386453715,2023,article,Learning Nonprehensile Dynamic Manipulation: Sim2real Vision-Based Policy With a Surgical Robot,1,1,0,
+surgical_robotics,https://openalex.org/W4385492470,2023,article,Global research trends and prospects of artificial intelligence in orthopedic surgical robot: a bibliometric analysis,1,1,0,
+surgical_robotics,https://openalex.org/W4410298062,2025,conference-paper,Leveraging Physical Human-Robot Interaction for Surgical Robot Learning in Neuroendoscopy,1,1,0,
+surgical_robotics,https://openalex.org/W4416524252,2025,book-chapter,Impact of AI on Robotics Surgery,1,1,0,
+surgical_robotics,https://openalex.org/W4382862558,2023,article,Introduction to AI-driven surgical robots,1,1,0,
+surgical_robotics,https://openalex.org/W4415197067,2025,article,Legal Frameworks for AI-driven Diagnostics and Robotic Surgery,0,1,1,Legal frameworks paper; robotic surgery AI shared with diagnostics
+surgical_robotics,https://openalex.org/W7220097681,2025,article,Artificial Intelligence and Cybersecurity in Minimal Access and Robotic Surgery: A Technological Convergence,1,1,0,
+decision_support,https://openalex.org/W7204496133,2025,article,The Role of Artificial Intelligence–Assisted Clinical Decision Support Systems in Enhancing Nursing Practice and Patient Outcomes in Iraqi Hospitals,1,1,0,
+decision_support,https://openalex.org/W7131433872,2025,conference-paper,A Human-Centered Approach to Interpretable Machine Learning in Clinical Decision Support Systems,1,1,0,
+decision_support,https://openalex.org/W4416145715,2025,article,Implementation and Impact of a Clinical Decision Support System in Healthcare: A Focus on Atrial Fibrillation Management,1,1,1,Decision support system implementation; AI basis not stated
+decision_support,https://openalex.org/W4414524706,2025,preprint,An Intelligent Clinical Decision Support System for Cardiovascular Disease Applying An Explainable Artificial Intelligence-Based Deep Learning Model,1,1,0,
+decision_support,https://openalex.org/W4384296373,2023,article,Analyzing of optimal classifier selection for EEG signals of depression patients based on intelligent fuzzy decision support systems,1,0,1,"Decision support selects EEG classifiers, not clinical decision support"
+decision_support,https://openalex.org/W4411129525,2025,article,Cyber-Physical Systems Integration in Healthcare: AI-Enabled Decision Support Systems,1,1,0,
+decision_support,https://openalex.org/W4410825509,2024,conference-paper,Multimodal Diagnosis using Deep Fuzzy Cognitive Map with Extreme Learning Machine Integrated into a Medical Decision Support System for Coronary Artery Disease and Non-Small Cell Lung Cancer Detection,1,1,0,
+decision_support,https://openalex.org/W4417127372,2025,preprint,"Patient Similarity Computation for Clinical Decision Support: An Efficient Use of Data Transformation, Combining Static and Time Series Data",1,1,0,
+decision_support,https://openalex.org/W4398144992,2024,preprint,Clinical Decision Support Opportunities among Clinicians Caring for People Receiving Invasive Mechanical Ventilation: A Cross-sectional Survey,0,0,1,Clinician survey of decision support needs; no AI indicated
+decision_support,https://openalex.org/W4413288382,2025,article,Development of an Agentic AI Framework for Multi-Specialty Medical Imaging Diagnostics: Leveraging MedGemma for Enhanced Clinical Decision Support,1,1,0,
+decision_support,https://openalex.org/W4411042130,2025,conference-paper,A Computer Vision-Based Hand Motion Analysis Toward a Clinical Decision-Support System for Hand Motion Rehabilitation,1,1,0,
+decision_support,https://openalex.org/W4401448404,2024,article,A knowledge-based decision support system to support family doctors in personalizing type-2 diabetes mellitus medical nutrition therapy,1,1,1,Knowledge-based rather than data-driven decision support
+decision_support,https://openalex.org/W4401834311,2024,preprint,Using Meta-Transformers for Multimodal Clinical Decision Support and Evidence-Based Medicine,1,1,0,
+decision_support,https://openalex.org/W7118835466,2025,article,"ARTIFICIAL INTELLIGENCE–AUGMENTED CLINICAL DECISION SUPPORT IN NURSING AND ALLIED HEALTH CARE: EXAMINING TECHNOLOGICAL POTENTIAL, PRACTICAL LIMITATIONS, AND ETHICAL RESPONSIBILITIES WITHIN THE PAKISTANI HEALTHCARE FRAMEWORK",1,1,0,
+decision_support,https://openalex.org/W4394616404,2024,article,An evaluation of the capabilities of language models and nurses in providing neonatal clinical decision support,1,1,0,
+decision_support,https://openalex.org/W4411521356,2025,conference-paper,Conformal Prediction for ECG Interpretation: A Study on Human-AI Collaboration in Clinical Decision Support,1,1,0,
+decision_support,https://openalex.org/W4413917525,2025,conference-paper,LLM-Powered Diagnostic Decision Support System Integrated with Electronic Health Records,1,1,0,
+decision_support,https://openalex.org/W4386484594,2023,article,Intelligent Clinical Decision Support System for Managing COPD Patients,1,1,0,
+decision_support,https://openalex.org/W4411088817,2025,review,Enhancing Care in Type 1 Diabetes with Artificial Intelligence Driven Clinical Decision Support Systems,1,1,0,
+decision_support,https://openalex.org/W4405650845,2024,review,CLOUD-ENABLED AI INFRASTRUCTURE IN HEALTHCARE: A SYSTEMATIC REVIEW OF CLINICAL DECISION SUPPORT AND WORKFLOW OPTIMIZATION,1,1,0,
+medical_llms,https://openalex.org/W4412130315,2024,conference-paper,Generative AI for Healthcare: Concepts and Applications,1,1,1,Generative AI in healthcare broadly; language models likely included
+medical_llms,https://openalex.org/W7161628776,2025,article,Leveraging ChatGPT in the Loop for Enhanced Robustness in Deep Learning Models,0,0,1,No medical application evident in title
+medical_llms,https://openalex.org/W4389868629,2023,conference-paper,VetLLM: Large Language Model for Predicting Diagnosis from Veterinary Notes,0,0,0,Veterinary medicine
+medical_llms,https://openalex.org/W4388911158,2023,preprint,The Future of Medicine: Large Language Models Redefining Healthcare Dynamics,1,1,0,
+medical_llms,https://openalex.org/W4386897457,2023,article,Large language models and the future of rheumatology: assessing impact and emerging opportunities,1,1,0,
+medical_llms,https://openalex.org/W4396742638,2024,article,Enhancing medical image classification with generative AI using latent denoising diffusion probabilistic model and wiener filtering approach,0,0,0,"Diffusion image model, not a language model"
+medical_llms,https://openalex.org/W7172064763,2024,article,TOWARDS GENERALIST ARTIFICIAL INTELLIGENCE IN ONCOLOGY: FOUNDATION MODELS FOR INTEGRATED CANCER DIAGNOSIS AND PERSONALIZED CARE,1,1,0,
+medical_llms,https://openalex.org/W7132369509,2025,preprint,Patient-facing artificial intelligence for diabetes self-management in the large language model era: An integrative review,1,1,0,
+medical_llms,https://openalex.org/W7133213749,2023,conference-paper,Data Augmentations for Improved (Large) Language Model Generalization,0,0,1,Generic language model generalization; no medical application in title
+medical_llms,https://openalex.org/W4392645763,2024,conference-paper,Creating Virtual Patients using Robots and Large Language Models: A Preliminary Study with Medical Students,1,1,0,
+medical_llms,https://openalex.org/W7220583978,2025,article,Innovating with Generative AI and Cloud Technologies: Subash’s Holistic Approach to Revolutionizing Patient Care and Modernizing Businesses,0,0,1,Vague generative AI and cloud business piece; LLM medical use unclear
+medical_llms,https://openalex.org/W4413055766,2025,article,Health Care Professionals’ Experiences and Opinions About Generative AI and Ambient Scribes in Clinical Documentation: Protocol for a Scoping Review,1,1,0,
+medical_llms,https://openalex.org/W4403071420,2024,conference-paper,MRScore: Evaluating Medical Report with LLM-Based Reward System,1,1,0,
+medical_llms,https://openalex.org/W4402564823,2024,article,Large Language Model Use in Radiology Residency Applications: Unwelcomed but Inevitable,0,1,1,LLM use in residency applications; medical education rather than clinical
+medical_llms,https://openalex.org/W4414984227,2025,article,Adversarial prompt and fine-tuning attacks threaten medical large language models,1,1,0,
+medical_llms,https://openalex.org/W7114923345,2025,article,Assessing Large Language Models in Neuroradiology: A Performance and Readability Comparison of ChatGPT and Gemini,1,1,0,
+medical_llms,https://openalex.org/W4387221241,2023,article,Evaluating ChatGPT responses in the context of a 53-year-old male with a femoral neck fracture: a qualitative analysis,1,1,0,
+medical_llms,https://openalex.org/W4415358120,2025,article,LLM-augmented multi-agent cooperative framework for medical case retrieval in cardiology,1,1,0,
+medical_llms,https://openalex.org/W4401897279,2024,article,Investigation of nurses’ general attitudes toward artificial intelligence and their perceptions of ChatGPT usage and influencing factors,1,1,1,Attitude survey of nurses about AI and ChatGPT
+medical_llms,https://openalex.org/W4403664998,2024,article,Concordance of ChatGPT With American Burn Association Guidelines on Acute Burns,1,1,0,

@@ -2,6 +2,7 @@
 # Change parameters here, not in the code (requirement R-1.4).
 
 trends:
+  title: AI in industrial manufacturing
   source: OpenAlex
   first_year: 2015        # complete calendar years only (decision OD-3)
   last_year: 2025
@@ -72,6 +73,70 @@ trends:
       title_ai_terms: 'learning OR neural OR "artificial intelligence" OR AI OR "data-driven" OR "computer vision" OR "machine vision"'
     - id: industrial_copilots
       label: Industrial copilots (large language models on the shop floor)
+      title_terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
+
+# The second trend scan (deliverable D10). Same method and thresholds as the
+# first, so the two can be compared. Its files live in the sub-folder
+# "medtech" of data/raw, data/manual, data/processed and outputs/figures.
+trends_medtech:
+  title: AI in medical technology
+  adoption_setting: in care     # wording of the note under the trend map
+  adoption_user: care provider
+  source: OpenAlex
+  first_year: 2015
+  last_year: 2025
+  volume_window_years: 3
+  growth_window_years: 5
+  emerging_threshold: 30
+  quality_threshold: 0.70
+  discovery_top_n: 15
+  work_types: [article, conference-paper, review, preprint, book-chapter, dissertation]
+
+  # The field: works that mention a term from medical technology (devices,
+  # imaging, diagnostics) and an AI term in their title or abstract.
+  #
+  # Not the bare words "diagnosis" or "pathology": they also match machine
+  # fault diagnosis and plant pathology.
+  context_terms: 'patient OR clinical OR "medical device" OR "medical imaging" OR "medical image" OR radiology OR histopathology OR surgery OR surgical'
+  ai_terms: '"artificial intelligence" OR "machine learning" OR "deep learning" OR "neural network" OR "reinforcement learning" OR "large language model" OR "generative AI" OR "computer vision" OR "random forest" OR "support vector machine" OR LSTM OR "data-driven"'
+
+  subtopics:
+    - id: radiology_imaging
+      label: Radiology imaging
+      title_terms: 'radiology OR radiograph OR "chest x-ray" OR "computed tomography" OR mammography OR "magnetic resonance imaging"'
+    - id: digital_pathology
+      label: Digital pathology
+      title_terms: '"digital pathology" OR histopathology OR histopathological OR "whole slide"'
+    - id: ophthalmic_imaging
+      label: Ophthalmic imaging
+      title_terms: '"diabetic retinopathy" OR fundus OR retinal OR "optical coherence tomography" OR glaucoma'
+    - id: dermatology_imaging
+      label: Dermatology imaging
+      title_terms: 'dermatology OR dermoscopy OR dermoscopic OR "skin lesion" OR "skin cancer" OR melanoma'
+    - id: cardiac_signals
+      label: Cardiac signals and imaging
+      title_terms: 'electrocardiogram OR ECG OR arrhythmia OR "atrial fibrillation" OR echocardiography'
+    - id: endoscopy
+      label: Endoscopy
+      title_terms: 'endoscopy OR endoscopic OR colonoscopy OR polyp'
+      # Without this, clinical papers on endoscopy match that only mention AI.
+      title_ai_terms: 'learning OR neural OR "artificial intelligence" OR AI OR "computer vision" OR "computer-aided" OR detection OR segmentation OR classification'
+    - id: wearables_monitoring
+      label: Wearables and remote monitoring
+      # Not the single word "wearable": the source matches word stems, and
+      # the stem "wear" also finds machining papers on tool wear.
+      title_terms: '"wearable sensor" OR "wearable device" OR "wearable technology" OR "wearable biosensor" OR smartwatch OR "remote patient monitoring"'
+    - id: surgical_robotics
+      label: Surgical robotics and assistance
+      title_terms: '"surgical robot" OR "robotic surgery" OR "robot-assisted surgery" OR "surgical video" OR "computer-assisted surgery" OR "surgical navigation"'
+      # Without this, many clinical, legal and review papers on robotic
+      # surgery match that mention AI only in passing.
+      title_ai_terms: 'learning OR neural OR "artificial intelligence" OR AI OR autonomous OR "computer vision" OR "language model" OR "data-driven"'
+    - id: decision_support
+      label: Clinical decision support
+      title_terms: '"clinical decision support" OR "decision support system"'
+    - id: medical_llms
+      label: Language models in medicine
       title_terms: '"large language model" OR LLM OR "generative AI" OR ChatGPT OR "foundation model"'
 
 scoring:

@@ -26,6 +26,12 @@ A reusable scoring model, applied to the seven shortlisted areas for a fictional
 
 → [Read the scoring model and its results](tools/opportunity-scoring/)
 
+### Also in this repository
+
+- A [second trend scan, on AI in medical technology](trend-scans/2026-11_ai-in-medical-technology.md), with the same method. It finds the same pace of growth as in manufacturing, driven there by language models.
+- A [case study of DMG MORI](case-studies/2026-11_dmg-mori-digital-twin.md), a machine builder that sells digital twins of its machines.
+- A write-up of the [Three Horizons](frameworks/three-horizons.md) framework, applied to the scoring results.
+
 ### 3. How the project was run
 
 A small project, managed like a real one:
@@ -46,7 +52,7 @@ A small project, managed like a real one:
 
 | Folder | Contents |
 |---|---|
-| [`trend-scans/`](trend-scans/) | Dated scans of industries and emerging technologies |
+| [`trend-scans/`](trend-scans/) | Trend scans: AI in industrial manufacturing, AI in medical technology |
 | [`tools/`](tools/) | Reusable tools: the opportunity scoring model |
 | [`docs/design/`](docs/design/) | Method notes and the design review |
 | [`docs/project/`](docs/project/) | Project charter, requirements and plan, status |

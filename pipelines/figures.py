@@ -118,7 +118,7 @@ def plot_time_series(counts: pd.DataFrame, results: pd.DataFrame, trends_config:
         panel.set_visible(False)
 
     figure.suptitle(
-        "AI in industrial manufacturing: works per year by sub-topic",
+        f"{trends_config['title']}: works per year by sub-topic",
         x=0.01, ha="left", fontsize=13, fontweight="bold",
     )
     figure.supylabel("Works published per year (number)", fontsize=9.5)
@@ -139,8 +139,8 @@ def plot_time_series(counts: pd.DataFrame, results: pd.DataFrame, trends_config:
 def place_labels(figure: Figure, axes, texts: list[tuple[str, float, float]]) -> None:
     """Write a label next to each point without covering other labels or points.
 
-    For each point, four positions are tried in turn (right, left, above,
-    below). The first one that stays inside the plot and overlaps nothing
+    For each point, a fixed list of positions is tried in turn (right, left,
+    above, below, then further ones). The first one that stays inside the plot and overlaps nothing
     already drawn is used. If none is free, the label goes to the right.
     The result is the same on every run: the order of points and positions
     is fixed.
@@ -150,6 +150,10 @@ def place_labels(figure: Figure, axes, texts: list[tuple[str, float, float]]) ->
         dict(xytext=(-9, 4), ha="right", va="bottom"),
         dict(xytext=(0, 10), ha="center", va="bottom"),
         dict(xytext=(0, -10), ha="center", va="top"),
+        dict(xytext=(9, -4), ha="left", va="top"),
+        dict(xytext=(-9, -4), ha="right", va="top"),
+        dict(xytext=(0, 22), ha="center", va="bottom"),
+        dict(xytext=(0, -22), ha="center", va="top"),
     ]
     renderer = figure.canvas.get_renderer()
     frame = axes.get_window_extent(renderer)
@@ -239,7 +243,7 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     axes.set_ylabel("Growth relative to the field (percentage points per year)")
     axes.spines[["top", "right"]].set_visible(False)
     figure.suptitle(
-        "AI in industrial manufacturing: which sub-topics outgrow the field?",
+        f"{trends_config['title']}: which sub-topics outgrow the field?",
         x=0.01, ha="left", fontsize=13, fontweight="bold",
     )
 
@@ -249,7 +253,7 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
         mark = "rising" if row.rising_three_years else "not rising every year"
         level = "" if pd.isna(row.adoption_level) else f" [{int(row.adoption_level)}]"
         lines.append(f"{labels[row.subtopic_id]}{level}")
-        lines.append(f"   {int(row.works_end)} in {last_year}, {int(row.volume)} in 3 years; {mark}")
+        lines.append(f"   {int(row.works_end):,} in {last_year}, {int(row.volume):,} in 3 years; {mark}")
     if len(emerging) == 0:
         lines.append("none")
     figure.text(
@@ -260,9 +264,12 @@ def plot_trend_map(results: pd.DataFrame, trends_config: dict, fetch_date: str) 
     start_year = last_year - trends_config["growth_window_years"]
     adoption_note = ""
     if results["adoption_level"].notna().any():
+        # The wording can be set per scan; the default is the first scan's.
+        setting = trends_config.get("adoption_setting", "in industry")
+        user = trends_config.get("adoption_user", "manufacturer")
         adoption_note = (
-            "In square brackets: adoption in industry, from 0 (no commercial offer found) and 1 (offered by vendors) "
-            "to 2 (documented use at a named manufacturer) and 3 (widespread according to a survey).\n"
+            f"In square brackets: adoption {setting}, from 0 (no commercial offer found) and 1 (offered by vendors) "
+            f"to 2 (documented use at a named {user}) and 3 (widespread according to a survey).\n"
         )
     figure.text(
         0.01, 0.02,

@@ -1,0 +1,16 @@
+topic_id,topic_name,works_first_year,works_last_year,momentum,relative_momentum,closest_subtopic,comment
+https://openalex.org/T11943,Pharmacovigilance and Adverse Drug Reactions,48.000000,595.000000,0.654456,0.307070,none,"Candidate the list missed: monitoring of drug safety. Medicines, not devices."
+https://openalex.org/T11636,Artificial Intelligence in Healthcare and Education,1186.000000,13672.000000,0.630608,0.283222,none,"General label and by far the largest of the fifteen. Likely to hold much of the work on chatbots and language models, which the list covers as its own sub-topic."
+https://openalex.org/T11519,Digital Mental Health Interventions,34.000000,383.000000,0.623095,0.275709,none,Candidate the list missed: digital mental health applications.
+https://openalex.org/T10764,Privacy-Preserving Technologies in Data,97.000000,942.000000,0.575636,0.228250,none,"A label for a method (for example learning across hospitals without sharing data), not for an application area."
+https://openalex.org/T11363,Dental Radiography and Imaging,113.000000,1091.000000,0.573799,0.226413,radiology_imaging,Covered by the search terms for radiographs. Dental imaging grows much faster than radiology as a whole and could be its own sub-topic in a next scan.
+https://openalex.org/T10270,Blockchain Technology Applications and Security,36.000000,341.000000,0.567799,0.220413,none,"A label for a method, not for an application area."
+https://openalex.org/T10158,Cancer Immunotherapy and Biomarkers,60.000000,454.000000,0.498929,0.151543,none,"Cancer research, organised by disease. Not a device or diagnostic application as such."
+https://openalex.org/T13038,Internet of Things and AI,104.000000,776.000000,0.494740,0.147354,none,General label. Overlaps with wearables and remote monitoring.
+https://openalex.org/T12026,Explainable Artificial Intelligence (XAI),142.000000,1053.000000,0.492891,0.145505,none,"A label for a method, not for an application area."
+https://openalex.org/T10202,Lung Cancer Diagnosis and Treatment,35.000000,248.000000,0.479370,0.131984,radiology_imaging,Largely imaging-based diagnosis; organised by disease.
+https://openalex.org/T10883,Ethics and Social Impacts of AI,50.000000,348.000000,0.474083,0.126697,none,General label. Not an application area.
+https://openalex.org/T10307,Head and Neck Cancer Studies,32.000000,208.000000,0.454061,0.106675,none,"Organised by disease, not by application."
+https://openalex.org/T10028,Topic Modeling,30.000000,192.000000,0.449559,0.102174,none,"A label for a method, not for an application area."
+https://openalex.org/T10073,Hepatocellular Carcinoma Treatment and Prognosis,49.000000,313.000000,0.449004,0.101618,none,"Organised by disease, not by application."
+https://openalex.org/T10071,Bone health and osteoporosis research,31.000000,185.000000,0.429427,0.082041,none,"Organised by disease, not by application."
