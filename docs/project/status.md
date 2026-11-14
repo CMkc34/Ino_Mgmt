@@ -10,8 +10,8 @@ The dates show that the work ran far ahead of the charter's schedule. From 13 No
 
 The project owner lifted the scope freeze for five items (change request CR-7).
 
-- **Done:** Draft closure report. Three Horizons write-up, applied to the scoring results. German one-page summary. Case study on DMG MORI and the digital twin.
-- **Next:** Second trend scan, on AI in medical technology.
+- **Done:** Draft closure report. Three Horizons write-up, applied to the scoring results. German one-page summary. Case study on DMG MORI and the digital twin. Second trend scan, on AI in medical technology (14 November). All five items of CR-7 are drafted.
+- **Next:** Nothing further is planned. The owner's review of all drafts.
 - **Risk:** Each addition is one more draft for the owner to review.
 
 ## Sprint 3 work, done 13 November 2026

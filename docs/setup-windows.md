@@ -76,7 +76,8 @@ Then open a pull request on GitHub, wait for the checks to turn green, and merge
 A normal pipeline run reads the stored snapshot and needs no network. Fetching a new snapshot does:
 
 ```powershell
-python -m pipelines run trends --refresh
+python -m pipelines run trends --refresh          # first scan
+python -m pipelines run trends_medtech --refresh  # second scan
 ```
 
 This writes the main counts, the two robustness variants and the discovery table into `data\raw\`, each with the fetch date in its name, plus a note per snapshot with the source, date and filters (`.meta.json`). Commit all of them.
@@ -85,6 +86,7 @@ To judge a search query by hand, list 20 random works it finds:
 
 ```powershell
 python -m pipelines sample digital_twins
+python -m pipelines sample endoscopy --scan trends_medtech
 ```
 
 The source needs a free API key for regular use: without one, requests share a small daily allowance with everyone on the same network address. Get a key at https://help.openalex.org/api/authentication/ and set it for the current PowerShell window only. It is then read from the environment and never stored in a file:

@@ -61,6 +61,7 @@ def test_a_changed_picture_replaces_the_file(tmp_path):
 # parts, and comes out identical on every run.
 
 CONFIG = {
+    "title": "Example field",
     "source": "OpenAlex",
     "last_year": 2025,
     "volume_window_years": 3,

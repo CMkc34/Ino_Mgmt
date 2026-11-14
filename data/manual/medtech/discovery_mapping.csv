@@ -1,0 +1,16 @@
+topic_id,topic_name,closest_subtopic,comment
+https://openalex.org/T11943,Pharmacovigilance and Adverse Drug Reactions,none,"Candidate the list missed: monitoring of drug safety. Medicines, not devices."
+https://openalex.org/T11636,Artificial Intelligence in Healthcare and Education,none,"General label and by far the largest of the fifteen. Likely to hold much of the work on chatbots and language models, which the list covers as its own sub-topic."
+https://openalex.org/T11519,Digital Mental Health Interventions,none,Candidate the list missed: digital mental health applications.
+https://openalex.org/T10764,Privacy-Preserving Technologies in Data,none,"A label for a method (for example learning across hospitals without sharing data), not for an application area."
+https://openalex.org/T11363,Dental Radiography and Imaging,radiology_imaging,Covered by the search terms for radiographs. Dental imaging grows much faster than radiology as a whole and could be its own sub-topic in a next scan.
+https://openalex.org/T10270,Blockchain Technology Applications and Security,none,"A label for a method, not for an application area."
+https://openalex.org/T10158,Cancer Immunotherapy and Biomarkers,none,"Cancer research, organised by disease. Not a device or diagnostic application as such."
+https://openalex.org/T13038,Internet of Things and AI,none,General label. Overlaps with wearables and remote monitoring.
+https://openalex.org/T12026,Explainable Artificial Intelligence (XAI),none,"A label for a method, not for an application area."
+https://openalex.org/T10202,Lung Cancer Diagnosis and Treatment,radiology_imaging,Largely imaging-based diagnosis; organised by disease.
+https://openalex.org/T10883,Ethics and Social Impacts of AI,none,General label. Not an application area.
+https://openalex.org/T10307,Head and Neck Cancer Studies,none,"Organised by disease, not by application."
+https://openalex.org/T10028,Topic Modeling,none,"A label for a method, not for an application area."
+https://openalex.org/T10073,Hepatocellular Carcinoma Treatment and Prognosis,none,"Organised by disease, not by application."
+https://openalex.org/T10071,Bone health and osteoporosis research,none,"Organised by disease, not by application."

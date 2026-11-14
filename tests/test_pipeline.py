@@ -76,3 +76,29 @@ def test_the_example_set_runs_through_the_model_by_changing_only_the_input_folde
     assert list(ranking["id"]) == ["A", "B", "C", "D", "E"]
     assert list(ranking["classification"]) == ["pursue", "pursue", "explore", "park", "park"]
     assert business_case is not None
+
+
+def test_second_scan_is_configured_like_the_first():
+    # Same method and thresholds, so the two scans can be compared.
+    config = load_config()
+    first, second = config["trends"], config["trends_medtech"]
+    for key in ("first_year", "last_year", "volume_window_years", "growth_window_years",
+                "emerging_threshold", "quality_threshold", "discovery_top_n", "work_types"):
+        assert first[key] == second[key], key
+    assert 8 <= len(second["subtopics"]) <= 12
+    assert len(ingest.build_filters(second)) == len(second["subtopics"]) + 1
+
+
+def test_second_scan_keeps_its_files_apart_from_the_first():
+    from pipelines.io import read_csv
+    from pipelines.paths import PROCESSED_DIR
+
+    assert main(["run", "trends_medtech"]) == 0
+    first = set(read_csv(PROCESSED_DIR / "trend_metrics.csv")["subtopic_id"])
+    second = set(read_csv(PROCESSED_DIR / "medtech" / "trend_metrics.csv")["subtopic_id"])
+    assert second == {subtopic["id"] for subtopic in load_config()["trends_medtech"]["subtopics"]}
+    assert not first & second
+
+
+def test_sample_command_rejects_an_unknown_scan():
+    assert main(["sample", "endoscopy", "--scan", "no_such_scan"]) == 1

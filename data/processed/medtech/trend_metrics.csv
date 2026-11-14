@@ -1,0 +1,11 @@
+subtopic_id,works_start,works_end,volume,share,emerging,momentum,relative_momentum,relative_momentum_shifted,relative_momentum_smoothed,robustness,relative_momentum_no_ai,relative_momentum_articles,quality_share,passes_quality,rising_three_years,on_shortlist_by_rule,adoption_level
+dermatology_imaging,251.000000,1630.000000,3240,0.012918,False,0.453794,0.106408,0.069218,0.091230,robust,0.030242,0.117727,0.850000,True,True,True,1
+decision_support,144.000000,722.000000,1473,0.005873,False,0.380495,0.033110,-0.062523,-0.009144,not robust,0.113568,0.080981,0.900000,True,True,False,3
+wearables_monitoring,98.000000,458.000000,873,0.003481,False,0.361219,0.013833,-0.020334,0.001824,not robust,0.195131,-0.036577,0.750000,True,True,False,1
+cardiac_signals,454.000000,2014.000000,4378,0.017455,False,0.347103,-0.000283,0.022217,0.008820,not robust,0.013261,0.021298,0.850000,True,True,False,1
+ophthalmic_imaging,536.000000,2073.000000,4554,0.018157,False,0.310651,-0.036735,-0.054027,-0.044511,robust,0.001533,-0.053776,0.800000,True,True,False,1
+digital_pathology,307.000000,1113.000000,2617,0.010434,False,0.293813,-0.053573,-0.040871,-0.048507,robust,0.060126,-0.045725,0.950000,True,True,False,1
+surgical_robotics,33.000000,119.000000,238,0.000949,False,0.292429,-0.054957,,,not testable,0.083590,,0.800000,True,False,False,1
+endoscopy,189.000000,676.000000,1561,0.006224,False,0.290319,-0.057067,-0.024632,-0.043949,robust,0.000684,-0.030373,0.850000,True,True,False,1
+radiology_imaging,1154.000000,3622.000000,8880,0.035405,False,0.257038,-0.090347,0.044993,-0.038485,not robust,-0.002930,-0.072594,0.800000,True,True,False,3
+medical_llms,0.000000,6113.000000,10211,0.040711,True,,,,,emerging,,,0.700000,True,True,True,2

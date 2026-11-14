@@ -1,6 +1,6 @@
 # Figures
 
-Charts written by the pipeline. Do not edit by hand.
+Charts written by the pipeline. Do not edit by hand. The sub-folder `medtech/` holds the two trend charts of the second scan.
 
 | File | Content |
 |---|---|

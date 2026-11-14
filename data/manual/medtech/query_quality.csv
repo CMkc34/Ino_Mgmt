@@ -1,0 +1,32 @@
+subtopic_id,round,query_version,sample_size,relevant,check_date,rater,comment
+radiology_imaging,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,17,2026-11-14,assistant,
+digital_pathology,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,19,2026-11-14,assistant,
+ophthalmic_imaging,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,18,2026-11-14,assistant,
+dermatology_imaging,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,19,2026-11-14,assistant,
+cardiac_signals,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,17,2026-11-14,assistant,
+endoscopy,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,17,2026-11-14,assistant,
+wearables_monitoring,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,11,2026-11-14,assistant,the word stem 'wear' also matches machining papers on tool wear
+surgical_robotics,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,8,2026-11-14,assistant,"clinical, legal and review papers that mention AI only in passing"
+decision_support,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,18,2026-11-14,assistant,
+medical_llms,0,"first draft: field defined with the bare words diagnosis, pathology and wearable",20,16,2026-11-14,assistant,
+radiology_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,16,2026-11-14,assistant,
+digital_pathology,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,19,2026-11-14,assistant,
+ophthalmic_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,16,2026-11-14,assistant,
+dermatology_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,assistant,
+cardiac_signals,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,assistant,
+endoscopy,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,13,2026-11-14,assistant,the narrower field brought in clinical endoscopy papers that only mention AI
+wearables_monitoring,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,assistant,
+surgical_robotics,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,16,2026-11-14,assistant,
+decision_support,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,19,2026-11-14,assistant,
+medical_llms,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,14,2026-11-14,assistant,
+endoscopy,2,round 1 plus an AI or image-analysis word in the title,20,17,2026-11-14,assistant,
+radiology_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 16
+digital_pathology,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,20,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 19
+ophthalmic_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 16
+dermatology_imaging,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,17,2026-11-14,second assistant session (blind),disagrees with the first rating on 0 of 20; rated relevant by both: 17
+cardiac_signals,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,18,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 17
+endoscopy,2,round 1 plus an AI or image-analysis word in the title,20,18,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 17
+wearables_monitoring,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,15,2026-11-14,second assistant session (blind),disagrees with the first rating on 2 of 20; rated relevant by both: 15
+surgical_robotics,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,18,2026-11-14,second assistant session (blind),disagrees with the first rating on 2 of 20; rated relevant by both: 16
+decision_support,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,18,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 18
+medical_llms,1,field narrowed to clinical and device terms; wearables as phrases; AI word in the title for surgical robotics,20,15,2026-11-14,second assistant session (blind),disagrees with the first rating on 1 of 20; rated relevant by both: 14

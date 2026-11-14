@@ -1,0 +1,241 @@
+topic_id,topic_name,works_first_year,works_last_year
+https://openalex.org/T10009,Dementia and Cognitive Impairment Research,503,2114
+https://openalex.org/T10023,Schizophrenia research and treatment,117,243
+https://openalex.org/T10028,Topic Modeling,30,192
+https://openalex.org/T10036,Advanced Neural Network Applications,148,750
+https://openalex.org/T10038,Tuberculosis Research and Epidemiology,30,163
+https://openalex.org/T10041,COVID-19 Clinical Research Studies,210,129
+https://openalex.org/T10042,Neural and Behavioral Psychology Studies,25,
+https://openalex.org/T10051,Asthma and respiratory diseases,26,101
+https://openalex.org/T10052,Medical Image Segmentation Techniques,1454,3651
+https://openalex.org/T10062,MicroRNA in disease regulation,31,
+https://openalex.org/T10063,Nanoparticle-Based Drug Delivery,,208
+https://openalex.org/T10065,Atrial Fibrillation Management and Outcomes,52,256
+https://openalex.org/T10066,Gut microbiota and health,89,325
+https://openalex.org/T10071,Bone health and osteoporosis research,31,185
+https://openalex.org/T10073,Hepatocellular Carcinoma Treatment and Prognosis,49,313
+https://openalex.org/T10084,Musculoskeletal pain and rehabilitation,22,90
+https://openalex.org/T10085,Parkinson's Disease Mechanisms and Treatments,101,326
+https://openalex.org/T10086,Alzheimer's disease research and treatments,25,136
+https://openalex.org/T10094,Epilepsy research and treatment,86,221
+https://openalex.org/T10100,Metaheuristic Optimization Algorithms Research,22,
+https://openalex.org/T10102,scientometrics and bibliometrics research,19,190
+https://openalex.org/T10105,Osteoarthritis Treatment and Mechanisms,26,124
+https://openalex.org/T10106,Autism Spectrum Disorder Research,82,446
+https://openalex.org/T10113,Dental materials and restorations,,143
+https://openalex.org/T10114,"Balance, Gait, and Falls Prevention",94,236
+https://openalex.org/T10118,SARS-CoV-2 and COVID-19 Research,38,
+https://openalex.org/T10124,Prostate Cancer Diagnosis and Treatment,44,175
+https://openalex.org/T10129,Glioma Diagnosis and Treatment,60,306
+https://openalex.org/T10131,Gold and Silver Nanoparticles Synthesis and Applications,,111
+https://openalex.org/T10134,Inflammatory Bowel Disease,52,239
+https://openalex.org/T10136,Statistical Methods and Inference,36,
+https://openalex.org/T10137,Multiple Sclerosis Research Studies,79,178
+https://openalex.org/T10143,Chronic Obstructive Pulmonary Disease (COPD) Research,39,231
+https://openalex.org/T10158,Cancer Immunotherapy and Biomarkers,60,454
+https://openalex.org/T10166,Mosquito-borne diseases and control,19,
+https://openalex.org/T10170,Retinal Diseases and Treatments,27,148
+https://openalex.org/T10172,Cardiac Valve Diseases and Treatments,25,172
+https://openalex.org/T10177,Palliative Care and End-of-Life Issues,24,
+https://openalex.org/T10178,Cancer survivorship and care,,89
+https://openalex.org/T10183,Breast Cancer Treatment Studies,56,319
+https://openalex.org/T10185,Lymphoma Diagnosis and Treatment,25,
+https://openalex.org/T10193,Coronary Interventions and Diagnostics,43,123
+https://openalex.org/T10198,Heart Failure Treatment and Management,40,143
+https://openalex.org/T10200,Rheumatoid Arthritis Research and Therapies,24,123
+https://openalex.org/T10201,Speech Recognition and Synthesis,22,
+https://openalex.org/T10202,Lung Cancer Diagnosis and Treatment,35,248
+https://openalex.org/T10206,Meta-analysis and systematic reviews,27,132
+https://openalex.org/T10207,Advanced biosensing and bioanalysis techniques,,100
+https://openalex.org/T10211,Computational Drug Discovery Methods,234,1157
+https://openalex.org/T10212,Electrochemical sensors and biosensors,,88
+https://openalex.org/T10217,Cardiac electrophysiology and arrhythmias,24,
+https://openalex.org/T10218,Sepsis Diagnosis and Treatment,109,549
+https://openalex.org/T10227,Acute Ischemic Stroke Management,95,375
+https://openalex.org/T10231,Pancreatic and Hepatic Oncology Research,34,187
+https://openalex.org/T10234,Obstructive Sleep Apnea Research,73,226
+https://openalex.org/T10238,Spine and Intervertebral Disc Pathology,22,116
+https://openalex.org/T10241,Functional Brain Connectivity Studies,274,507
+https://openalex.org/T10242,Posttraumatic Stress Disorder Research,19,
+https://openalex.org/T10250,Glaucoma and retinal disorders,52,128
+https://openalex.org/T10254,Innovations in Medical Education,75,250
+https://openalex.org/T10257,Oral microbiology and periodontitis research,,143
+https://openalex.org/T10261,Genetic Associations and Epidemiology,24,100
+https://openalex.org/T10269,Epigenetics and DNA Methylation,28,96
+https://openalex.org/T10270,Blockchain Technology Applications and Security,36,341
+https://openalex.org/T10273,IoT and Edge/Fog Computing,42,201
+https://openalex.org/T10280,Shoulder Injury and Treatment,20,
+https://openalex.org/T10283,Hearing Loss and Rehabilitation,31,
+https://openalex.org/T10285,Venous Thromboembolism Diagnosis and Management,,143
+https://openalex.org/T10290,Pregnancy and preeclampsia studies,,117
+https://openalex.org/T10291,Dialysis and Renal Disease Management,21,123
+https://openalex.org/T10307,Head and Neck Cancer Studies,32,208
+https://openalex.org/T10308,Systemic Lupus Erythematosus Research,,136
+https://openalex.org/T10309,Acute Myeloid Leukemia Research,26,101
+https://openalex.org/T10316,Sleep and related disorders,20,130
+https://openalex.org/T10322,Respiratory Support and Mechanisms,24,129
+https://openalex.org/T10329,Thyroid Cancer Diagnosis and Treatment,29,207
+https://openalex.org/T10335,Colorectal Cancer Surgical Treatments,,117
+https://openalex.org/T10337,Liver Disease and Transplantation,,102
+https://openalex.org/T10338,Advanced Sensor and Energy Harvesting Materials,,112
+https://openalex.org/T10350,Electronic Health Records Systems,117,518
+https://openalex.org/T10351,Liver Disease Diagnosis and Treatment,47,256
+https://openalex.org/T10356,Orthodontics and Dentofacial Orthopedics,22,295
+https://openalex.org/T10358,Advanced Radiotherapy Techniques,236,570
+https://openalex.org/T10364,Reproductive Biology and Fertility,31,
+https://openalex.org/T10372,Cardiac Imaging and Diagnostics,136,462
+https://openalex.org/T10373,Renal Transplantation Outcomes and Treatments,27,96
+https://openalex.org/T10376,Suicide and Self-Harm Studies,44,101
+https://openalex.org/T10378,Advanced MRI Techniques and Applications,174,792
+https://openalex.org/T10390,Ovarian function and disorders,,100
+https://openalex.org/T10392,Cutaneous Melanoma Detection and Management,262,1532
+https://openalex.org/T10397,Nutrition and Health in Aging,,143
+https://openalex.org/T10400,Network Security and Intrusion Detection,,262
+https://openalex.org/T10408,Chronic Kidney Disease and Diabetes,24,174
+https://openalex.org/T10410,COVID-19 epidemiological studies,91,
+https://openalex.org/T10416,Traumatic Brain Injury Research,48,116
+https://openalex.org/T10420,Intracranial Aneurysms: Treatment and Complications,44,152
+https://openalex.org/T10429,EEG and Brain-Computer Interfaces,574,1786
+https://openalex.org/T10436,Anesthesia and Sedative Agents,36,
+https://openalex.org/T10444,Context-Aware Activity Recognition Systems,193,368
+https://openalex.org/T10449,Renal cell carcinoma treatment,,128
+https://openalex.org/T10458,Bladder and Urothelial Cancer Treatments,,111
+https://openalex.org/T10462,Reinforcement Learning in Robotics,35,97
+https://openalex.org/T10510,Stroke Rehabilitation and Recovery,81,284
+https://openalex.org/T10515,Cancer-related molecular mechanisms research,20,
+https://openalex.org/T10522,Medical Imaging Techniques and Applications,175,363
+https://openalex.org/T10537,Attention Deficit Hyperactivity Disorder,27,120
+https://openalex.org/T10542,Vestibular and auditory disorders,22,
+https://openalex.org/T10550,Ovarian cancer diagnosis and treatment,,124
+https://openalex.org/T10552,Colorectal Cancer Screening and Detection,114,449
+https://openalex.org/T10560,Diabetes Management and Research,100,308
+https://openalex.org/T10562,Total Knee Arthroplasty Outcomes,32,107
+https://openalex.org/T10563,Corneal surgery and disorders,27,118
+https://openalex.org/T10576,Opioid Use Disorder Treatment,25,
+https://openalex.org/T10606,Kidney Stones and Urolithiasis Treatments,24,196
+https://openalex.org/T10614,Transcranial Magnetic Stimulation Studies,28,107
+https://openalex.org/T10619,Esophageal Cancer Research and Treatment,20,94
+https://openalex.org/T10645,Cardiac Arrest and Resuscitation,25,98
+https://openalex.org/T10664,Sentiment Analysis and Opinion Mining,42,130
+https://openalex.org/T10667,Emotion and Mood Recognition,171,561
+https://openalex.org/T10682,Quantum Computing Algorithms and Architecture,,149
+https://openalex.org/T10684,Acute Kidney Injury Research,52,248
+https://openalex.org/T10688,Image and Signal Denoising Methods,83,282
+https://openalex.org/T10696,Gastric Cancer Management and Outcomes,,152
+https://openalex.org/T10706,Traumatic Brain Injury and Neurovascular Disturbances,23,107
+https://openalex.org/T10727,Ultrasound Imaging and Elastography,36,98
+https://openalex.org/T10737,Health Literacy and Information Accessibility,,104
+https://openalex.org/T10745,Heart Rate Variability and Autonomic Control,42,
+https://openalex.org/T10764,Privacy-Preserving Technologies in Data,97,942
+https://openalex.org/T10773,Extracellular vesicles in disease,,151
+https://openalex.org/T10775,Generative Adversarial Networks and Image Synthesis,77,312
+https://openalex.org/T10784,Muscle activation and electromyography studies,68,164
+https://openalex.org/T10812,Human Pose and Action Recognition,42,176
+https://openalex.org/T10816,Cerebrovascular and Carotid Artery Diseases,21,
+https://openalex.org/T10821,Cardiovascular Function and Risk Factors,35,122
+https://openalex.org/T10824,Image Retrieval and Classification Techniques,74,108
+https://openalex.org/T10832,Pituitary Gland Disorders and Treatments,21,
+https://openalex.org/T10836,Metabolomics and Mass Spectrometry Studies,57,187
+https://openalex.org/T10844,Radiation Dose and Imaging,52,181
+https://openalex.org/T10845,Advanced Causal Inference Techniques,35,
+https://openalex.org/T10854,Bipolar Disorder and Treatment,35,111
+https://openalex.org/T10855,Amyotrophic Lateral Sclerosis Research,27,
+https://openalex.org/T10862,AI in cancer detection,1462,6274
+https://openalex.org/T10863,Voice and Speech Disorders,108,432
+https://openalex.org/T10867,Intensive Care Unit Cognitive Disorders,,106
+https://openalex.org/T10868,Soft Robotics and Applications,38,128
+https://openalex.org/T10870,Interstitial Lung Diseases and Idiopathic Pulmonary Fibrosis,,101
+https://openalex.org/T10883,Ethics and Social Impacts of AI,50,348
+https://openalex.org/T10885,Gene expression and cancer classification,183,296
+https://openalex.org/T10887,Bioinformatics and Genomic Networks,57,220
+https://openalex.org/T10888,Augmented Reality Applications,22,124
+https://openalex.org/T10897,Antibiotic Use and Resistance,21,132
+https://openalex.org/T10912,Telemedicine and Telehealth Implementation,72,321
+https://openalex.org/T10916,Surgical Simulation and Training,148,512
+https://openalex.org/T10919,Deep Brain Stimulation and Movement Disorders,61,128
+https://openalex.org/T10935,Endometriosis Research and Treatment,,94
+https://openalex.org/T10977,Optical Imaging and Spectroscopy Techniques,67,163
+https://openalex.org/T10992,Forensic Anthropology and Bioarchaeology Studies,37,129
+https://openalex.org/T11011,Frailty in Older Adults,,97
+https://openalex.org/T11019,Image Enhancement Techniques,21,120
+https://openalex.org/T11021,ECG Monitoring and Analysis,429,1631
+https://openalex.org/T11023,Prosthetics and Rehabilitation Robotics,55,225
+https://openalex.org/T11029,Renal Diseases and Glomerulopathies,,92
+https://openalex.org/T11030,Scoliosis diagnosis and treatment,24,117
+https://openalex.org/T11071,Treatment of Major Depression,38,109
+https://openalex.org/T11095,Emergency and Acute Care Studies,20,112
+https://openalex.org/T11105,Advanced Image Processing Techniques,58,218
+https://openalex.org/T11123,Obsessive-Compulsive Spectrum Disorders,22,
+https://openalex.org/T11156,Reproductive Health and Technologies,,105
+https://openalex.org/T11189,Transplantation: Methods and Outcomes,22,
+https://openalex.org/T11196,Non-Invasive Vital Sign Monitoring,219,779
+https://openalex.org/T11206,Model Reduction and Neural Networks,,119
+https://openalex.org/T11227,Diabetic Foot Ulcer Assessment and Management,,185
+https://openalex.org/T11235,Statistical Methods in Clinical Trials,38,116
+https://openalex.org/T11238,Simulation-Based Education in Healthcare,,152
+https://openalex.org/T11287,Cancer Genomics and Diagnostics,73,271
+https://openalex.org/T11289,Single-cell and spatial transcriptomics,24,194
+https://openalex.org/T11296,COVID-19 and healthcare impacts,33,
+https://openalex.org/T11297,Ferroptosis and cancer prognosis,,118
+https://openalex.org/T11304,Advanced Neuroimaging Techniques and Applications,51,128
+https://openalex.org/T11307,Domain Adaptation and Few-Shot Learning,117,319
+https://openalex.org/T11314,Clinical Laboratory Practices and Quality Control,,112
+https://openalex.org/T11324,Spectroscopy Techniques in Biomedical and Chemical Research,83,346
+https://openalex.org/T11361,Digital Radiography and Breast Imaging,27,
+https://openalex.org/T11363,Dental Radiography and Imaging,113,1091
+https://openalex.org/T11364,Cholangiocarcinoma and Gallbladder Cancer Studies,,92
+https://openalex.org/T11378,Gastrointestinal Bleeding Diagnosis and Treatment,37,106
+https://openalex.org/T11393,Biosensors and Analytical Detection,,154
+https://openalex.org/T11396,Artificial Intelligence in Healthcare,1792,8230
+https://openalex.org/T11398,Hand Gesture Recognition Systems,24,
+https://openalex.org/T11438,Retinal Imaging and Analysis,606,2261
+https://openalex.org/T11446,Mobile Health and mHealth Applications,66,329
+https://openalex.org/T11448,Face recognition and analysis,47,112
+https://openalex.org/T11512,Anomaly Detection Techniques and Applications,25,97
+https://openalex.org/T11519,Digital Mental Health Interventions,34,383
+https://openalex.org/T11550,Text and Document Classification Technologies,21,
+https://openalex.org/T11569,Optical Coherence Tomography Applications,20,
+https://openalex.org/T11636,Artificial Intelligence in Healthcare and Education,1186,13672
+https://openalex.org/T11642,Genomics and Rare Diseases,40,179
+https://openalex.org/T11652,Imbalanced Data Classification Techniques,43,151
+https://openalex.org/T11659,Advanced Image Fusion Techniques,43,144
+https://openalex.org/T11667,Advanced Chemical Sensor Technologies,37,142
+https://openalex.org/T11689,Adversarial Robustness in Machine Learning,48,205
+https://openalex.org/T11707,Gaze Tracking and Assistive Technology,27,91
+https://openalex.org/T11710,Biomedical Text Mining and Ontologies,182,391
+https://openalex.org/T11714,Multimodal Machine Learning Applications,28,593
+https://openalex.org/T11738,Ultrasound in Clinical Applications,,125
+https://openalex.org/T11754,SARS-CoV-2 detection and testing,35,
+https://openalex.org/T11763,Intracerebral and Subarachnoid Hemorrhage Research,20,123
+https://openalex.org/T11773,Healthcare Operations and Scheduling Optimization,95,357
+https://openalex.org/T11775,COVID-19 diagnosis using AI,886,1703
+https://openalex.org/T11819,Data-Driven Disease Surveillance,22,
+https://openalex.org/T11829,Mathematical Biology Tumor Growth,27,
+https://openalex.org/T11885,MRI in cancer diagnosis,45,162
+https://openalex.org/T11894,Radiology practices and education,20,
+https://openalex.org/T11897,Digital Holography and Microscopy,20,
+https://openalex.org/T11943,Pharmacovigilance and Adverse Drug Reactions,48,595
+https://openalex.org/T11984,Anatomy and Medical Technology,,133
+https://openalex.org/T12006,Ergonomics and Musculoskeletal Disorders,20,
+https://openalex.org/T12015,Photoacoustic and Ultrasonic Imaging,34,
+https://openalex.org/T12026,Explainable Artificial Intelligence (XAI),142,1053
+https://openalex.org/T12386,Advanced X-ray and CT Imaging,46,131
+https://openalex.org/T12419,Phonocardiography and Auscultation Techniques,93,390
+https://openalex.org/T12422,Radiomics and Machine Learning in Medical Imaging,821,2953
+https://openalex.org/T12488,Mental Health via Writing,58,274
+https://openalex.org/T12535,Machine Learning and Data Classification,25,
+https://openalex.org/T12647,Traditional Chinese Medicine Studies,35,142
+https://openalex.org/T12702,Brain Tumor Detection and Classification,417,2440
+https://openalex.org/T12740,Gait Recognition and Analysis,45,174
+https://openalex.org/T12859,Cell Image Analysis Techniques,78,151
+https://openalex.org/T12871,Healthcare Quality and Management,22,109
+https://openalex.org/T12874,Digital Imaging for Blood Diseases,122,584
+https://openalex.org/T12994,Infrared Thermography in Medicine,50,137
+https://openalex.org/T13038,Internet of Things and AI,104,776
+https://openalex.org/T13364,"Digitalization, Law, and Regulation",33,144
+https://openalex.org/T13702,Machine Learning in Healthcare,783,2265
+https://openalex.org/T13904,Artificial Intelligence Applications,,96
+https://openalex.org/T14071,Healthcare during COVID-19 Pandemic,21,
+https://openalex.org/T14396,Healthcare Regulation,,90
+https://openalex.org/T14510,Medical Imaging and Analysis,172,848
+https://openalex.org/T14512,Technology and Human Factors in Education and Health,27,141

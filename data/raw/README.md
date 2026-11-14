@@ -1,5 +1,7 @@
 # Source snapshots
 
+The sub-folder `medtech/` holds the snapshots of the second scan (AI in medical technology), in the same format.
+
 Dated copies of the source data, written by `python -m pipelines run all --refresh`.
 The pipeline reads the newest one by default. See `pipelines/ingest.py` for the format.
 
